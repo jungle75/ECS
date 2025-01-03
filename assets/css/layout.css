@@ -1,0 +1,361 @@
+#app {
+  width: 100%;
+  height: 100%;
+}
+#app #container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+#app #container:has(.main) .TopArea {
+  padding: 0 33rem 0 3rem;
+  z-index: 1;
+}
+#app #container:has(.main) .contents {
+  min-width: 88rem;
+}
+#app #container .LnbArea {
+  position: relative;
+  min-width: 24rem;
+  background-color: white;
+  border-right: 1px solid var(--line);
+}
+#app #container .LnbArea .logo {
+  width: 100%;
+  height: 7.6rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0;
+  font-size: 0;
+  padding-left: 3rem;
+}
+#app #container .LnbArea .logo::before {
+  content: "";
+  display: block;
+  width: 14.2rem;
+  height: 3rem;
+  aspect-ratio: 142/30;
+  background-image: url(../images/layout/h1_logo.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#app #container .LnbArea .btnMenu {
+  display: none;
+  font-size: 0;
+}
+#app #container .LnbArea .menuWrap {
+  margin-top: 3.8rem;
+}
+#app #container .LnbArea .menuWrap .menu {
+  margin-bottom: 1.2rem;
+}
+#app #container .LnbArea .menuWrap .menu .mainMenu {
+  position: relative;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0;
+  padding-left: 3rem;
+}
+#app #container .LnbArea .menuWrap .menu .mainMenu span {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--black);
+}
+#app #container .LnbArea .menuWrap .menu .subMenu {
+  display: none;
+  padding: 0 1.6rem;
+}
+#app #container .LnbArea .menuWrap .menu .subMenu li {
+  background-color: var(--bg);
+  padding: 0 0 0 4.6rem;
+}
+#app #container .LnbArea .menuWrap .menu .subMenu li:first-child {
+  border-radius: 0.8rem 0.8rem 0 0;
+  padding-top: 0.8rem;
+}
+#app #container .LnbArea .menuWrap .menu .subMenu li:last-child {
+  border-radius: 0 0 0.8rem 0.8rem;
+  padding-bottom: 0.8rem;
+}
+#app #container .LnbArea .menuWrap .menu .subMenu li a {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 3rem;
+}
+#app #container .LnbArea .menuWrap .menu .subMenu li a.act {
+  color: var(--blue);
+}
+#app #container .LnbArea .menuWrap .menu.act .mainMenu span {
+  color: var(--blue);
+}
+#app #container .LnbArea .menuWrap .menu.act .mainMenu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.3rem;
+  height: 4rem;
+  background-color: var(--blue);
+}
+#app #container .LnbArea .menuWrap .menu.act .subMenu {
+  display: block;
+}
+#app #container .LnbArea .menuWrap .logout {
+  position: absolute;
+  left: 3rem;
+  bottom: 5rem;
+}
+#app #container .LnbArea .menuWrap .logout span {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--black);
+}
+#app #container .TopArea {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 24rem;
+  right: 0;
+  width: calc(100% - 24rem);
+  min-width: 118rem;
+  height: 7.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0 3rem;
+  background-color: white;
+  border-bottom: 1px solid var(--line);
+}
+#app #container .TopArea .searchBox {
+  position: relative;
+  flex: 1 1 0%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0;
+}
+#app #container .TopArea .searchBox .ic {
+  font-size: 0;
+}
+#app #container .TopArea .searchBox input {
+  flex: 1 1 0%;
+  height: 4rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--black);
+  padding-left: 1.2rem;
+}
+#app #container .TopArea .searchBox .resultOverlay {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 2.4rem;
+  border-radius: 0.8rem;
+  background-color: white;
+  box-shadow: 0 0 0.8rem 0 rgba(176, 179, 186, 0.2);
+}
+#app #container .TopArea .searchBox .resultOverlay .ic_close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+}
+#app #container .TopArea .searchBox .resultOverlay h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--black);
+  padding: 2rem 2.4rem 1.2rem 2.4rem;
+  border-bottom: 1px dashed var(--line);
+}
+#app #container .TopArea .searchBox .resultOverlay .list {
+  max-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.2rem 2.4rem 2.4rem 2.4rem;
+  overflow-y: auto;
+}
+#app #container .TopArea .searchBox .resultOverlay .list a {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0.8rem;
+}
+#app #container .TopArea .searchBox .resultOverlay .list a span {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--black);
+}
+#app #container .TopArea .searchBox .resultOverlay .list a .name {
+  color: var(--blue);
+  font-weight: 600;
+}
+#app #container .TopArea .searchBox .resultOverlay .list p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+#app #container .TopArea .location select {
+  width: 14rem;
+  height: 3.4rem;
+  border: 0;
+  border-radius: 1.7rem;
+  background-color: rgba(90, 141, 255, 0.1);
+  padding: 0 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--blue);
+  background-image: url(../images/icon/ic_location_select.svg);
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.4rem;
+}
+#app #container .TopArea .location select:disabled {
+  pointer-events: none;
+  background-color: var(--dis);
+}
+#app #container .TopArea .location select:focus-visible, #app #container .TopArea .location select:focus-within {
+  outline: 1px solid var(--blue);
+}
+#app #container .contentsArea {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: calc(100% - 24rem);
+  height: 100%;
+}
+#app #container .contentsArea .contents {
+  flex: 1 1 0%;
+  min-width: 118rem;
+  padding: 11.4rem 4rem 4rem 4rem;
+}
+#app #container .contentsArea .contents .partition {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 2.4rem;
+}
+#app #container .contentsArea .contents .pageTitle {
+  display: inline-block;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--black);
+  padding: 0 0 1rem 0;
+  border-bottom: 2px solid var(--blue);
+  margin-bottom: 2.4rem;
+}
+@media screen and (max-width: 768px) {
+  #app #container {
+    height: auto;
+    display: block;
+    background-color: white;
+  }
+  #app #container:has(.main) .TopArea {
+    right: 0;
+  }
+  #app #container .LnbArea {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    width: 100%;
+    height: 5.6rem;
+    border: 0;
+    box-shadow: 0 0 0.8rem 0 rgba(176, 179, 186, 0.2);
+  }
+  #app #container .LnbArea .logo {
+    height: 5.6rem;
+    font-size: 0;
+    padding-left: 1.8rem;
+  }
+  #app #container .LnbArea .logo::before {
+    width: 12rem;
+  }
+  #app #container .LnbArea .btnMenu {
+    position: absolute;
+    right: 1.8rem;
+    top: 1.3rem;
+    display: block;
+  }
+  #app #container .LnbArea .menuWrap {
+    position: fixed;
+    top: 5.6rem;
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+    height: calc(100svh - 5.6rem);
+    background-color: white;
+    transform: translateX(100%);
+    transition: all 0.4s;
+  }
+  #app #container .LnbArea .menuWrap .menu.act .mainMenu span {
+    color: var(--blue);
+  }
+  #app #container .LnbArea .menuWrap .menu.act .mainMenu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.3rem;
+    height: 4rem;
+    background-color: var(--blue);
+  }
+  #app #container .LnbArea .menuWrap.open {
+    transform: translate(0);
+  }
+  #app #container .TopArea {
+    position: fixed;
+    z-index: 9;
+    top: 5.6rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 5.6rem;
+    border-color: var(--dis);
+    background-color: var(--bg);
+    padding: 0 1.8rem;
+  }
+  #app #container .TopArea .searchBox {
+    width: calc(100% - 14rem);
+  }
+  #app #container .contentsArea {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  #app #container .contentsArea .contents {
+    width: 100%;
+    min-width: unset;
+    padding: 13rem 1.8rem 6rem 1.8rem;
+  }
+  #app #container .contentsArea .contents .partition {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
+  #app #container .contentsArea .contents .pageTitle {
+    font-size: 1.8rem;
+    padding: 0 0 0.4rem 0;
+    margin-bottom: 1rem;
+  }
+  #app #container .contentsArea .rightArea {
+    width: 100%;
+    box-shadow: none;
+    padding: 0;
+  }
+}

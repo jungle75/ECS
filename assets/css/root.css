@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/*** text colors ***/
+:root {
+	--font-system: 'Pretendard';
+	--bg: #F8FAFC;
+  --blue: #5A8DFF;	
+  --green: #90CD41;
+  --orange: #FF993A;
+  --yellow: #FFD143;
+  --red: #FF3C00;
+  --hover: #3776ff;
+  --line: #CED5E1;
+  --lineDeep: #b6c0cf;
+  --text: #7D8DA6;
+  --dis: #EDF0F5;
+
+	--black: #111111;
+	--gray-1: #444444;
+	--gray-2: #666666;
+	--gray-3: #999999;
+	--gray-4: #CCCCCC;
+	--gray-5: #EEEEEE;
+	--gray-6: #f4f4f5;
+
+  --type-1: #0CA6E9;
+  --type-2: #E9B306;
+  --type-3: #12B981;
+  --type-4: #F97315;
+  --type-5: #8B5CF7;
+  --type-6: #F43F5F;
+  --type-7: #3C82F6;
+  --type-8: #84CC15;
+  --type-9: #D946EF;
+  --type-10: #15B8A6;
+}
+
+:lang(en) {
+  font-family: Arial, sans-serif;
+}

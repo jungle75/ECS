@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="Description" content="사이트설명" />
+  <meta name="Keywords" content="키워드" />
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/css/front.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 컨텐츠 영역 -->
+    <div id="container">
+      <!-- 좌측 lnb -->
+      <section class="LnbArea">
+        <button type="button" class="btnMenu"><i class="ic ic_menu">메뉴</i></button>
+        <h1 class="logo">부원장닷컴</h1>
+
+        <div class="menuWrap">
+          <article class="menu">
+            <a href="#" class="mainMenu"><span class="ic ic_dashboard">Dashboard</span></a>
+          </article>
+          <article class="menu">
+            <a href="#" class="mainMenu"><span class="ic ic_schedule">일정</span></a>
+          </article>
+          <article class="menu">
+            <a href="#" class="mainMenu"><span class="ic ic_room">산모실</span></a>
+            <ul class="subMenu">
+              <li><a href="#">입실현황</a></li>
+              <li><a href="#">예약현황</a></li>
+            </ul>
+          </article>
+          <article class="menu">
+            <a href="#" class="mainMenu"><span class="ic ic_sale">매출관리</span></a>
+            <ul class="subMenu">
+              <li><a href="#">매출내역</a></li>
+              <li><a href="#">예정매출현황</a></li>
+            </ul>
+          </article>
+          <article class="menu">
+            <a href="#" class="mainMenu"><span class="ic ic_member">회원관리</span></a>
+            <ul class="subMenu">
+              <li><a href="#">직원관리</a></li>
+              <li><a href="#">고객관리</a></li>
+            </ul>
+          </article>
+          <article class="menu act">
+            <a href="#" class="mainMenu"><span class="ic ic_setting">설정</span></a>
+            <ul class="subMenu">
+              <li><a href="#">산모실관리</a></li>
+              <li><a href="#" class="act">결제상품관리</a></li>
+              <li><a href="#">상담가이드/환불규정</a></li>
+              <li><a href="#">메시지문구 관리</a></li>
+            </ul>
+          </article>
+          <article class="menu">
+            <a href="#" class="mainMenu"><span class="ic ic_mypage">마이페이지</span></a>
+          </article>
+          <button type="button" class="logout"><span class="ic ic_logout">Logout</span></button>
+        </div>
+      </section>
+      <!--// 좌측 lnb -->
+
+      <!-- 상단 검색 영역 -->
+      <section class="TopArea">
+        <div class="searchBox">
+          <button type="button" class="ic ic_search">검색</button>
+          <input type="text" placeholder="Search">
+        </div>
+
+        <div class="location">
+          <select name="select">
+            <option value="none" selected>선택하세요</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+          </select>
+        </div>
+      </section>
+      <!--// 상단 검색 영역 -->
+
+      <!-- 컨텐츠 영역 -->
+      <section class="contentsArea">
+        <div class="contents">
+          <h2 class="pageTitle">결제상품 관리</h2>
+
+          <!-- 검색 폼 -->
+          <div class="searchForm">
+            <div class="formItem">
+              <div class="selectBox">
+                <select name="" id="">
+                  <option value="">전체</option>
+                  <option value="">조리원</option>
+                  <option value="">부대시설</option>
+                </select>
+              </div>
+              <div class="inputBox"><input type="text" placeholder=""></div>
+            </div>
+            <button type="button" class="btn confirm ic ic_search_wh">검색</button>
+          </div>
+          
+          <!-- 그리드 테이즐 -->
+          <div class="gridArea">
+            <div class="btnArea">
+              <div class="total"><span class="current">1</span><span>/ 12</span></div>
+              <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn confirm">항목추가</button>
+              <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn">삭제</button>
+            </div>
+
+            <div class="gridTable">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      <label class="checkbox" for="check1">
+                        <input type="checkbox" name="check1" id="check1" hidden>
+                        <i></i>
+                      </label>
+                    </th>
+                    <th>이용시설</th>
+                    <th>결제상품</th>
+                    <th>가격</th>
+                    <th>수정</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="checkbox" for="check1">
+                        <input type="checkbox" name="check1" id="check1" hidden>
+                        <i></i>
+                      </label>
+                    </td>
+                    <td>조리원</td>
+                    <td>예약금</td>
+                    <td>4,000,000</td>
+                    <td class="center"><button type="button" class="btn small dark">수정</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox" for="check1">
+                        <input type="checkbox" name="check1" id="check1" hidden>
+                        <i></i>
+                      </label>
+                    </td>
+                    <td>조리원</td>
+                    <td>예약금</td>
+                    <td>4,000,000</td>
+                    <td class="center"><button type="button" class="btn small dark">수정</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox" for="check1">
+                        <input type="checkbox" name="check1" id="check1" hidden>
+                        <i></i>
+                      </label>
+                    </td>
+                    <td>조리원</td>
+                    <td>예약금</td>
+                    <td>4,000,000</td>
+                    <td class="center"><button type="button" class="btn small dark">수정</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="comment">*입실비용은 산모실 관리에서 수정할 수 있습니다.</p>
+            </div>
+
+            <!-- 페이징 -->
+            <div class="pagination center">
+              <div class="arrowBtn disabled">
+                <button type="button" class="back" disabled>뒤로</button>
+                <button type="button" class="backEnd" disabled>맨 뒤로</button>
+              </div>
+              <div class="pageGroup">
+                <a href="#" class="act">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+              </div>
+              <div class="arrowBtn">
+                <button type="button" class="next">앞으로</button>
+                <button type="button" class="nextEnd">맨 앞으로</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+      <!--// 컨텐츠 영역 -->
+    </div>
+  </div>
+
+  <!-- 고결제상품 추가 -->
+  <div id="addGuest" class="modal-mask" data-target="addGuest">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>결제상품 추가</h2>
+        <button type="button" class="ic ic_close">닫기</button>
+      </div>
+      
+      <div class="modal-contents">
+        <div class="formInputBox">
+          <div class="formItem">
+            <label for="">이용시설</label>
+            <div class="inputBox">
+              <input type="text" placeholder="이용시설">
+            </div>
+          </div>
+          <div class="formItem">
+            <label for="">결제항목</label>
+            <div class="selectBox">
+              <select name="" id="">
+                <option value="">전체</option>
+                <option value="">조리원</option>
+                <option value="">부대시설</option>
+              </select>
+            </div>
+          </div>
+          <div class="formItem">
+            <label for="">가격</label>
+            <div class="inputBox">
+              <input type="text" placeholder="가격">
+            </div>
+          </div>          
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <div class="btnArea">
+          <button type="button" class="btn confirm">저장</button>
+          <button type="button" class="btn">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".subMenu").slideUp(); 
+
+      $(".btnMenu").click(function() {
+        $(".menuWrap").toggleClass("open");
+      });
+
+      // 메뉴 클릭 시 서브 메뉴 토글 및 act 클래스 추가/삭제
+      $(".mainMenu").click(function() {
+        var $menu = $(this).closest(".menu");
+        var $submenu = $(this).next(".subMenu");
+
+        // 서브 메뉴가 있으면 열기/닫기 처리
+        if ($submenu.length) {
+          $submenu.slideToggle();
+          $menu.toggleClass("act", $submenu.is(":visible"));
+        } else {
+          // 서브 메뉴가 없으면 바로 act 클래스 토글
+          $menu.toggleClass("act");
+        }
+
+        // 다른 메뉴들은 닫기 (클릭된 메뉴 제외)
+        $(".menu").not($menu).removeClass("act").find(".subMenu").slideUp();
+      });
+
+      // 공통 함수: 모달 열기/닫기
+      function toggleModal(modalId, isOpen) {
+        if (isOpen) {
+          $(modalId).fadeIn();
+          $("body").css("overflow", "hidden");
+        } else {
+          $(modalId).fadeOut();
+          $("body").css("overflow", "auto");
+        }
+      }
+
+      // 모달 열기 이벤트
+      $("[id^='modal-'], [data-target]").click(function (event) {
+        event.preventDefault();
+        var target = $(this).data("target");
+        if (target) {
+          toggleModal(target, true);
+        }
+      });
+
+      // 닫기 버튼 클릭 시 모달 닫기
+      $(".modal-container .ic_close").click(function () {
+        toggleModal($(this).closest(".modal-mask"), false);
+      });
+
+      // 모달 외부 클릭 시 닫기
+      $(document).click(function (event) {
+        if ($(event.target).hasClass("modal-mask")) {
+          toggleModal(event.target, false);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

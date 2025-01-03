@@ -1,0 +1,1624 @@
+@charset "utf-8";
+@use '_mixin';
+
+/******************************
+  메인화면
+*******************************/
+.main {
+  h2 {
+    @include mixin.font(2.4rem, 500, var(--black));
+  }
+
+  .btnMore {
+    position: absolute;
+    right: 0;
+    top: 0.8rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 0;
+  }
+
+  .todaySchedule {
+    @include mixin.flexColumn(2.4rem);
+
+    .statusBox {
+      @include mixin.flex(left, flex-start, 3.2rem);
+
+      article {
+        flex: 1 1 0%;
+
+        .box {
+          position: relative;
+          @include mixin.flex(right, center, 0);
+          border-radius: 2rem;
+          overflow: hidden;
+          padding: 2.4rem;
+
+          h3 {
+            position: absolute;
+            top: 2.4rem;
+            left: 2.4rem;
+            @include mixin.font(2rem, 400, white);
+            line-height: 2.4rem;
+          }
+
+          .Count {
+            width: 50%;
+            aspect-ratio: 1/1;
+            border: 0.8rem solid rgb(255 255 255 / 0.4);
+            border-radius: 50%;
+            @include mixin.flex(center, center, 0.4rem);
+
+            span {
+              @include mixin.font(2.4rem, 500, white);
+              line-height: 4.2rem;
+
+              &.current {
+                font-size: 4.2rem;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+
+        .statusList {
+          @include mixin.flexColumn(0.8rem);
+          margin-top: 3.2rem;
+
+          li {
+            @include mixin.flex(left, center, 1.2rem);
+            padding: 1.2rem;
+            background-color: var(--dis);
+            border-radius: 0.8rem;
+            @include mixin.font(1.6rem, 600, var(--black));
+
+            &::before {
+              content: "";
+              display: block;
+              width: 3.2rem;
+              height: 3.2rem;
+              border-radius: 0.8rem;
+              background-image: url(../images/icon/ic_status.svg);
+              background-repeat: no-repeat;
+              background-position: center, center;
+              background-size: 2rem;
+            }
+          }
+        }
+      }
+
+      .roomTotal {
+        .box {
+          background-image: url(../images/layout/roomTotal_bg.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        li::before {
+          background-color: var(--blue);
+        }
+      }
+
+      .roomIn {
+        .box {
+          background-image: url(../images/layout/roomIn_bg.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        li::before {
+          background-color: var(--green);
+        }
+      }
+
+      .roomOut {
+        .box {
+          background-image: url(../images/layout/roomOut_bg.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        li::before {
+          background-color: var(--orange);
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .statusBox {
+        gap: 1.6rem;
+
+        article {
+          .statusList {
+            margin-top: 1.2rem;
+
+            li {
+              gap: 0.6rem;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      gap: 1.6rem;
+
+      .statusBox {
+        flex-direction: column;
+        gap: 2.4rem;
+
+        article {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .noticeArea {
+    position: relative;
+    @include mixin.flexColumn(2.4rem);
+    margin-top: 6rem;
+
+    .noticeBox {
+      @include mixin.flex(left, flex-start, 2rem);
+      flex-wrap: wrap;
+
+      .notice {
+        width: calc(50% - 1rem);
+        border: 1px solid var(--line);
+        border-radius: 0.8rem;
+        padding: 2rem;
+        background-color: white;
+
+        a {
+          width: 100%;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          /* 표시할 줄 수 */
+          -webkit-box-orient: vertical;
+          @include mixin.font(1.6rem, 400, var(--black));
+          line-height: 2rem;
+          margin-bottom: 0.4rem
+        }
+
+        span {
+          @include mixin.font(1.4rem, 400, var(--text));
+
+        }
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      gap: 1.6rem;
+
+      .noticeBox {
+        flex-direction: column;
+        gap: 0.8rem;
+
+        .notice {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .rightArea {
+    z-index: 1;
+    min-width: 30rem;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 1.6rem 0 rgba(176, 179, 186, 0.10);
+
+    h2 {
+      width: 100%;
+      height: 7.6rem;
+      background-color: var(--blue);
+
+      span {
+        width: 100%;
+        height: 100%;
+        @include mixin.flex(center, center, 0);
+        @include mixin.font(2.4rem, 500, white);
+      }
+    }
+
+    .weekleyArea {
+      position: relative;
+      max-height: calc(100vh - 7.6rem);
+      @include mixin.flexColumn(1.6rem);
+      align-items: center;
+      padding: 0 3rem 3rem 3rem;
+      overflow-y: auto;
+
+      h3 {
+        background-color: var(--dis);
+        @include mixin.font(1.4rem, 500, var(--black));
+        padding: 0.8rem;
+        border-radius: 0.6rem;
+        text-align: center;
+      }
+
+      .weekBox {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        @include mixin.flexColumn(1.6rem);
+        align-items: center;
+        background-color: white;
+        padding: 1.6rem 0;
+
+        .week {
+          width: 100%;
+          @include mixin.flex(center, center, 0);
+
+          li {
+            flex: 1 1 0%;
+            @include mixin.flexColumn(0);
+            background-color: var(--dis);
+
+            span {
+              text-align: center;
+            }
+
+            .day {
+              @include mixin.font(1.2rem, 500, var(--black));
+              background-color: white;
+              padding-bottom: 0.4rem;
+            }
+
+            .date {
+              position: relative;
+              @include mixin.flex(center, center, 0);
+              @include mixin.font(1.4rem, 500, var(--black));
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+            }
+          }
+
+          li:first-child,
+          li:last-child {
+            .date {
+              color: white;
+              background-color: var(--blue);
+            }
+          }
+        }
+      }
+
+      .scheduleBox {
+        width: 100%;
+        border: 1px dashed var(--line);
+        border-radius: 0.8rem;
+        padding: 1.2rem 1.6rem;
+
+        ul {
+          @include mixin.flexColumn(0.4rem);
+          margin-top: 0.8rem;
+
+          li {
+            @include mixin.flex(left, center, 0.8rem);
+
+            .name {
+              @include mixin.font(1.4rem, 400, var(--black));
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      h2 {
+        width: unset;
+        height: unset;
+        background-color: white;
+        padding: 0 1.8rem;
+
+        span {
+          @include mixin.font(2.4rem, 500, var(--black));
+          display: block;
+        }
+      }
+
+      .weekleyArea {
+        max-height: unset;
+        padding: 1.8rem;
+
+        .weekBox {
+          .week {
+            width: 36rem;
+          }
+        }
+
+        .scheduleBox {
+          ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 1.6rem;
+            row-gap: 0.8rem;
+            margin-top: 1.2rem;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .weekleyArea {
+        .weekBox {
+          .week {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/******************************
+  로그인
+*******************************/
+.loginWrap {
+  width: 100vw;
+  height: 100vh;
+  @include mixin.flexColumn(1.6rem);
+  align-items: center;
+  padding-top: 20rem;
+
+  h1 {
+    @include mixin.flexColumn(1.6rem);
+    align-items: center;
+    margin-bottom: 2.4rem;
+    @include mixin.font(2.8rem, 600, var(--black));
+    line-height: 1.4;
+    text-align: center;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 21.3rem;
+      height: 16.3rem;
+      background-image: url(../images/layout/login.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+
+  .loginBox {
+    @include mixin.flexColumn(1.2rem);
+    width: 37rem;
+
+    .formItem {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+
+      label {
+        color: var(--black);
+      }
+
+      .inputBox {
+        width: 100%;
+
+        input {
+          height: 4.8rem;
+          border-radius: 0.8rem;
+        }
+      }
+    }
+
+    button {
+      height: 4.8rem;
+      border-radius: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    padding: 0 1.8rem;
+
+    .loginBox {
+      width: 100%;
+      max-width: 36rem;
+    }
+  }
+}
+
+
+
+
+/******************************
+  일정
+*******************************/
+.calendarArea {
+  width: 75%;
+  @include mixin.flexColumn(2.4rem);
+
+  .periodTitle {
+    @include mixin.flex(center, center, 1.6rem);
+
+    .ic {
+      font-size: 0;
+    }
+
+    span {
+      @include mixin.font(2.4rem, 600, var(--black));
+    }
+  }
+
+  .calendar {
+    width: 100%;
+    margin-top: 2.4rem;
+
+    .thead {
+      @include mixin.flex(left, flex-start, 0);
+
+      .th {
+        flex: 1 1 0%;
+        height: 4rem;
+        @include mixin.flex(center, center, 0);
+        @include mixin.font(1.4rem, 500, var(--black));
+        background-color: var(--dis);
+
+        &:nth-child(1) {
+          color: var(--red);
+        }
+
+        &:nth-child(7) {
+          color: var(--hover);
+        }
+      }
+    }
+
+    .tbody {
+      width: 100%;
+      border: solid var(--line);
+      border-width: 0 0 1px 1px;
+      background-color: white;
+      border-radius: 0 0 0.8rem 0.8rem;
+      box-shadow: 0px 1px 2px 0px rgba(18, 18, 23, 0.05);
+      overflow: auto;
+
+      .row {
+        @include mixin.flex(left, stretch, 0);
+
+        .item {
+          flex: 1 1 0%;
+          min-width: 13rem;
+          position: relative;
+          border: solid var(--line);
+          border-width: 1px 1px 0 0;
+          padding: 3rem 0 0 0;
+
+          &.disable {
+            color: var(--text) !important;
+            background-image: url(../images/layout/calendar_dis.png);
+            background-size: 100%;
+            opacity: 0.5;
+          }
+
+          &:nth-child(1) {
+            color: var(--red);
+          }
+
+          &:nth-child(7) {
+            color: var(--hover);
+          }
+
+          .date {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+          }
+
+          .schedule {
+            @include mixin.flexColumn(0.4rem);
+            justify-content: flex-end;
+            min-height: 10rem;
+            height: 100%;
+
+            li {
+              @include mixin.flex(left, center, 0.2rem);
+              @include mixin.font(1.4rem, 500, var(--black));
+              line-height: 1.8rem;
+              padding: 0.2rem;
+
+              span {
+                white-space: nowrap;
+              }
+            }
+          }
+
+          .reserve {
+            background-color: rgb(255 209 67 / 0.2);
+          }
+
+          .consult {
+            background-color: rgb(144 205 65 / 0.2);
+          }
+
+          .roomIn {
+            background-color: rgb(90 141 255 / 0.2);
+          }
+
+          .roomOut {
+            background-color: rgb(200 200 200 / 0.2);
+          }
+
+          .submit {
+            background-color: rgb(255 153 58 / 0.2);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-top: 1rem;
+
+    .calendar {
+      margin-top: 0;
+
+      .thead {
+        display: none;
+      }
+
+      .tbody {
+        .row {
+          flex-direction: column;
+          align-items: flex-start;
+
+          .item {
+            width: 100%;
+            border-width: 1px 1px 0 0;
+            padding: 0.8rem 0.8rem 0.8rem 3rem;
+            min-height: 3.4rem;
+
+            &.disable {
+              display: none;
+            }
+
+            .date {
+              width: 2.4rem;
+              height: 100%;
+              right: unset;
+              top: 0;
+              left: 0;
+              text-align: center;
+              padding-top: 1rem;
+              background-color: var(--dis);
+            }
+
+            .schedule {
+              width: 100%;
+              flex-direction: row;
+              justify-content: flex-start;
+              flex-wrap: wrap;
+              column-gap: 1.6rem;
+              row-gap: 0.8rem;
+              min-height: 2rem;
+
+              li {
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.rightContent {
+  width: 25%;
+  @include mixin.flexColumn(0.8rem);
+  align-items: center;
+
+  h3 {
+    background-color: var(--dis);
+    @include mixin.font(1.4rem, 500, var(--black));
+    padding: 0.8rem;
+    border-radius: 0.6rem;
+    margin-top: 3.8rem;
+  }
+
+  .btnArea {
+    margin-top: 2.4rem;
+  }
+
+  .listTable {
+    max-height: 35.5rem;
+    overflow-y: auto;
+
+    &:has(.search) {
+      thead {
+        top: 5.1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+
+
+/******************************
+  폼입력 화면 정의
+*******************************/
+.formInputBox {
+  @include mixin.flexColumn(1.6rem);
+
+  .btnArea {
+    margin-top: -0.8rem;
+  }
+
+  &.col-2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 1.6rem;
+
+    .formItem {
+      label {
+        min-width: auto;
+      }
+
+      >div {
+        min-width: 14rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    gap: 0.8rem;
+
+    .btnArea {
+      margin-top: 0;
+    }
+  }
+}
+
+
+/******************************
+  리스트 화면 정의
+*******************************/
+.searchForm {
+  width: 100%;
+  @include mixin.flex(left, center, 2.4rem);
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 0.8rem;
+  padding: 2rem;
+  margin-bottom: 2.4rem;
+  box-shadow: 0px 0px 2px 0px rgba(18, 18, 23, 0.15);
+
+  .formItem {
+    >div {
+      min-width: unset;
+    }
+
+    label {
+      min-width: auto;
+      padding-right: 2.4rem;
+    }
+
+    .date {
+      text-align: right;
+
+      input {
+        min-width: 12rem !important;
+        max-width: 12rem !important;
+      }
+
+      @media screen and (max-width: 500px) {
+        input {
+          min-width: 100% !important;
+          max-width: 100% !important;
+        }
+      }
+    }
+  }
+
+  .btnArea {
+    margin: 0;
+    gap: 0.4rem;
+    min-width: unset;
+  }
+}
+
+.gridArea {
+  width: 100%;
+
+  h3 {
+    @include mixin.flex(left, center, 0.4rem);
+    @include mixin.font(1.8rem, 600, var(--black));
+    margin-bottom: 2.4rem;
+
+    // &::before {
+    //   content: "";
+    //   width: 0.6rem;
+    //   height: 0.6rem;
+    //   background-color: var(--blue);
+    //   border-radius: 50%;
+    // }
+  }
+
+  .btnArea {
+    margin: 1.2rem 0;
+  }
+
+  .total {
+    @include mixin.flex(left, center, 0.4rem);
+
+    .current {
+      color: var(--black);
+    }
+  }
+
+  .gridTable {
+    width: 100%;
+    overflow: auto;
+    background-color: white;
+    border-radius: 0.8rem;
+    padding: 0.8rem 2rem 2rem 2rem;
+    box-shadow: 0px 0px 2px 0px rgba(18, 18, 23, 0.15);
+
+    table {
+      border-collapse: separate;
+      width: 100%;
+
+      thead {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+        th {
+          @include mixin.font(1.6rem, 500, var(--black));
+          padding: 1.2rem;
+          border-bottom: 1px solid var(--black);
+          white-space: nowrap;
+        }
+      }
+
+      tbody {
+        td {
+          position: relative;
+          border-bottom: 1px solid var(--line);
+          border-right: 1px dashed var(--line);
+          padding: 1.2rem;
+          @include mixin.font(1.6rem, 400, var(--text));
+          line-height: 2.6rem;
+          text-align: center;
+          white-space: nowrap;
+
+          &:last-child {
+            border-right: 0;
+          }
+
+          &.center {
+            text-align: center;
+          }
+
+          .ic_open {
+            font-size: 0;
+
+            &::before {
+              background-image: url(../images/icon/ic_next.svg);
+              transform: rotate(90deg);
+            }
+          }
+
+          .ic_close {
+            font-size: 0;
+
+            &::before {
+              background-image: url(../images/icon/ic_next.svg);
+              transform: rotate(270deg);
+            }
+          }
+
+          a {
+            @include mixin.font(1.6rem, 500, var(--black));
+            display: block;
+            text-align: left;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &:hover {
+              text-decoration: underline;
+              text-underline-offset: 0.4rem;
+            }
+          }
+
+          .noData {
+            @include mixin.flex(center, center, 0);
+            min-height: 30rem;
+          }
+
+          &.left {
+            text-align: left;
+          }
+        }
+
+        tr:nth-child(even) {
+          background-color: var(--bg);
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        .open {
+          display: table-row;
+        }
+      }
+    }
+
+    .comment {
+      @include mixin.font(1.4rem, 400, var(--red));
+      margin-top: 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .gridTable {
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+
+/******************************
+  차트화면 정의
+*******************************/
+
+.statusTab {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem;
+  background-color: var(--dis);
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  margin-bottom: 2.4rem;
+
+  label {
+    border-radius: 0.8rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    span {
+      @include mixin.font(1.4rem, 400, var(--text));
+    }
+
+    &:has(:checked) {
+      background-color: white;
+      border: 1px solid var(--hover);
+      box-shadow: 0px 1px 2px 0px rgba(18, 18, 23, 0.05);
+
+      span {
+        font-weight: 600;
+        color: var(--blue);
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    label {
+      padding: 1rem;
+    }
+  }
+}
+
+.messageList {
+  width: 50rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  padding: 0.8rem 2rem;
+  overflow: auto;
+
+  li {
+    @include mixin.flex(left, stretch, 1.2rem);
+    border-bottom: 1px dashed var(--line);
+    padding: 1.2rem 0;
+
+    .No {
+      padding-right: 1.2rem;
+      @include mixin.font(1.6rem, 500, var(--black));
+
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .listItem {
+    @include mixin.flex(left, center, 1.2rem);
+    flex-wrap: wrap;
+    border-bottom: 1px dashed var(--line);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    span {
+      @include mixin.flex(left, center, 1.2rem);
+      @include mixin.font(1.4rem, 500, var(--text));
+
+      &::before {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 1.2rem;
+        background-color: var(--line);
+      }
+
+      &:first-child::before {
+        display: none;
+      }
+    }
+
+    .message {
+      width: 100%;
+      background-color: var(--bg);
+      border-radius: 0.6rem;
+      padding: 1.2rem;
+      color: var(--black);
+      cursor: pointer;
+
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 2rem;
+      }
+
+      &.open {
+        p {
+          -webkit-line-clamp: unset;
+          line-clamp: unset;
+          overflow: visible;
+        }
+      }
+    }
+  }
+}
+
+.memoList {
+  height: 50rem;
+  @include mixin.flexColumn(0.8rem);
+  overflow: auto;
+
+
+  .memoBox {
+    background-color: var(--bg);
+    border-radius: 0.8rem;
+    padding: 1.2rem 1.6rem 0 1.6rem;
+
+    .memo {
+      @include mixin.font(1.4rem, 400, var(--black));
+      line-height: 1.4;
+    }
+
+    span {
+      font-size: 1.4rem;
+    }
+
+    .btnArea {
+      gap: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
+}
+
+.payList {
+  @include mixin.flexColumn(1.2rem);
+
+  .payBox {
+    @include mixin.flex(left, center, 1.6rem);
+    flex-wrap: wrap;
+    border: 1px dashed var(--line);
+    border-radius: 0.8rem;
+    padding: 1.6rem;
+
+    .item {
+      width: calc(50% - 0.8rem);
+      @include mixin.flex(left, center, 1rem);
+
+      .typePay {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 4rem;
+        height: 2.6rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--black);
+        padding: 0 1rem;
+        border: 1px dashed var(--black);
+        border-radius: 0.6rem;
+      }
+
+      .label {
+        @include mixin.font(1.4rem, 500, var(--blue));
+      }
+
+      .data {
+        @include mixin.flex(left, center, 1rem);
+        @include mixin.font(1.4rem, 500, var(--black));
+
+        .type {
+          @include mixin.font(1.2rem, 500, var(--black));
+        }
+      }
+
+      &.right {
+        justify-content: right;
+      }
+    }
+  }
+}
+
+.priceTotal {
+  @include mixin.flex(right, center, 0.8rem);
+  background-color: var(--dis);
+  padding: 2rem;
+  border-radius: 0.8rem;
+
+  span {
+    @include mixin.font(1.4rem, 500, var(--black));
+  }
+
+  .price {
+    font-size: 1.8rem;
+    color: var(--red);
+  }
+}
+
+.payment {
+  .formItem {
+    padding: 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 0.8rem;
+
+    .price {
+      @include mixin.flex(right, center, 0.2rem);
+      @include mixin.font(1.6rem, 600, var(--black));
+
+      input {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.swiperDoc {
+  position: relative;
+  margin: auto;
+  max-width: 60rem;
+
+  .item {
+    padding: 0 4rem;
+  }
+}
+
+.swiper-wrapper {
+  align-items: center;
+
+  width: unset !important;
+  height: unset !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.infoBox {
+  @include mixin.flex(left, center, 3rem);
+
+  .box {
+    flex: 1;
+    @include mixin.flex(space-between, center, 1rem);
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.8rem;
+    box-shadow: 0px 0px 2px 0px rgba(18, 18, 23, 0.15);
+
+    .title {
+      @include mixin.font(1.6rem, 600, var(--black));
+    }
+
+    .price {
+      @include mixin.font(2.4rem, 600, var(--black));
+    }
+
+    &:nth-child(1) {
+      border: 1px solid var(--blue);
+
+      .price {
+        color: var(--blue);
+      }
+    }
+
+    &:nth-child(2) {
+      border: 1px solid var(--green);
+
+      .price {
+        color: var(--green);
+      }
+    }
+
+    &:nth-child(3) {
+      border: 1px solid var(--orange);
+
+      .price {
+        color: var(--orange);
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.2rem;
+
+    .box {
+      width: 100%;
+    }
+  }
+}
+
+.checkGroup {
+  @include mixin.flex(left, center, 0.6rem);
+  row-gap: 1.2rem;
+
+  .checkbox {
+    width: calc(33.333% - 0.4rem);
+  }
+}
+
+.smallSearch {
+  @include mixin.flex(left, center, 0.8rem);
+  padding-bottom: 1.2rem;
+
+  .inputBox {
+    width: 20rem;
+    flex: unset;
+  }
+}
+
+.innerList {
+  @include mixin.flex(left, center, 3.2rem);
+  flex-wrap: wrap;
+  row-gap: 1.2rem;
+  padding: 2rem;
+  background-color: white;
+}
+
+.timeLineWrap {
+  .periodTitle {
+    @include mixin.flex(center, center, 1.6rem);
+
+    .ic {
+      font-size: 0;
+    }
+
+    span {
+      @include mixin.font(2.4rem, 600, var(--black));
+    }
+  }
+
+  .legend {
+    @include mixin.flex(right, center, 0.4rem);
+    margin: 2.4rem 0 1.2rem 0;
+
+    span {
+      font-size: 1.2rem;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 2rem;
+    }
+
+    .Deluxe {
+      background-color: var(--blue);
+    }
+
+    .RoyalSuite {
+      background-color: var(--green);
+    }
+
+    .Suite {
+      background-color: var(--orange);
+    }
+  }
+
+  .timeLineBox {
+    width: 100%;
+    background-color: var(--dis);
+    border-radius: 0.8rem;
+    padding: 2rem;
+    overflow: auto;
+
+    .rowTitle {
+      @include mixin.flex(left, center, 0);
+      margin-left: 13.3rem;
+
+      .col {
+        flex: 1;
+        min-width: 2rem;
+        text-align: center;
+        padding: 1.2rem 0;
+        @include mixin.font(1.2rem, 500, var(--black));
+      }
+    }
+
+    .timeBody {
+      @include mixin.flex(left, stretch, 1.2rem);
+
+      .colTitle {
+        width: 12rem;
+        @include mixin.flexColumn(0);
+
+        .row {
+          height: 4.8rem;
+          @include mixin.flex(right, center, 1.2rem);
+          @include mixin.font(1.3rem, 500, var(--black));
+
+          .Deluxe {
+            color: var(--blue);
+            font-weight: 600;
+          }
+
+          .RoyalSuite {
+            color: var(--green);
+            font-weight: 600;
+          }
+
+          .Suite {
+            color: var(--orange);
+            font-weight: 600;
+          }
+        }
+      }
+
+      .timeTable {
+        width: calc(100% - 13.2rem);
+        border: solid var(--line);
+        border-width: 1px 0 0 1px;
+
+        .row {
+          @include mixin.flex(left, stretch, 0);
+
+          .col {
+            flex: 1;
+            @include mixin.flexColumn(0.4rem);
+            justify-content: center;
+            min-width: 2rem;
+            height: 4.8rem;
+            border: solid var(--line);
+            border-width: 0 1px 1px 0;
+            padding: 1.2rem 0;
+
+            span {
+              display: block;
+              height: 1rem;
+              opacity: 0;
+
+              &.first {
+                border-radius: 1rem 0 0 1rem;
+              }
+
+              &.last {
+                border-radius: 0 1rem 1rem 0;
+              }
+
+              &.on {
+                opacity: 1;
+              }
+            }
+          }
+
+
+          &.over {
+            .col {
+              justify-content: flex-start;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 1.2rem;
+
+      .rowTitle {
+        margin-left: 12.4rem;
+      }
+
+      .timeBody {
+        .colTitle {
+          width: 11.2rem;
+        }
+
+        .timeTable {
+          width: calc(100% - 12.4rem);
+        }
+      }
+    }
+  }
+}
+
+.statusBoxWrap {
+  position: relative;
+  @include mixin.flex(left, flex-start, 1.5rem);
+  flex-wrap: wrap;
+  padding-top: 5.2rem;
+
+  .dateArea {
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include mixin.flex(right, center, 0);
+    margin-bottom: 1.6rem;
+
+    .date {
+      width: 20rem;
+
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .statusBox {
+    width: calc(20% - 1.2rem);
+    min-height: 20rem;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    background-color: white;
+    box-shadow: 0 0 1.6rem 0 rgba(176, 179, 186, 0.10);
+
+    dt {
+      @include mixin.flex(center, center, 0.8rem);
+      padding: 1.2rem;
+      margin-bottom: 1.6rem;
+      border-radius: 3rem;
+      background-color: white !important;
+
+      span {
+        font-size: 1.6rem;
+        color: var(--black);
+      }
+
+      .type {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+    }
+
+    dd {
+      @include mixin.flexColumn(0.4rem);
+      align-items: center;
+      @include mixin.font(1.4rem, 400, var(--black));
+
+      .name {
+        @include mixin.flex(left, center, 0.8rem);
+
+        span {
+          font-size: 2.8rem;
+          font-weight: 500;
+          margin-bottom: 1.6rem;
+          padding: 0.4rem;
+          cursor: pointer;
+
+          &:hover {
+            border-radius: 0.8rem;
+            background-color: var(--dis);
+          }
+        }
+
+        .over {
+          font-size: 2.4rem;
+          color: white;
+          background-color: var(--yellow);
+          border-radius: 0.8rem;
+        }
+      }
+
+      .badge {
+        @include mixin.flex(left, center, 0.8rem);
+      }
+    }
+
+    &.blank {
+
+      dt,
+      dd {
+        filter: opacity(0.4);
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0;
+
+    .dateArea {
+      position: relative;
+      width: 100%;
+
+      .date {
+        width: 100%;
+      }
+    }
+
+    .statusBox {
+      width: 100%;
+      min-height: unset;
+
+      dt {
+        padding: 0.8rem;
+        margin-bottom: 1.2rem;
+      }
+
+      dd {
+        .name {
+          margin-bottom: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.divideWrap {
+  @include mixin.flex(left, flex-start, 3.2rem);
+
+  >div {
+    flex: 1 1 0%;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.6rem;
+
+    >div {
+      width: 100%;
+    }
+  }
+}
+
+.inputMSG {
+  @include mixin.flexColumn(1.2rem);
+  padding-top: 6rem;
+
+  .textArea {
+    width: 100%;
+    height: 20rem;
+  }
+}
+
+.boardDetail {
+  .titeArea {
+    @include mixin.flexColumn(1.6rem);
+    align-items: center;
+    border-bottom: 2px solid var(--black);
+    padding: 3rem;
+
+    .title {
+      @include mixin.font(2.4rem, 500, var(--black));
+    }
+
+    .date {
+      @include mixin.font(1.4rem, 400, var(--text));
+    }
+  }
+
+  .boardContent {
+    padding: 3rem;
+    @include mixin.font(1.4rem, 400, var(--text));
+    border-bottom: 1px solid var(--line);
+    background-color: white;
+  }
+
+  .files {
+    @include mixin.flexColumn(0.8rem);
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--line);
+    background-color: white;
+
+    a {
+      @include mixin.flex(left, center, 0.2rem);
+      @include mixin.font(1.4rem, 400, var(--black));
+
+      &::before {width: 1.6rem; height: 1.6rem;}
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .titeAre, .files {padding: 1.6rem;}
+    .boardContent {padding: 2.4rem;}
+  }
+}
+
+.myPageWrap {
+  @include mixin.flex(center, center, 6rem);
+  background-color: white;
+  border-radius: 0.8rem;
+  padding: 6rem 3rem;
+
+  .myPageImg {
+    max-width: 100%;
+    width: 40rem;
+  }
+
+  .myPageForm {
+    .btnArea {
+      border-top: 1px dashed var(--line);
+      margin-top: 1.6rem;
+      padding-top: 1.6rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 2rem;
+  }
+}
+
+.noPaper {
+  width: 100%;
+  height: 60rem;
+  @include mixin.flex(center, center, 0);
+
+  .text {
+    @include mixin.flexColumn(1.6rem);
+    justify-content: center;
+    align-items: center;
+    @include mixin.font(1.6rem, 500, var(--text));
+
+    &::before {
+      content: "";
+      display: block;
+      width: 4.8rem;
+      height: 4.8rem;
+      background-image: url(../images/icon/ic_file.svg);
+      background-size: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
+}
