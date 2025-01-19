@@ -5,392 +5,278 @@
   width: 100%;
   height: 100%;
 
-  #container {
-    width: 100%;
+  &.bgColor {
+    background-color: var(--blue);
+  }
+
+  #LnbArea {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 26rem;
     height: 100%;
-    display: flex;
-    align-items: stretch;
-    // grid-template-columns: 24rem 1fr;
-    // grid-template-rows: 1fr;
+    padding: 0 2rem 3rem 3rem;
 
-    &:has(.main) {
-      .TopArea {
-        padding: 0 33rem 0 3rem;
-        z-index: 1;
-      }
+    .logo {
+      width: 100%;
+      height: 7.6rem;
+      @include mixin.flex(center, center, 0);
+      font-size: 0;
 
-      .contents {
-        min-width: 88rem;
+      &::before {
+        content: "";
+        display: block;
+        width: 20rem;
+        height: 3rem;
+        aspect-ratio: 142/30;
+        background-image: url(../images/layout/h1_logo.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
       }
     }
 
-    .LnbArea {
-      position: relative;
-      min-width: 24rem;
-      background-color: white;
-      border-right: 1px solid var(--line);
+    .menuWrap {
+      @include mixin.flexColumn(1.2rem);
+      margin-top: 1.6rem;
 
-      .logo {
-        width: 100%;
-        height: 7.6rem;
-        @include mixin.flex(left, center, 0);
-        font-size: 0;
-        padding-left: 3rem;
+      .menu {
+        .mainMenu {
+          position: relative;
+          width: 100%;
+          @include mixin.flex(space-between, center, 0);
+          padding: 1.2rem 0;
+          opacity: 0.7;
 
-        &::before {
-          content: "";
-          display: block;
-          width: 14.2rem;
-          height: 3rem;
-          aspect-ratio: 142/30;
-          background-image: url(../images/layout/h1_logo.svg);
-          background-size: 100%;
-          background-repeat: no-repeat;
+          span {
+            @include mixin.flex(left, center, 0.6rem);
+            @include mixin.font(1.6rem, 500, white);
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            width: 1.6rem;
+            height: 1.6rem;
+            background-image: url(../images/icon/ic_arrow_wh.svg);
+            background-size: 100%;
+            transition: all 0.2s;
+          }
         }
-      }
 
-      .btnMenu {
-        display: none;
-        font-size: 0;
-      }
+        .subMenu {
+          display: none;
+          background-color: var(--hover);
+          border-radius: 2rem;
+          padding: 1rem 3rem 2rem;
 
-      .menuWrap {
-        margin-top: 3.8rem;
+          .depth02 {
 
-        .menu {
-          margin-bottom: 1.2rem;
+            >a,
+            >span {
+              @include mixin.flex(space-between, center, 0);
+              @include mixin.font(1.6rem, 500, white);
+              padding: 1rem 0;
+              cursor: pointer;
 
+              &:hover {
+                text-decoration: underline;
+                text-underline-offset: 0.4rem;
+              }
+            }
+
+            ul {
+              display: none;
+              padding-bottom: 1rem;
+
+              li {
+                padding-left: 1rem;
+
+                a {
+                  @include mixin.font(1.4rem, 400, white);
+                  line-height: 2.4rem;
+
+                  &::before {
+                    content: "-";
+                    margin-right: 0.4rem;
+                  }
+                }
+              }
+            }
+
+            &.act {
+
+              >a,
+              >span {
+                text-decoration: underline;
+                text-underline-offset: 0.4rem;
+
+                &::after {
+                  content: "";
+                  display: block;
+                  width: 1.2rem;
+                  height: 1.2rem;
+                  background-image: url(../images/icon/ic_arrow_wh.svg);
+                  background-size: 100%;
+                  transform: rotate(180deg);
+                }
+              }
+
+              ul {
+                display: block;
+              }
+            }
+          }
+        }
+
+        &.act {
           .mainMenu {
-            position: relative;
-            width: 100%;
-            height: 4rem;
-            @include mixin.flex(left, center, 0);
-            padding-left: 3rem;
+            opacity: 1;
 
-            span {
-              @include mixin.flex(left, center, 0.8rem);
-              @include mixin.font(1.8rem, 500, var(--black));
+            &::after {
+              transform: rotate(180deg);
             }
           }
 
           .subMenu {
-            display: none;
-            padding: 0 1.6rem;
-
-            li {
-              background-color: var(--bg);
-              padding: 0 0 0 4.6rem;
-
-              &:first-child {
-                border-radius: 0.8rem 0.8rem 0 0;
-                padding-top: 0.8rem;
-              }
-
-              &:last-child {
-                border-radius: 0 0 0.8rem 0.8rem;
-                padding-bottom: 0.8rem;
-              }
-
-              a {
-                display: block;
-                @include mixin.font(1.6rem, 500, var(--text));
-                line-height: 3rem;
-
-                &.act {
-                  color: var(--blue);
-                }
-              }
-            }
-          }
-
-          &.act {
-            .mainMenu {
-              span {
-                color: var(--blue);
-              }
-
-              &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 0.3rem;
-                height: 4rem;
-                background-color: var(--blue);
-              }
-            }
-
-            .subMenu {
-              display: block;
-            }
+            display: block;
           }
         }
+      }
+    }
 
-        .logout {
-          position: absolute;
-          left: 3rem;
-          bottom: 5rem;
+    footer {
+      position: absolute;
+      bottom: 3rem;
+      width: 20rem;
+      @include mixin.flexColumn(0);
 
-          span {
-            @include mixin.flex(left, center, 1.6rem);
-            @include mixin.font(1.8rem, 500, var(--black));
-          }
+      .footMenu {
+        width: 100%;
+        @include mixin.flex(left, center, 0.8rem);
+        border-bottom: 1px solid rgb(255 255 255 / 0.2);
+        padding-bottom: 1.6rem;
+        margin-bottom: 1.6rem;
+
+        button {
+          flex: 1;
+          height: 3.6rem;
+          @include mixin.font(1.2rem, 400, white);
+          border-radius: 0.8rem;
+          background-color: var(--hover);
+        }
+      }
+
+      p {
+        @include mixin.font(1.2rem, 400, white);
+        opacity: 0.5;
+        margin-bottom: 0.8rem;
+        text-align: center;
+      }
+    }
+  }
+
+  #container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    @include mixin.flexColumn(0);
+    margin-left: 28rem;
+    background-color: white;
+    border-radius: 5rem 0 0 5rem;
+    transition: all 0.2s;
+
+    .btnWide {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 1.6rem;
+      height: 5.6rem;
+      @include mixin.flex(right, center, 0);
+      background-color: white;
+      border-radius: 2rem 0 0 2rem;
+      transform: translateY(-2.4rem);
+      font-size: 0;
+      margin-left: -1.6rem;
+
+      &::before {
+        content: "";
+        width: 0.8rem;
+        height: 1.4rem;
+        background-image: url(../images/icon/ic_arrow_fold.svg);
+        background-size: 100%;
+        transition: all 0.5s;
+      }
+    }
+
+    &.wide {
+      margin-left: 2rem;
+
+      .btnWide {
+        &::before {
+          transform: rotate(180deg);
         }
       }
     }
 
     .TopArea {
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      left: 24rem;
-      right: 0;
-      width: calc(100% - 24rem);
-      min-width: 118rem;
-      height: 7.6rem;
+      height: 9rem;
       @include mixin.flex(space-between, center, 0);
-      padding: 0 3rem;
-      background-color: white;
+      padding: 0 5rem;
       border-bottom: 1px solid var(--line);
 
-      .searchBox {
-        position: relative;
-        flex: 1 1 0%;
-        @include mixin.flex(left, center, 0);
+      .titleBox {
+        @include mixin.flex(left, center, 0.4rem);
 
         .ic {
           font-size: 0;
+          filter: grayscale(1);
+
+          &.act {
+            filter: grayscale(0)
+          }
         }
 
-        input {
-          flex: 1 1 0%;
-          height: 4rem;
-          @include mixin.font(1.6rem, 500, var(--black));
-          padding-left: 1.2rem;
-        }
-
-        .resultOverlay {
-          position: absolute;
-          z-index: 2;
-          top: 100%;
-          left: 2.4rem;
-          border-radius: 0.8rem;
-          background-color: white;
-          box-shadow: 0 0 0.8rem 0 rgba(176, 179, 186, 0.2);
-
-          .ic_close {
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-          }
-
-          h3 {
-            @include mixin.font(1.6rem, 500, var(--black));
-            padding: 2rem 2.4rem 1.2rem 2.4rem;
-            border-bottom: 1px dashed var(--line);
-          }
-
-          .list {
-            max-height: 18rem;
-            @include mixin.flexColumn(1rem);
-            padding: 1.2rem 2.4rem 2.4rem 2.4rem;
-            overflow-y: auto;
-
-            a {
-              @include mixin.flex(left, center, 0.8rem);
-
-              span {
-                @include mixin.font(1.4rem, 500, var(--black));
-              }
-
-              .name {
-                color: var(--blue);
-                font-weight: 600;
-              }
-            }
-
-            p {
-              @include mixin.flex(center, center, 0);
-            }
-          }
+        h2 {
+          @include mixin.font(3.2rem, 500, var(--black));
         }
       }
 
       .location {
-        select {
-          width: 14rem;
-          height: 3.4rem;
-          border: 0;
-          border-radius: 1.7rem;
-          background-color: rgb(90 141 255 / 0.1);
-          padding: 0 1.2rem;
-          @include mixin.font(1.4rem, 500, var(--blue));
-          background-image: url(../images/icon/ic_location_select.svg);
-          background-repeat: no-repeat;
-          background-position: right 1rem center;
-          background-size: 1.4rem;
+        @include mixin.flex(left, center, 0.4rem);
 
-          &:disabled {
-            pointer-events: none;
-            background-color: var(--dis);
-          }
+        &::before {
+          content: "";
+          display: block;
+          width: 1.6rem;
+          height: 1.6rem;
+          background-image: url(../images/icon/ic_home.svg);
+          background-size: 100%;
+        }
 
-          &:focus-visible,
-          &:focus-within {
-            outline: 1px solid var(--blue);
+        span {
+          @include mixin.flex(left, center, 0.4rem);
+          @include mixin.font(1.4rem, 400, var(--text));
+
+          &::before {
+            content: "";
+            display: block;
+            width: 1.6rem;
+            height: 1.6rem;
+            background-image: url(../images/icon/ic_arrow_gray.svg);
+            background-size: 100%;
           }
+        }
+
+        span:last-child {
+          color: var(--blue);
         }
       }
     }
 
     .contentsArea {
       position: relative;
-      display: flex;
-      align-items: stretch;
-      width: calc(100% - 24rem);
-      height: 100%;
-
-      .contents {
-        flex: 1 1 0%;
-        min-width: 118rem;
-        padding: 11.4rem 4rem 4rem 4rem;
-
-        .partition {
-          @include mixin.flex(left, flex-start, 2.4rem);
-        }
-
-        .pageTitle {
-          display: inline-block;
-          @include mixin.font(2.4rem, 600, var(--black));
-          padding: 0 0 1rem 0;
-          border-bottom: 2px solid var(--blue);
-          margin-bottom: 2.4rem;
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    #container {
-      height: auto;
-      display: block;
-      background-color: white;
-
-      &:has(.main) {
-        .TopArea {
-          right: 0;
-        }
-      }
-
-      .LnbArea {
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        width: 100%;
-        height: 5.6rem;
-        border: 0;
-        box-shadow: 0 0 0.8rem 0 rgba(176, 179, 186, 0.2);
-
-        .logo {
-          height: 5.6rem;
-          font-size: 0;
-          padding-left: 1.8rem;
-
-          &::before {
-            width: 12rem;
-          }
-        }
-
-        .btnMenu {
-          position: absolute;
-          right: 1.8rem;
-          top: 1.3rem;
-          display: block;
-        }
-
-        .menuWrap {
-          position: fixed;
-          top: 5.6rem;
-          left: 0;
-          width: 100%;
-          margin-top: 0;
-          height: calc(100svh - 5.6rem);
-          background-color: white;
-          transform: translateX(100%);
-          transition: all 0.4s;
-
-          .menu {
-            &.act {
-              .mainMenu {
-                span {
-                  color: var(--blue);
-                }
-
-                &::before {
-                  content: "";
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 0.3rem;
-                  height: 4rem;
-                  background-color: var(--blue);
-                }
-              }
-            }
-          }
-
-          &.open {
-            transform: translate(0);
-          }
-        }
-      }
-
-      .TopArea {
-        position: fixed;
-        z-index: 9;
-        top: 5.6rem;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 5.6rem;
-        border-color: var(--dis);
-        background-color: var(--bg);
-        padding: 0 1.8rem;
-
-        .searchBox {
-          width: calc(100% - 14rem);
-        }
-      }
-
-      .contentsArea {
-        width: 100%;
-        height: auto;
-        flex-direction: column;
-
-        .contents {
-          width: 100%;
-          min-width: unset;
-          padding: 13rem 1.8rem 6rem 1.8rem;
-
-          .partition {
-            width: 100%;
-            flex-direction: column;
-            gap: 0;
-          }
-
-          .pageTitle {
-            font-size: 1.8rem;
-            padding: 0 0 0.4rem 0;
-            margin-bottom: 1rem;
-          }
-        }
-
-        .rightArea {
-          width: 100%;
-          box-shadow: none;
-          padding: 0;
-        }
-      }
+      padding: 5rem;
     }
   }
 }

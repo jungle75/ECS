@@ -10,14 +10,13 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 3.6rem;
+  height: 4rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--black);
   background-color: white;
-  border: 1px solid var(--line);
-  box-shadow: 0px 1px 2px 0px rgba(18, 18, 23, 0.05);
-  border-radius: 0.6rem;
+  border: 1px solid var(--lineDeep);
+  border-radius: 0.8rem;
   padding: 0 1.2rem;
 }
 .inputBox input:disabled {
@@ -101,9 +100,9 @@
 }
 
 input[type=file] {
-  height: 3.4rem;
+  height: 4rem;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--lineDeep);
   border-radius: 0.6rem;
   color: var(--black);
   padding: 0.3rem;
@@ -140,7 +139,7 @@ input[type=file]::file-selector-button:hover {
 .insert .file-list {
   height: 20rem;
   overflow: auto;
-  border: 1px solid var(--line);
+  border: 1px solid var(--lineDeep);
   border-radius: 0.8rem;
   padding: 1.2rem;
 }
@@ -167,14 +166,14 @@ input[type=file]::file-selector-button:hover {
 }
 .selectBox select {
   width: 100%;
-  height: 3.6rem;
+  height: 4rem;
   padding: 0 2.4rem 0 1.2rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: 0.6rem;
-  background-image: url(../images/icon/ic_select_arrow.svg);
+  border: 1px solid var(--lineDeep);
+  border-radius: 0.8rem;
+  background-image: url(../images/icon/ic_arrow_bl.svg);
   background-repeat: no-repeat;
   background-size: 1.6rem;
   background-position: right 0.8rem center;
@@ -236,7 +235,7 @@ input[type=file]::file-selector-button:hover {
   width: 2rem;
   height: 2rem;
   background: white;
-  border: 1px solid var(--line);
+  border: 1px solid var(--lineDeep);
   border-radius: 100%;
 }
 .radio i::after {
@@ -264,7 +263,7 @@ input[type=file]::file-selector-button:hover {
   width: 2rem;
   height: 2rem;
   background-color: white;
-  border: 1px solid var(--line);
+  border: 1px solid var(--lineDeep);
   border-radius: 0.6rem;
   transition: all 0.2s;
 }
@@ -293,7 +292,7 @@ input[type=file]::file-selector-button:hover {
   height: 100%;
   min-height: 8rem;
   background-color: white;
-  border: 1px solid var(--line);
+  border: 1px solid var(--lineDeep);
   border-radius: 0.8rem;
   padding: 0.8rem;
   font-size: 1.4rem;
@@ -304,7 +303,7 @@ input[type=file]::file-selector-button:hover {
   border-color: var(--gray-1);
 }
 .textArea textarea:disabled {
-  border-color: var(--line);
+  border-color: var(--lineDeep);
   color: var(--line);
   background-color: var(--dis);
 }
@@ -341,14 +340,11 @@ input[type=file]::file-selector-button:hover {
   outline: none;
   border: 0;
   min-width: 8rem;
-  height: 3.6rem;
-  border-radius: 0.6rem;
+  height: 4rem;
+  border-radius: 0.8rem;
   font-size: 1.4rem;
-  padding: 0 1.2rem;
-  box-shadow: 0px 1px 2px 0px rgba(18, 18, 23, 0.05);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  padding: 0 1.6rem;
+  user-select: none;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -447,106 +443,44 @@ input[type=file]::file-selector-button:hover {
   background-position: center center;
 }
 
-.ic_menu::before {
-  background-image: url(../images/icon/ic_menu.svg);
+.ic_nav01::before {
+  background-image: url(../images/icon/ic_nav01.svg);
 }
 
-.ic_dashboard::before {
-  background-image: url(../images/icon/ic_dashboard.svg);
+.ic_nav02::before {
+  background-image: url(../images/icon/ic_nav02.svg);
 }
 
-.ic_close::before {
-  background-image: url(../images/icon/ic_close.svg);
+.ic_nav03::before {
+  background-image: url(../images/icon/ic_nav03.svg);
 }
 
-.act .ic_dashboard::before {
-  background-image: url(../images/icon/ic_dashboard_act.svg);
+.ic_nav04::before {
+  background-image: url(../images/icon/ic_nav04.svg);
 }
-.act .ic_schedule::before {
-  background-image: url(../images/icon/ic_schedule_act.svg);
-}
-.act .ic_room::before {
-  background-image: url(../images/icon/ic_room_act.svg);
-}
-.act .ic_member::before {
-  background-image: url(../images/icon/ic_member_act.svg);
-}
-.act .ic_sale::before {
-  background-image: url(../images/icon/ic_sale_act.svg);
-}
-.act .ic_setting::before {
-  background-image: url(../images/icon/ic_setting_act.svg);
-}
-.act .ic_mypage::before {
-  background-image: url(../images/icon/ic_mypage_act.svg);
+
+.ic_nav05::before {
+  background-image: url(../images/icon/ic_nav05.svg);
 }
 
 .ic_schedule::before {
   background-image: url(../images/icon/ic_schedule.svg);
 }
 
-.ic_room::before {
-  background-image: url(../images/icon/ic_room.svg);
-}
-
-.ic_member::before {
-  background-image: url(../images/icon/ic_member.svg);
-}
-
-.ic_sale::before {
-  background-image: url(../images/icon/ic_sale.svg);
-}
-
-.ic_setting::before {
-  background-image: url(../images/icon/ic_setting.svg);
-}
-
-.ic_mypage::before {
-  background-image: url(../images/icon/ic_mypage.svg);
-}
-
-.ic_logout::before {
-  background-image: url(../images/icon/ic_logout.svg);
+.ic_favorite::before {
+  background-image: url(../images/icon/ic_favorite.svg);
 }
 
 .ic_search::before {
   background-image: url(../images/icon/ic_search.svg);
 }
 
-.ic_search_wh::before {
-  background-image: url(../images/icon/ic_search_wh.svg);
-}
-
-.ic_date::before {
-  background-image: url(../images/icon/ic_date.svg);
-}
-
-.ic_next::before {
-  background-image: url(../images/icon/ic_next.svg);
-}
-
-.ic_back::before {
-  background-image: url(../images/icon/ic_back.svg);
-}
-
-.ic_more::before {
-  background-image: url(../images/icon/ic_more.svg);
-}
-
-.ic_close::before {
-  background-image: url(../images/icon/ic_close.svg);
+.ic_reset::before {
+  background-image: url(../images/icon/ic_reset.svg);
 }
 
 .ic_down::before {
   background-image: url(../images/icon/ic_down.svg);
-}
-
-.ic_up::before {
-  background-image: url(../images/icon/ic_up.svg);
-}
-
-.ic_clip::before {
-  background-image: url(../images/icon/ic_clip.svg);
 }
 
 /******************************
@@ -583,7 +517,7 @@ input[type=file]::file-selector-button:hover {
   align-items: center;
   gap: 0;
   padding: 2rem 3rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--lineDeep);
 }
 .modal-mask .modal-container .modal-header h2 {
   font-size: 2rem;
@@ -621,22 +555,6 @@ input[type=file]::file-selector-button:hover {
 }
 .modal-mask .modal-container .modal-footer .btnArea {
   margin: 0;
-}
-@media screen and (max-width: 600px) {
-  .modal-mask .modal-container {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-  .modal-mask .modal-container .modal-header,
-  .modal-mask .modal-container .modal-contents,
-  .modal-mask .modal-container .modal-footer {
-    padding: 1.8rem;
-  }
-  .modal-mask .modal-container .modal-contents {
-    min-width: 100%;
-    height: calc(100svh - 14.1rem);
-  }
 }
 
 .popup-container {
@@ -680,18 +598,6 @@ input[type=file]::file-selector-button:hover {
   padding: 3rem;
   overflow-y: auto;
 }
-@media screen and (max-width: 768px) {
-  .popup-container {
-    max-width: 100%;
-  }
-  .popup-container .popup-header {
-    padding: 1.8rem;
-  }
-  .popup-container .popup-contents {
-    padding: 1.8rem;
-    min-width: 100%;
-  }
-}
 
 /******************************
   카드박스 정의
@@ -720,7 +626,7 @@ input[type=file]::file-selector-button:hover {
   color: var(--black);
 }
 .card-container .card-box .card-title:nth-of-type(2) {
-  border-top: 1px dashed var(--line);
+  border-top: 1px dashed var(--lineDeep);
   padding-top: 1.6rem;
 }
 .card-container .card-box .card-footer {
@@ -732,21 +638,13 @@ input[type=file]::file-selector-button:hover {
 .card-container .card-box.filled {
   background-color: var(--gray-6);
 }
-@media screen and (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-  }
-  .card-container .card-box {
-    min-width: 100%;
-    padding: 1.6rem;
-  }
-}
 
 /******************************
   배지 정의
 *******************************/
 .badge::before {
   display: inline-flex;
+  -webkit-box-align: center;
   align-items: center;
   height: 1.8rem;
   border-radius: 0.4rem;
@@ -833,18 +731,10 @@ input[type=file]::file-selector-button:hover {
   flex-direction: column;
   margin-top: 1.6rem;
 }
-@media screen and (max-width: 768px) {
-  .formItem label {
-    min-width: 8rem;
-  }
-  .formItem > div {
-    min-width: unset;
-  }
-}
 
 .listTable {
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--lineDeep);
   border-radius: 0.6rem;
   overflow: auto;
 }
@@ -854,7 +744,7 @@ input[type=file]::file-selector-button:hover {
   z-index: 2;
   padding: 0.8rem;
   background-color: white;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--lineDeep);
 }
 .listTable .search .ic {
   position: absolute;
@@ -1023,7 +913,7 @@ input[type=file]::file-selector-button:hover {
   justify-content: left;
   align-items: center;
   gap: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--lineDeep);
   margin-bottom: 3.2rem;
 }
 .tabCotainer .tabMenu .tab {
@@ -1039,12 +929,6 @@ input[type=file]::file-selector-button:hover {
   border-color: var(--black);
   color: var(--black);
 }
-@media screen and (max-width: 768px) {
-  .tabCotainer .tabMenu .tab {
-    min-width: unset;
-    flex: 1;
-  }
-}
 
 /******************************
   팝오버 정의
@@ -1056,7 +940,7 @@ input[type=file]::file-selector-button:hover {
   left: 0;
   padding: 1.6rem;
   background-color: white;
-  border: 1px solid var(--line);
+  border: 1px solid var(--lineDeep);
   border-radius: 0.8rem;
 }
 .popover::before {
@@ -1071,98 +955,5 @@ input[type=file]::file-selector-button:hover {
   margin-left: -1rem;
   border-style: solid;
   border-color: white;
-  border-bottom-color: var(--line);
-}
-
-/******************************
-  타입 칼라 정의의
-*******************************/
-.color_01 {
-  color: var(--type-1) !important;
-}
-
-.color_02 {
-  color: var(--type-2) !important;
-}
-
-.color_03 {
-  color: var(--type-3) !important;
-}
-
-.color_04 {
-  color: var(--type-4) !important;
-}
-
-.color_05 {
-  color: var(--type-5) !important;
-}
-
-.color_06 {
-  color: var(--type-6) !important;
-}
-
-.color_07 {
-  color: var(--type-7) !important;
-}
-
-.color_08 {
-  color: var(--type-8) !important;
-}
-
-.color_09 {
-  color: var(--type-9) !important;
-}
-
-.color_10 {
-  color: var(--type-10) !important;
-}
-
-.bg_01 {
-  background-color: var(--type-1);
-  border: 1px solid var(--type-1);
-}
-
-.bg_02 {
-  background-color: var(--type-2);
-  border: 1px solid var(--type-2);
-}
-
-.bg_03 {
-  background-color: var(--type-3);
-  border: 1px solid var(--type-3);
-}
-
-.bg_04 {
-  background-color: var(--type-4);
-  border: 1px solid var(--type-4);
-}
-
-.bg_05 {
-  background-color: var(--type-5);
-  border: 1px solid var(--type-5);
-}
-
-.bg_06 {
-  background-color: var(--type-6);
-  border: 1px solid var(--type-6);
-}
-
-.bg_07 {
-  background-color: var(--type-7);
-  border: 1px solid var(--type-7);
-}
-
-.bg_08 {
-  background-color: var(--type-8);
-  border: 1px solid var(--type-8);
-}
-
-.bg_09 {
-  background-color: var(--type-9);
-  border: 1px solid var(--type-9);
-}
-
-.bg_10 {
-  background-color: var(--type-10);
-  border: 1px solid var(--type-10);
-}
+  border-bottom-color: var(--lineDeep);
+}/*# sourceMappingURL=component.css.map */

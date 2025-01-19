@@ -3,19 +3,18 @@
 /*** text colors ***/
 :root {
 	--font-system: 'Pretendard';
-	--bg: #F8FAFC;
-  --blue: #5A8DFF;	
-  --green: #90CD41;
+	--bg: #F9F9FB;
+  --blue: #3856C9;
   --orange: #FF993A;
   --yellow: #FFD143;
   --red: #FF3C00;
-  --hover: #3776ff;
-  --line: #CED5E1;
-  --lineDeep: #b6c0cf;
+  --hover: #4463D4;
+  --line: #E4E4E4;
+  --lineDeep: #D5D5D5;
   --text: #7D8DA6;
   --dis: #EDF0F5;
 
-	--black: #111111;
+	--black: #202224;
 	--gray-1: #444444;
 	--gray-2: #666666;
 	--gray-3: #999999;

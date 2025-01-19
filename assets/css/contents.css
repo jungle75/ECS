@@ -1,354 +1,5 @@
 @charset "UTF-8";
 /******************************
-  메인화면
-*******************************/
-.main h2 {
-  font-size: 2.4rem;
-  font-weight: 500;
-  color: var(--black);
-}
-.main .btnMore {
-  position: absolute;
-  right: 0;
-  top: 0.8rem;
-  width: 2.4rem;
-  height: 2.4rem;
-  font-size: 0;
-}
-.main .todaySchedule {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-.main .todaySchedule .statusBox {
-  display: flex;
-  justify-content: left;
-  align-items: flex-start;
-  gap: 3.2rem;
-}
-.main .todaySchedule .statusBox article {
-  flex: 1 1 0%;
-}
-.main .todaySchedule .statusBox article .box {
-  position: relative;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  gap: 0;
-  border-radius: 2rem;
-  overflow: hidden;
-  padding: 2.4rem;
-}
-.main .todaySchedule .statusBox article .box h3 {
-  position: absolute;
-  top: 2.4rem;
-  left: 2.4rem;
-  font-size: 2rem;
-  font-weight: 400;
-  color: white;
-  line-height: 2.4rem;
-}
-.main .todaySchedule .statusBox article .box .Count {
-  width: 50%;
-  aspect-ratio: 1/1;
-  border: 0.8rem solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
-}
-.main .todaySchedule .statusBox article .box .Count span {
-  font-size: 2.4rem;
-  font-weight: 500;
-  color: white;
-  line-height: 4.2rem;
-}
-.main .todaySchedule .statusBox article .box .Count span.current {
-  font-size: 4.2rem;
-  font-weight: 700;
-}
-.main .todaySchedule .statusBox article .statusList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 3.2rem;
-}
-.main .todaySchedule .statusBox article .statusList li {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 1.2rem;
-  padding: 1.2rem;
-  background-color: var(--dis);
-  border-radius: 0.8rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--black);
-}
-.main .todaySchedule .statusBox article .statusList li::before {
-  content: "";
-  display: block;
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 0.8rem;
-  background-image: url(../images/icon/ic_status.svg);
-  background-repeat: no-repeat;
-  background-position: center, center;
-  background-size: 2rem;
-}
-.main .todaySchedule .statusBox .roomTotal .box {
-  background-image: url(../images/layout/roomTotal_bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.main .todaySchedule .statusBox .roomTotal li::before {
-  background-color: var(--blue);
-}
-.main .todaySchedule .statusBox .roomIn .box {
-  background-image: url(../images/layout/roomIn_bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.main .todaySchedule .statusBox .roomIn li::before {
-  background-color: var(--green);
-}
-.main .todaySchedule .statusBox .roomOut .box {
-  background-image: url(../images/layout/roomOut_bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.main .todaySchedule .statusBox .roomOut li::before {
-  background-color: var(--orange);
-}
-@media screen and (max-width: 768px) {
-  .main .todaySchedule .statusBox {
-    gap: 1.6rem;
-  }
-  .main .todaySchedule .statusBox article .statusList {
-    margin-top: 1.2rem;
-  }
-  .main .todaySchedule .statusBox article .statusList li {
-    gap: 0.6rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  .main .todaySchedule {
-    gap: 1.6rem;
-  }
-  .main .todaySchedule .statusBox {
-    flex-direction: column;
-    gap: 2.4rem;
-  }
-  .main .todaySchedule .statusBox article {
-    width: 100%;
-  }
-}
-.main .noticeArea {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  margin-top: 6rem;
-}
-.main .noticeArea .noticeBox {
-  display: flex;
-  justify-content: left;
-  align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.main .noticeArea .noticeBox .notice {
-  width: calc(50% - 1rem);
-  border: 1px solid var(--line);
-  border-radius: 0.8rem;
-  padding: 2rem;
-  background-color: white;
-}
-.main .noticeArea .noticeBox .notice a {
-  width: 100%;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  /* 표시할 줄 수 */
-  -webkit-box-orient: vertical;
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--black);
-  line-height: 2rem;
-  margin-bottom: 0.4rem;
-}
-.main .noticeArea .noticeBox .notice span {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--text);
-}
-@media screen and (max-width: 600px) {
-  .main .noticeArea {
-    gap: 1.6rem;
-  }
-  .main .noticeArea .noticeBox {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  .main .noticeArea .noticeBox .notice {
-    width: 100%;
-  }
-}
-.main .rightArea {
-  z-index: 1;
-  min-width: 30rem;
-  height: 100%;
-  background-color: white;
-  box-shadow: 0 0 1.6rem 0 rgba(176, 179, 186, 0.1);
-}
-.main .rightArea h2 {
-  width: 100%;
-  height: 7.6rem;
-  background-color: var(--blue);
-}
-.main .rightArea h2 span {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  font-size: 2.4rem;
-  font-weight: 500;
-  color: white;
-}
-.main .rightArea .weekleyArea {
-  position: relative;
-  max-height: calc(100vh - 7.6rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  align-items: center;
-  padding: 0 3rem 3rem 3rem;
-  overflow-y: auto;
-}
-.main .rightArea .weekleyArea h3 {
-  background-color: var(--dis);
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--black);
-  padding: 0.8rem;
-  border-radius: 0.6rem;
-  text-align: center;
-}
-.main .rightArea .weekleyArea .weekBox {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  align-items: center;
-  background-color: white;
-  padding: 1.6rem 0;
-}
-.main .rightArea .weekleyArea .weekBox .week {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-}
-.main .rightArea .weekleyArea .weekBox .week li {
-  flex: 1 1 0%;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  background-color: var(--dis);
-}
-.main .rightArea .weekleyArea .weekBox .week li span {
-  text-align: center;
-}
-.main .rightArea .weekleyArea .weekBox .week li .day {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--black);
-  background-color: white;
-  padding-bottom: 0.4rem;
-}
-.main .rightArea .weekleyArea .weekBox .week li .date {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--black);
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-}
-.main .rightArea .weekleyArea .weekBox .week li:first-child .date,
-.main .rightArea .weekleyArea .weekBox .week li:last-child .date {
-  color: white;
-  background-color: var(--blue);
-}
-.main .rightArea .weekleyArea .scheduleBox {
-  width: 100%;
-  border: 1px dashed var(--line);
-  border-radius: 0.8rem;
-  padding: 1.2rem 1.6rem;
-}
-.main .rightArea .weekleyArea .scheduleBox ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 0.8rem;
-}
-.main .rightArea .weekleyArea .scheduleBox ul li {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 0.8rem;
-}
-.main .rightArea .weekleyArea .scheduleBox ul li .name {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--black);
-}
-@media screen and (max-width: 768px) {
-  .main .rightArea h2 {
-    width: unset;
-    height: unset;
-    background-color: white;
-    padding: 0 1.8rem;
-  }
-  .main .rightArea h2 span {
-    font-size: 2.4rem;
-    font-weight: 500;
-    color: var(--black);
-    display: block;
-  }
-  .main .rightArea .weekleyArea {
-    max-height: unset;
-    padding: 1.8rem;
-  }
-  .main .rightArea .weekleyArea .weekBox .week {
-    width: 36rem;
-  }
-  .main .rightArea .weekleyArea .scheduleBox ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    -moz-column-gap: 1.6rem;
-         column-gap: 1.6rem;
-    row-gap: 0.8rem;
-    margin-top: 1.2rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  .main .rightArea .weekleyArea .weekBox .week {
-    width: 100%;
-  }
-}
-
-/******************************
   로그인
 *******************************/
 .loginWrap {
@@ -356,36 +7,41 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 4rem;
   align-items: center;
+  background-image: url(../images/layout/loginBg.png);
+  background-size: cover;
   padding-top: 20rem;
-}
-.loginWrap h1 {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  align-items: center;
-  margin-bottom: 2.4rem;
-  font-size: 2.8rem;
-  font-weight: 600;
-  color: var(--black);
-  line-height: 1.4;
-  text-align: center;
-}
-.loginWrap h1::before {
-  content: "";
-  display: block;
-  width: 21.3rem;
-  height: 16.3rem;
-  background-image: url(../images/layout/login.png);
-  background-repeat: no-repeat;
-  background-size: 100%;
 }
 .loginWrap .loginBox {
   display: flex;
   flex-direction: column;
+  gap: 2.4rem;
+  background-color: white;
+  border-radius: 2.4rem;
+  width: 63rem;
+  padding: 6rem;
+}
+.loginWrap .loginBox .titleBox {
+  display: flex;
+  flex-direction: column;
   gap: 1.2rem;
-  width: 37rem;
+  align-items: center;
+}
+.loginWrap .loginBox .titleBox h1 {
+  width: 20rem;
+  height: 3rem;
+  aspect-ratio: 142/30;
+  background-image: url(../images/layout/h1_logo.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-size: 0;
+  filter: invert(1);
+}
+.loginWrap .loginBox .titleBox p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--black);
 }
 .loginWrap .loginBox .formItem {
   width: 100%;
@@ -393,7 +49,9 @@
   align-items: flex-start;
 }
 .loginWrap .loginBox .formItem label {
-  color: var(--black);
+  color: var(--text);
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
 }
 .loginWrap .loginBox .formItem .inputBox {
   width: 100%;
@@ -402,19 +60,44 @@
   height: 4.8rem;
   border-radius: 0.8rem;
 }
+.loginWrap .loginBox .formOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+.loginWrap .loginBox .formOption a {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
 .loginWrap .loginBox button {
   height: 4.8rem;
   border-radius: 0.8rem;
 }
-@media screen and (max-width: 768px) {
-  .loginWrap {
-    justify-content: center;
-    padding: 0 1.8rem;
-  }
-  .loginWrap .loginBox {
-    width: 100%;
-    max-width: 36rem;
-  }
+.loginWrap footer {
+  width: 63rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  opacity: 0.6;
+}
+.loginWrap footer::before {
+  content: "";
+  display: block;
+  width: 16rem;
+  height: 3.1rem;
+  aspect-ratio: 160/31;
+  background-image: url(../images/layout/logo_bottom.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  filter: invert(1);
+}
+.loginWrap footer .copy {
+  color: white;
+  line-height: 1.6;
 }
 
 /******************************
@@ -545,86 +228,6 @@
 .calendarArea .calendar .tbody .row .item .submit {
   background-color: rgba(255, 153, 58, 0.2);
 }
-@media screen and (max-width: 768px) {
-  .calendarArea {
-    width: 100%;
-    margin-top: 1rem;
-  }
-  .calendarArea .calendar {
-    margin-top: 0;
-  }
-  .calendarArea .calendar .thead {
-    display: none;
-  }
-  .calendarArea .calendar .tbody .row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .calendarArea .calendar .tbody .row .item {
-    width: 100%;
-    border-width: 1px 1px 0 0;
-    padding: 0.8rem 0.8rem 0.8rem 3rem;
-    min-height: 3.4rem;
-  }
-  .calendarArea .calendar .tbody .row .item.disable {
-    display: none;
-  }
-  .calendarArea .calendar .tbody .row .item .date {
-    width: 2.4rem;
-    height: 100%;
-    right: unset;
-    top: 0;
-    left: 0;
-    text-align: center;
-    padding-top: 1rem;
-    background-color: var(--dis);
-  }
-  .calendarArea .calendar .tbody .row .item .schedule {
-    width: 100%;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    -moz-column-gap: 1.6rem;
-         column-gap: 1.6rem;
-    row-gap: 0.8rem;
-    min-height: 2rem;
-  }
-  .calendarArea .calendar .tbody .row .item .schedule li {
-    width: auto;
-  }
-}
-
-.rightContent {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: center;
-}
-.rightContent h3 {
-  background-color: var(--dis);
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--black);
-  padding: 0.8rem;
-  border-radius: 0.6rem;
-  margin-top: 3.8rem;
-}
-.rightContent .btnArea {
-  margin-top: 2.4rem;
-}
-.rightContent .listTable {
-  max-height: 35.5rem;
-  overflow-y: auto;
-}
-.rightContent .listTable:has(.search) thead {
-  top: 5.1rem;
-}
-@media screen and (max-width: 768px) {
-  .rightContent {
-    width: 100%;
-  }
-}
 
 /******************************
   폼입력 화면 정의
@@ -648,37 +251,29 @@
 .formInputBox.col-2 .formItem > div {
   min-width: 14rem;
 }
-@media screen and (max-width: 768px) {
-  .formInputBox {
-    gap: 0.8rem;
-  }
-  .formInputBox .btnArea {
-    margin-top: 0;
-  }
-}
 
 /******************************
   리스트 화면 정의
 *******************************/
 .searchForm {
-  width: 100%;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 2.4rem;
+  display: inline-flex;
   flex-wrap: wrap;
-  background-color: white;
-  border-radius: 0.8rem;
-  padding: 2rem;
+  align-items: center;
+  gap: 1.6rem;
+  background-color: var(--bg);
+  border: 1px solid var(--lineDeep);
+  border-radius: 2rem;
+  padding: 1.6rem;
   margin-bottom: 2.4rem;
-  box-shadow: 0px 0px 2px 0px rgba(18, 18, 23, 0.15);
+}
+.searchForm::before {
+  content: "SEARCH:";
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--black);
 }
 .searchForm .formItem > div {
   min-width: unset;
-}
-.searchForm .formItem label {
-  min-width: auto;
-  padding-right: 2.4rem;
 }
 .searchForm .formItem .date {
   text-align: right;
@@ -687,16 +282,16 @@
   min-width: 12rem !important;
   max-width: 12rem !important;
 }
-@media screen and (max-width: 500px) {
-  .searchForm .formItem .date input {
-    min-width: 100% !important;
-    max-width: 100% !important;
-  }
-}
 .searchForm .btnArea {
+  width: unset;
   margin: 0;
-  gap: 0.4rem;
-  min-width: unset;
+  gap: 0.8rem;
+  border-left: 1px solid var(--lineDeep);
+  padding-left: 1.6rem;
+}
+.searchForm .btnArea .reset {
+  border: 0;
+  color: var(--red);
 }
 
 .gridArea {
@@ -823,13 +418,6 @@
   color: var(--red);
   margin-top: 1.2rem;
 }
-@media screen and (max-width: 768px) {
-  .gridArea .gridTable {
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-  }
-}
 
 /******************************
   차트화면 정의
@@ -867,11 +455,6 @@
 .statusTab label:has(:checked) span {
   font-weight: 600;
   color: var(--blue);
-}
-@media screen and (max-width: 768px) {
-  .statusTab label {
-    padding: 1rem;
-  }
 }
 
 .messageList {
@@ -973,11 +556,6 @@
 }
 .memoList .memoBox .btnArea {
   gap: 1rem;
-}
-@media screen and (max-width: 768px) {
-  .memoList {
-    height: auto;
-  }
 }
 
 .payList {
@@ -1103,8 +681,7 @@
   display: block;
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .infoBox {
@@ -1151,15 +728,6 @@
 }
 .infoBox .box:nth-child(3) .price {
   color: var(--orange);
-}
-@media screen and (max-width: 768px) {
-  .infoBox {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .infoBox .box {
-    width: 100%;
-  }
 }
 
 .checkGroup {
@@ -1329,20 +897,6 @@
 .timeLineWrap .timeLineBox .timeBody .timeTable .row.over .col {
   justify-content: flex-start;
 }
-@media screen and (max-width: 768px) {
-  .timeLineWrap .timeLineBox {
-    padding: 1.2rem;
-  }
-  .timeLineWrap .timeLineBox .rowTitle {
-    margin-left: 12.4rem;
-  }
-  .timeLineWrap .timeLineBox .timeBody .colTitle {
-    width: 11.2rem;
-  }
-  .timeLineWrap .timeLineBox .timeBody .timeTable {
-    width: calc(100% - 12.4rem);
-  }
-}
 
 .statusBoxWrap {
   position: relative;
@@ -1437,31 +991,6 @@
 .statusBoxWrap .statusBox.blank dd {
   filter: opacity(0.4);
 }
-@media screen and (max-width: 768px) {
-  .statusBoxWrap {
-    flex-direction: column;
-    gap: 0.8rem;
-    padding: 0;
-  }
-  .statusBoxWrap .dateArea {
-    position: relative;
-    width: 100%;
-  }
-  .statusBoxWrap .dateArea .date {
-    width: 100%;
-  }
-  .statusBoxWrap .statusBox {
-    width: 100%;
-    min-height: unset;
-  }
-  .statusBoxWrap .statusBox dt {
-    padding: 0.8rem;
-    margin-bottom: 1.2rem;
-  }
-  .statusBoxWrap .statusBox dd .name {
-    margin-bottom: 1.2rem;
-  }
-}
 
 .divideWrap {
   display: flex;
@@ -1540,14 +1069,6 @@
   width: 1.6rem;
   height: 1.6rem;
 }
-@media screen and (max-width: 768px) {
-  .boardDetail .titeAre, .boardDetail .files {
-    padding: 1.6rem;
-  }
-  .boardDetail .boardContent {
-    padding: 2.4rem;
-  }
-}
 
 .myPageWrap {
   display: flex;
@@ -1566,13 +1087,6 @@
   border-top: 1px dashed var(--line);
   margin-top: 1.6rem;
   padding-top: 1.6rem;
-}
-@media screen and (max-width: 768px) {
-  .myPageWrap {
-    flex-direction: column;
-    gap: 2.4rem;
-    padding: 2rem;
-  }
 }
 
 .noPaper {
@@ -1600,9 +1114,4 @@
   height: 4.8rem;
   background-image: url(../images/icon/ic_file.svg);
   background-size: 100%;
-}
-@media screen and (max-width: 768px) {
-  .noPaper {
-    height: auto;
-  }
-}
+}/*# sourceMappingURL=contents.css.map */
