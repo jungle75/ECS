@@ -71,7 +71,7 @@
   display: none;
   background-color: var(--hover);
   border-radius: 2rem;
-  padding: 1rem 3rem 2rem;
+  padding: 1rem 3rem;
 }
 #app #LnbArea .menuWrap .menu .subMenu .depth02 > a,
 #app #LnbArea .menuWrap .menu .subMenu .depth02 > span {
@@ -275,4 +275,4 @@
 #app #container .contentsArea {
   position: relative;
   padding: 5rem;
-}/*# sourceMappingURL=layout.css.map */
+}

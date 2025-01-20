@@ -17,7 +17,7 @@
     @include mixin.flexColumn(2.4rem);
     background-color: white;
     border-radius: 2.4rem;
-    width: 63rem;
+    width: 60rem;
     padding: 6rem;
 
     .titleBox {
@@ -57,6 +57,7 @@
         input {
           height: 4.8rem;
           border-radius: 0.8rem;
+          background-color: var(--bg);
         }
       }
     }
@@ -65,7 +66,7 @@
       @include mixin.flex(space-between, center, 0);
 
       a {
-        @include mixin.font(1.4rem, 400, var(--text));
+        @include mixin.font(1.4rem, 400, var(--black));
         text-decoration: underline;
         text-underline-offset: 0.4rem;
       }
@@ -78,25 +79,25 @@
   }
 
   footer {
-    width: 63rem;
-    @include mixin.flexColumn(1.6rem);
+    width: 60rem;
+    @include mixin.flexColumn(1.2rem);
     opacity: 0.6;
 
     &::before {
       content: "";
       display: block;
-      width: 16rem;
-      height: 3.1rem;
-      aspect-ratio: 160/31;
+      width: 12rem;
+      height: 3.2rem;
+      aspect-ratio: 120/32;
       background-image: url(../images/layout/logo_bottom.png);
       background-size: 100%;
       background-repeat: no-repeat;
-      filter: invert(1);
     }
 
     .copy {
       color: white;
-      line-height: 1.6;
+      line-height: 1.4;
+      font-size: 1.3rem;
     }
   }
 }

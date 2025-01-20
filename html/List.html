@@ -18,7 +18,7 @@
       <h1 class="logo">e-Room Sign</h1>
     
       <nav class="menuWrap">
-        <article class="menu act">
+        <article class="menu">
           <a href="#" class="mainMenu"><span class="ic ic_nav01">공통관리</span></a>
           <ul class="subMenu">
             <li class="depth02">
@@ -29,7 +29,7 @@
                 <li><a href="#" class="3depth">자동번호체번관리</a></li>
               </ul>
             </li>
-            <li class="depth02 act">
+            <li class="depth02">
               <span>사용자관리</span>
               <ul>
                 <li><a href="#" class="3depth">사용자관리</a></li>
@@ -53,24 +53,96 @@
             </li>
           </ul>
         </article>
+
         <article class="menu">
-          <a href="#" class="mainMenu"><span class="ic ic_nav02">계약관리</span></a>
+          <a href="#" class="mainMenu"><span class="ic ic_nav03">계약관리</span></a>
+          <ul class="subMenu">
+            <li class="depth02">
+              <span>계약등록</span>
+              <ul>
+                <li><a href="#" class="3depth">신규계약작성(사업자)</a></li>
+                <li><a href="#" class="3depth">신규계약작성(개인)</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>계약진행</span>
+              <ul>
+                <li><a href="#" class="3depth">임시저장계약</a></li>
+                <li><a href="#" class="3depth">진행중(보낸계약)</a></li>
+                <li><a href="#" class="3depth">진행중(받은계약)</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>계약체결</span>
+              <ul>
+                <li><a href="#" class="3depth">완료(보낸계약)</a></li>
+                <li><a href="#" class="3depth">완료(받은계약)</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>계약서관리</span>
+              <ul>
+                <li><a href="#" class="3depth">템플릿관리</a></li>
+              </ul>
+            </li>
+          </ul>
         </article>
+        
         <article class="menu">
-          <a href="#" class="mainMenu"><span class="ic ic_nav03">거래처관리</span></a>
+          <a href="#" class="mainMenu"><span class="ic ic_nav02">거래처관리</span></a>
+          <ul class="subMenu">
+            <li class="depth02">
+              <span>거래처관리</span>
+              <ul>
+                <li><a href="#" class="3depth">거래처관리</a></li>
+                <li><a href="#" class="3depth">개인회원담당자관리</a></li>
+                <li><a href="#" class="3depth">거래처담당자관리</a></li>
+              </ul>
+            </li>            
+          </ul>
         </article>
+
         <article class="menu">
           <a href="#" class="mainMenu"><span class="ic ic_nav04">회원관리</span></a>
           <ul class="subMenu">
-            <li><a href="#">매출내역</a></li>
-            <li><a href="#">예정매출현황</a></li>
+            <li class="depth02">
+              <span>기본정보</span>
+              <ul>
+                <li><a href="#" class="3depth">회사정보관리</a></li>
+                <li><a href="#" class="3depth">계약서식관리</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>회원관리</span>
+              <ul>
+                <li><a href="#" class="3depth">내정보수정</a></li>
+                <li><a href="#" class="3depth">개인회원관리</a></li>
+              </ul>
+            </li>
           </ul>
         </article>
+
         <article class="menu">
           <a href="#" class="mainMenu"><span class="ic ic_nav05">회원가입</span></a>
           <ul class="subMenu">
-            <li><a href="#">직원관리</a></li>
-            <li><a href="#">고객관리</a></li>
+            <li class="depth02">
+              <a href="#">사업자회원가입</a>
+            </li>
+            <li class="depth02">
+              <a href="#">개인회원가입</a>
+            </li>
+            <li class="depth02">
+              <a href="#">사업자아이디찾기</a>
+            </li>
+            <li class="depth02">
+              <a href="#">개인아이디찾기</a>
+            </li>
+            <li class="depth02">
+              <a href="#">사업자비밀번호찾기</a>
+            </li>
+            <li class="depth02">
+              <a href="#">개인비밀번호찾기</a>
+            </li>
           </ul>
         </article>
       </nav>
@@ -231,6 +303,43 @@
       // 즐겨찾기기
       $('.ic_favorite').click(function () {
         $(this).toggleClass('act');
+      });
+
+      // 초기화: 모든 서브메뉴 숨기기
+      $(".menuWrap .subMenu").hide();
+      $(".menuWrap .menu.act .subMenu").show(); // 활성화된 메뉴 열기
+
+      // 메인 메뉴 클릭 이벤트
+      $(".menuWrap .mainMenu").on("click", function(e) {
+        e.preventDefault(); // 링크 동작 방지
+
+        // 현재 클릭된 메뉴의 부모인 .menu 요소 선택
+        const parentMenu = $(this).closest(".menu");
+
+        // 현재 서브메뉴
+        const subMenu = parentMenu.find(".subMenu");
+
+        // 다른 메뉴의 서브메뉴 닫기
+        $(".menuWrap .menu .subMenu").not(subMenu).slideUp();
+        $(".menuWrap .menu").not(parentMenu).removeClass("act");
+
+        // 현재 서브메뉴 열기/닫기
+        subMenu.slideToggle();
+        parentMenu.toggleClass("act");
+      });
+
+      // 2차 메뉴(depth02) 클릭 이벤트
+      $(".menuWrap .depth02 > span").on("click", function() {
+        // 현재 클릭된 2차 메뉴의 서브메뉴 선택
+        const subMenu = $(this).next("ul");
+
+        // 다른 2차 서브메뉴 닫기
+        $(".menuWrap .depth02 ul").not(subMenu).slideUp();
+        $(".menuWrap .depth02").not($(this).parent()).removeClass("act");
+
+        // 현재 서브메뉴 열기/닫기
+        subMenu.slideToggle();
+        $(this).parent().toggleClass("act");
       });
     });
   </script>
