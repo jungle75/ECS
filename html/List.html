@@ -9,6 +9,16 @@
   <title>e-Room Sign</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- RealGrid -->
+  <link href="../realgrid-demo/realgrid/latest/realgrid-style.css" rel="stylesheet" />
+  <!-- <script src="/realgrid/latest/realgrid-lic.js"></script> -->
+  <script src="../realgrid-demo/realgrid/latest/realgrid.min.js"></script>
+  <script src="../realgrid-demo/realgrid/latest/libs/jszip.min.js"></script>
+
+  <!-- Custom -->
+  <link href="../realgrid-demo/index.css" rel="stylesheet" />
+  <script src="../realgrid-demo/index.js"></script>
 </head>
 
 <body>
@@ -209,80 +219,7 @@
           </div>
         
           <div class="gridTable">
-            <table>
-              <thead>
-                <tr>
-                  <th>
-                    <label class="checkbox" for="check1">
-                      <input type="checkbox" name="check1" id="check1" hidden>
-                      <i></i>
-                    </label>
-                  </th>
-                  <th>이용시설</th>
-                  <th>결제상품</th>
-                  <th>가격</th>
-                  <th>수정</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <label class="checkbox" for="check1">
-                      <input type="checkbox" name="check1" id="check1" hidden>
-                      <i></i>
-                    </label>
-                  </td>
-                  <td>조리원</td>
-                  <td>예약금</td>
-                  <td>4,000,000</td>
-                  <td class="center"><button type="button" class="btn small dark">수정</button></td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="checkbox" for="check1">
-                      <input type="checkbox" name="check1" id="check1" hidden>
-                      <i></i>
-                    </label>
-                  </td>
-                  <td>조리원</td>
-                  <td>예약금</td>
-                  <td>4,000,000</td>
-                  <td class="center"><button type="button" class="btn small dark">수정</button></td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="checkbox" for="check1">
-                      <input type="checkbox" name="check1" id="check1" hidden>
-                      <i></i>
-                    </label>
-                  </td>
-                  <td>조리원</td>
-                  <td>예약금</td>
-                  <td>4,000,000</td>
-                  <td class="center"><button type="button" class="btn small dark">수정</button></td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="comment">*입실비용은 산모실 관리에서 수정할 수 있습니다.</p>
-          </div>
-        
-          <!-- 페이징 -->
-          <div class="pagination center">
-            <div class="arrowBtn disabled">
-              <button type="button" class="back" disabled>뒤로</button>
-              <button type="button" class="backEnd" disabled>맨 뒤로</button>
-            </div>
-            <div class="pageGroup">
-              <a href="#" class="act">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-            </div>
-            <div class="arrowBtn">
-              <button type="button" class="next">앞으로</button>
-              <button type="button" class="nextEnd">맨 앞으로</button>
-            </div>
+            <div id="realgrid_master"></div>
           </div>
         
         </div>

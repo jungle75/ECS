@@ -323,95 +323,11 @@
 .gridArea .gridTable {
   width: 100%;
   overflow: auto;
-  background-color: white;
-  border-radius: 0.8rem;
-  padding: 0.8rem 2rem 2rem 2rem;
-  box-shadow: 0px 0px 2px 0px rgba(18, 18, 23, 0.15);
+  border-radius: 1.2rem;
+  border: 1px solid var(--line);
 }
 .gridArea .gridTable table {
-  border-collapse: separate;
-  width: 100%;
-}
-.gridArea .gridTable table thead {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  z-index: 1;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-}
-.gridArea .gridTable table thead th {
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: var(--black);
-  padding: 1.2rem;
-  border-bottom: 1px solid var(--black);
-  white-space: nowrap;
-}
-.gridArea .gridTable table tbody td {
-  position: relative;
-  border-bottom: 1px solid var(--line);
-  border-right: 1px dashed var(--line);
-  padding: 1.2rem;
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--text);
-  line-height: 2.6rem;
-  text-align: center;
-  white-space: nowrap;
-}
-.gridArea .gridTable table tbody td:last-child {
-  border-right: 0;
-}
-.gridArea .gridTable table tbody td.center {
-  text-align: center;
-}
-.gridArea .gridTable table tbody td .ic_open {
-  font-size: 0;
-}
-.gridArea .gridTable table tbody td .ic_open::before {
-  background-image: url(../images/icon/ic_next.svg);
-  transform: rotate(90deg);
-}
-.gridArea .gridTable table tbody td .ic_close {
-  font-size: 0;
-}
-.gridArea .gridTable table tbody td .ic_close::before {
-  background-image: url(../images/icon/ic_next.svg);
-  transform: rotate(270deg);
-}
-.gridArea .gridTable table tbody td a {
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: var(--black);
-  display: block;
-  text-align: left;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.gridArea .gridTable table tbody td a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.4rem;
-}
-.gridArea .gridTable table tbody td .noData {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  min-height: 30rem;
-}
-.gridArea .gridTable table tbody td.left {
-  text-align: left;
-}
-.gridArea .gridTable table tbody tr:nth-child(even) {
-  background-color: var(--bg);
-}
-.gridArea .gridTable table tbody .hidden {
-  display: none;
-}
-.gridArea .gridTable table tbody .open {
-  display: table-row;
+  font-size: 1.4rem;
 }
 .gridArea .gridTable .comment {
   font-size: 1.4rem;
@@ -682,8 +598,7 @@
   display: block;
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .infoBox {
@@ -1116,4 +1031,4 @@
   height: 4.8rem;
   background-image: url(../images/icon/ic_file.svg);
   background-size: 100%;
-}
+}/*# sourceMappingURL=contents.css.map */
