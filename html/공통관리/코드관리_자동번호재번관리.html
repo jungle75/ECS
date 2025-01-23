@@ -8,17 +8,17 @@
   <meta name="Keywords" content="키워드" />
   <title>e-Room Sign</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- RealGrid -->
-  <link href="../realgrid-demo/realgrid/latest/realgrid-style.css" rel="stylesheet" />
+  <link href="/realgrid-demo/realgrid/latest/realgrid-style.css" rel="stylesheet" />
   <!-- <script src="/realgrid/latest/realgrid-lic.js"></script> -->
-  <script src="../realgrid-demo/realgrid/latest/realgrid.min.js"></script>
-  <script src="../realgrid-demo/realgrid/latest/libs/jszip.min.js"></script>
+  <script src="/realgrid-demo/realgrid/latest/realgrid.min.js"></script>
+  <script src="/realgrid-demo/realgrid/latest/libs/jszip.min.js"></script>
 
   <!-- Custom -->
-  <link href="../realgrid-demo/index.css" rel="stylesheet" />
-  <script src="../realgrid-demo/index.js"></script>
+  <link href="/realgrid-demo/index.css" rel="stylesheet" />
+  <script src="/realgrid-demo/index.js"></script>
 </head>
 
 <body>
@@ -176,12 +176,12 @@
       <section class="TopArea">
         <div class="titleBox">
           <button type="button" class="ic ic_favorite">즐겨찾기</button>
-          <h2>사용자관리</h2>
+          <h2>데이터사전관리</h2>
         </div>
         <div class="location">
           <span>공통관리</span>
-          <span>사용자관리</span>
-          <span>사용자관리</span>
+          <span>코드관리</span>
+          <span>자동번호재번관리</span>
         </div>
       </section>
       <!--// 상단 타이틀 영역 -->
@@ -192,36 +192,59 @@
         <!-- 검색 폼 -->
         <div class="searchForm">
           <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="사용자 ID"></div>
-          </div>
-          <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="한글명"></div>
-          </div>
-          <div class="formItem">
             <div class="selectBox">
               <select name="" id="">
-                <option value="">사용여부</option>
+                <option value="">자동번호재번관리</option>
               </select>
             </div>
           </div>
-          <div class="btnArea">
-            <button type="button" class="btn reset ic ic_reset">Reset Filter</button>
-            <button type="button" class="btn confirm ic ic_search">Search</button>
+          <div class="formItem">
+            <div class="inputBox"><input type="text" placeholder="자동번호코드"></div>
           </div>
         </div>
         
-        <!-- 그리드 테이즐 -->
-        <div class="gridArea">
-          <div class="btnArea">
-            <div class="total"><span class="current">1</span><span>/ 12</span></div>
-            <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn confirm">항목추가</button>
-            <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn">삭제</button>
+        <div class="divideWrap">
+          <div class="col">
+            <!-- 그리드 테이블 -->
+            <div class="gridArea">
+              <div class="titleBox">
+                <div class="sTitle">
+                  <h3>자동번호리스트</h3><span class="total">(58)</span>
+                </div>
+                <div class="btnArea">
+                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_down">엑셀다운</button>
+                </div>
+              </div>
+            
+              <div class="gridTable">
+                <div id="realgrid_master"></div>
+              </div>
+            </div>
+            <!--.. 그리드 테이블 -->
           </div>
-        
-          <div class="gridTable">
-            <div id="realgrid_master"></div>
+
+          <div class="col">
+            <!-- 그리드 테이블 -->
+            <div class="gridArea">
+              <div class="titleBox">
+                <div class="sTitle">
+                  <h3>자동번호규칙</h3><span class="total">(58)</span>
+                </div>
+                <div class="btnArea">
+                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_add">행추가</button>
+                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_remove">행삭제</button>
+                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_confirm">저장</button>
+                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_reset">초기화</button>
+                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_down">엑셀다운</button>
+                </div>
+              </div>
+          
+              <div class="gridTable">
+                <div id="realgrid_master"></div>
+              </div>
+            </div>
+            <!--.. 그리드 테이블 -->
           </div>
-        
         </div>
 
       </section>
@@ -230,7 +253,8 @@
     <!--// 컨텐츠 영역 -->
   </div>
 
-  <script src="../assets/js/jquery-3.7.0.min.js"></script>
+  <script src="/assets/js/jquery-3.7.0.min.js"></script>
+  <script src="/assets/js/jquery-ui.js"></script>
   <script>
     $(document).ready(function () {
       // 컨텐츠 확장/축소

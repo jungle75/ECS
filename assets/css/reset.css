@@ -167,12 +167,12 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: var(--lineDeep);
+  color: var(--text);
 }
 
 input::-ms-input-placeholder,
 textarea::-ms-input-placeholder {
-  color: var(--lineDeep);
+  color: var(--text);
 }
 
 /*select style*/

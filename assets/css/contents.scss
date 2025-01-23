@@ -71,11 +71,6 @@
         text-underline-offset: 0.4rem;
       }
     }
-
-    button {
-      height: 4.8rem;
-      border-radius: 0.8rem;
-    }
   }
 
   footer {
@@ -103,136 +98,6 @@
 }
 
 
-
-/******************************
-  일정
-*******************************/
-.calendarArea {
-  width: 75%;
-  @include mixin.flexColumn(2.4rem);
-
-  .periodTitle {
-    @include mixin.flex(center, center, 1.6rem);
-
-    .ic {
-      font-size: 0;
-    }
-
-    span {
-      @include mixin.font(2.4rem, 600, var(--black));
-    }
-  }
-
-  .calendar {
-    width: 100%;
-    margin-top: 2.4rem;
-
-    .thead {
-      @include mixin.flex(left, flex-start, 0);
-
-      .th {
-        flex: 1 1 0%;
-        height: 4rem;
-        @include mixin.flex(center, center, 0);
-        @include mixin.font(1.4rem, 500, var(--black));
-        background-color: var(--dis);
-
-        &:nth-child(1) {
-          color: var(--red);
-        }
-
-        &:nth-child(7) {
-          color: var(--hover);
-        }
-      }
-    }
-
-    .tbody {
-      width: 100%;
-      border: solid var(--line);
-      border-width: 0 0 1px 1px;
-      background-color: white;
-      border-radius: 0 0 0.8rem 0.8rem;
-      box-shadow: 0px 1px 2px 0px rgba(18, 18, 23, 0.05);
-      overflow: auto;
-
-      .row {
-        @include mixin.flex(left, stretch, 0);
-
-        .item {
-          flex: 1 1 0%;
-          min-width: 13rem;
-          position: relative;
-          border: solid var(--line);
-          border-width: 1px 1px 0 0;
-          padding: 3rem 0 0 0;
-
-          &.disable {
-            color: var(--text) !important;
-            background-image: url(../images/layout/calendar_dis.png);
-            background-size: 100%;
-            opacity: 0.5;
-          }
-
-          &:nth-child(1) {
-            color: var(--red);
-          }
-
-          &:nth-child(7) {
-            color: var(--hover);
-          }
-
-          .date {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-          }
-
-          .schedule {
-            @include mixin.flexColumn(0.4rem);
-            justify-content: flex-end;
-            min-height: 10rem;
-            height: 100%;
-
-            li {
-              @include mixin.flex(left, center, 0.2rem);
-              @include mixin.font(1.4rem, 500, var(--black));
-              line-height: 1.8rem;
-              padding: 0.2rem;
-
-              span {
-                white-space: nowrap;
-              }
-            }
-          }
-
-          .reserve {
-            background-color: rgb(255 209 67 / 0.2);
-          }
-
-          .consult {
-            background-color: rgb(144 205 65 / 0.2);
-          }
-
-          .roomIn {
-            background-color: rgb(90 141 255 / 0.2);
-          }
-
-          .roomOut {
-            background-color: rgb(200 200 200 / 0.2);
-          }
-
-          .submit {
-            background-color: rgb(255 153 58 / 0.2);
-          }
-        }
-      }
-    }
-  }
-}
-
-
-
 /******************************
   폼입력 화면 정의
 *******************************/
@@ -255,6 +120,13 @@
 
       >div {
         min-width: 14rem;
+      }
+
+      &.required {
+        label::after {
+          content: "*";
+          color: var(--red);
+        }
       }
     }
   }
@@ -281,7 +153,7 @@
   }
 
   .formItem {
-    >div {
+    >label {
       min-width: unset;
     }
 
@@ -289,8 +161,8 @@
       text-align: right;
 
       input {
-        min-width: 12rem !important;
-        max-width: 12rem !important;
+        min-width: 16rem !important;
+        max-width: 16rem !important;
       }
     }
   }
@@ -312,29 +184,30 @@
 .gridArea {
   width: 100%;
 
-  h3 {
-    @include mixin.flex(left, center, 0.4rem);
-    @include mixin.font(1.8rem, 600, var(--black));
-    margin-bottom: 2.4rem;
-  }
+  .titleBox {
+    @include mixin.flex(space-between, center, 0);
+    margin-bottom: 1.6rem;
 
-  .btnArea {
-    margin: 1.2rem 0;
-  }
+    .sTitle {
+      @include mixin.flex(left, center, 0.8rem);
 
-  .total {
-    @include mixin.flex(left, center, 0.4rem);
+      h3 {
+        @include mixin.font(2rem, 600, var(--black));
+      }
 
-    .current {
-      color: var(--black);
+      .total {
+        font-size: 1.8rem;
+        color: var(--blue);
+      }
     }
   }
 
   .gridTable {
     width: 100%;
-    overflow: auto;
     border-radius: 1.2rem;
     border: 1px solid var(--line);
+    box-shadow: 0px 0.4rem 1.2rem rgba(221, 224, 255, .54);
+    overflow: hidden;
 
     table {
       font-size: 1.4rem;
@@ -345,673 +218,37 @@
       margin-top: 1.2rem;
     }
   }
+
+  .cardBox {
+    position: relative;
+    height: calc(100% - 5.6rem);
+    @include mixin.flexColumn(1.6rem);
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid var(--line);
+    border-radius: 1.2rem;
+    box-shadow: 0px 0.4rem 1.2rem rgba(221, 224, 255, .54);
+  }
 }
 
 
 /******************************
-  차트화면 정의
+  분할화면면 정의
 *******************************/
-
-.statusTab {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.4rem;
-  background-color: var(--dis);
-  border: 1px solid transparent;
-  border-radius: 0.8rem;
-  margin-bottom: 2.4rem;
-
-  label {
-    border-radius: 0.8rem;
-    padding: 1rem 2rem;
-    cursor: pointer;
-
-    input {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    span {
-      @include mixin.font(1.4rem, 400, var(--text));
-    }
-
-    &:has(:checked) {
-      background-color: white;
-      border: 1px solid var(--hover);
-      box-shadow: 0px 1px 2px 0px rgba(18, 18, 23, 0.05);
-
-      span {
-        font-weight: 600;
-        color: var(--blue);
-      }
-    }
-  }
-}
-
-.messageList {
-  width: 50rem;
-  border: 1px solid var(--line);
-  border-radius: 0.6rem;
-  padding: 0.8rem 2rem;
-  overflow: auto;
-
-  li {
-    @include mixin.flex(left, stretch, 1.2rem);
-    border-bottom: 1px dashed var(--line);
-    padding: 1.2rem 0;
-
-    .No {
-      padding-right: 1.2rem;
-      @include mixin.font(1.6rem, 500, var(--black));
-
-    }
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-
-  .listItem {
-    @include mixin.flex(left, center, 1.2rem);
-    flex-wrap: wrap;
-    border-bottom: 1px dashed var(--line);
-
-    &:last-child {
-      border-bottom: 0;
-    }
-
-    span {
-      @include mixin.flex(left, center, 1.2rem);
-      @include mixin.font(1.4rem, 500, var(--text));
-
-      &::before {
-        content: "";
-        display: block;
-        width: 1px;
-        height: 1.2rem;
-        background-color: var(--line);
-      }
-
-      &:first-child::before {
-        display: none;
-      }
-    }
-
-    .message {
-      width: 100%;
-      background-color: var(--bg);
-      border-radius: 0.6rem;
-      padding: 1.2rem;
-      color: var(--black);
-      cursor: pointer;
-
-      p {
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        line-height: 2rem;
-      }
-
-      &.open {
-        p {
-          -webkit-line-clamp: unset;
-          line-clamp: unset;
-          overflow: visible;
-        }
-      }
-    }
-  }
-}
-
-.memoList {
-  height: 50rem;
-  @include mixin.flexColumn(0.8rem);
-  overflow: auto;
-
-
-  .memoBox {
-    background-color: var(--bg);
-    border-radius: 0.8rem;
-    padding: 1.2rem 1.6rem 0 1.6rem;
-
-    .memo {
-      @include mixin.font(1.4rem, 400, var(--black));
-      line-height: 1.4;
-    }
-
-    span {
-      font-size: 1.4rem;
-    }
-
-    .btnArea {
-      gap: 1rem;
-    }
-  }
-}
-
-.payList {
-  @include mixin.flexColumn(1.2rem);
-
-  .payBox {
-    @include mixin.flex(left, center, 1.6rem);
-    flex-wrap: wrap;
-    border: 1px dashed var(--line);
-    border-radius: 0.8rem;
-    padding: 1.6rem;
-
-    .item {
-      width: calc(50% - 0.8rem);
-      @include mixin.flex(left, center, 1rem);
-
-      .typePay {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 4rem;
-        height: 2.6rem;
-        font-size: 1.2rem;
-        font-weight: 500;
-        color: var(--black);
-        padding: 0 1rem;
-        border: 1px dashed var(--black);
-        border-radius: 0.6rem;
-      }
-
-      .label {
-        @include mixin.font(1.4rem, 500, var(--blue));
-      }
-
-      .data {
-        @include mixin.flex(left, center, 1rem);
-        @include mixin.font(1.4rem, 500, var(--black));
-
-        .type {
-          @include mixin.font(1.2rem, 500, var(--black));
-        }
-      }
-
-      &.right {
-        justify-content: right;
-      }
-    }
-  }
-}
-
-.priceTotal {
-  @include mixin.flex(right, center, 0.8rem);
-  background-color: var(--dis);
-  padding: 2rem;
-  border-radius: 0.8rem;
-
-  span {
-    @include mixin.font(1.4rem, 500, var(--black));
-  }
-
-  .price {
-    font-size: 1.8rem;
-    color: var(--red);
-  }
-}
-
-.payment {
-  .formItem {
-    padding: 0.8rem;
-    border: 1px solid var(--line);
-    border-radius: 0.8rem;
-
-    .price {
-      @include mixin.flex(right, center, 0.2rem);
-      @include mixin.font(1.6rem, 600, var(--black));
-
-      input {
-        text-align: right;
-      }
-    }
-  }
-}
-
-.swiperDoc {
-  position: relative;
-  margin: auto;
-  max-width: 60rem;
-
-  .item {
-    padding: 0 4rem;
-  }
-}
-
-.swiper-wrapper {
-  align-items: center;
-
-  width: unset !important;
-  height: unset !important;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-.infoBox {
-  @include mixin.flex(left, center, 3rem);
-
-  .box {
-    flex: 1;
-    @include mixin.flex(space-between, center, 1rem);
-    padding: 2rem;
-    background-color: white;
-    border-radius: 0.8rem;
-    box-shadow: 0px 0px 2px 0px rgba(18, 18, 23, 0.15);
-
-    .title {
-      @include mixin.font(1.6rem, 600, var(--black));
-    }
-
-    .price {
-      @include mixin.font(2.4rem, 600, var(--black));
-    }
-
-    &:nth-child(1) {
-      border: 1px solid var(--blue);
-
-      .price {
-        color: var(--blue);
-      }
-    }
-
-    &:nth-child(2) {
-      border: 1px solid var(--green);
-
-      .price {
-        color: var(--green);
-      }
-    }
-
-    &:nth-child(3) {
-      border: 1px solid var(--orange);
-
-      .price {
-        color: var(--orange);
-      }
-    }
-  }
-}
-
-.checkGroup {
-  @include mixin.flex(left, center, 0.6rem);
-  row-gap: 1.2rem;
-
-  .checkbox {
-    width: calc(33.333% - 0.4rem);
-  }
-}
-
-.smallSearch {
-  @include mixin.flex(left, center, 0.8rem);
-  padding-bottom: 1.2rem;
-
-  .inputBox {
-    width: 20rem;
-    flex: unset;
-  }
-}
-
-.innerList {
-  @include mixin.flex(left, center, 3.2rem);
-  flex-wrap: wrap;
-  row-gap: 1.2rem;
-  padding: 2rem;
-  background-color: white;
-}
-
-.timeLineWrap {
-  .periodTitle {
-    @include mixin.flex(center, center, 1.6rem);
-
-    .ic {
-      font-size: 0;
-    }
-
-    span {
-      @include mixin.font(2.4rem, 600, var(--black));
-    }
-  }
-
-  .legend {
-    @include mixin.flex(right, center, 0.4rem);
-    margin: 2.4rem 0 1.2rem 0;
-
-    span {
-      font-size: 1.2rem;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 2rem;
-    }
-
-    .Deluxe {
-      background-color: var(--blue);
-    }
-
-    .RoyalSuite {
-      background-color: var(--green);
-    }
-
-    .Suite {
-      background-color: var(--orange);
-    }
-  }
-
-  .timeLineBox {
-    width: 100%;
-    background-color: var(--dis);
-    border-radius: 0.8rem;
-    padding: 2rem;
-    overflow: auto;
-
-    .rowTitle {
-      @include mixin.flex(left, center, 0);
-      margin-left: 13.3rem;
-
-      .col {
-        flex: 1;
-        min-width: 2rem;
-        text-align: center;
-        padding: 1.2rem 0;
-        @include mixin.font(1.2rem, 500, var(--black));
-      }
-    }
-
-    .timeBody {
-      @include mixin.flex(left, stretch, 1.2rem);
-
-      .colTitle {
-        width: 12rem;
-        @include mixin.flexColumn(0);
-
-        .row {
-          height: 4.8rem;
-          @include mixin.flex(right, center, 1.2rem);
-          @include mixin.font(1.3rem, 500, var(--black));
-
-          .Deluxe {
-            color: var(--blue);
-            font-weight: 600;
-          }
-
-          .RoyalSuite {
-            color: var(--green);
-            font-weight: 600;
-          }
-
-          .Suite {
-            color: var(--orange);
-            font-weight: 600;
-          }
-        }
-      }
-
-      .timeTable {
-        width: calc(100% - 13.2rem);
-        border: solid var(--line);
-        border-width: 1px 0 0 1px;
-
-        .row {
-          @include mixin.flex(left, stretch, 0);
-
-          .col {
-            flex: 1;
-            @include mixin.flexColumn(0.4rem);
-            justify-content: center;
-            min-width: 2rem;
-            height: 4.8rem;
-            border: solid var(--line);
-            border-width: 0 1px 1px 0;
-            padding: 1.2rem 0;
-
-            span {
-              display: block;
-              height: 1rem;
-              opacity: 0;
-
-              &.first {
-                border-radius: 1rem 0 0 1rem;
-              }
-
-              &.last {
-                border-radius: 0 1rem 1rem 0;
-              }
-
-              &.on {
-                opacity: 1;
-              }
-            }
-          }
-
-
-          &.over {
-            .col {
-              justify-content: flex-start;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.statusBoxWrap {
-  position: relative;
-  @include mixin.flex(left, flex-start, 1.5rem);
-  flex-wrap: wrap;
-  padding-top: 5.2rem;
-
-  .dateArea {
-    position: absolute;
-    right: 0;
-    top: 0;
-    @include mixin.flex(right, center, 0);
-    margin-bottom: 1.6rem;
-
-    .date {
-      width: 20rem;
-
-      img {
-        display: none;
-      }
-    }
-  }
-
-  .statusBox {
-    width: calc(20% - 1.2rem);
-    min-height: 20rem;
-    padding: 2rem;
-    border-radius: 0.8rem;
-    background-color: white;
-    box-shadow: 0 0 1.6rem 0 rgba(176, 179, 186, 0.10);
-
-    dt {
-      @include mixin.flex(center, center, 0.8rem);
-      padding: 1.2rem;
-      margin-bottom: 1.6rem;
-      border-radius: 3rem;
-      background-color: white !important;
-
-      span {
-        font-size: 1.6rem;
-        color: var(--black);
-      }
-
-      .type {
-        font-size: 2rem;
-        font-weight: 600;
-      }
-    }
-
-    dd {
-      @include mixin.flexColumn(0.4rem);
-      align-items: center;
-      @include mixin.font(1.4rem, 400, var(--black));
-
-      .name {
-        @include mixin.flex(left, center, 0.8rem);
-
-        span {
-          font-size: 2.8rem;
-          font-weight: 500;
-          margin-bottom: 1.6rem;
-          padding: 0.4rem;
-          cursor: pointer;
-
-          &:hover {
-            border-radius: 0.8rem;
-            background-color: var(--dis);
-          }
-        }
-
-        .over {
-          font-size: 2.4rem;
-          color: white;
-          background-color: var(--yellow);
-          border-radius: 0.8rem;
-        }
-      }
-
-      .badge {
-        @include mixin.flex(left, center, 0.8rem);
-      }
-    }
-
-    &.blank {
-
-      dt,
-      dd {
-        filter: opacity(0.4);
-      }
-    }
-  }
-}
-
 .divideWrap {
-  @include mixin.flex(left, flex-start, 3.2rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.2rem;
 
-  >div {
-    flex: 1 1 0%;
-  }
+  .col {
+    width: calc(50% - 1.6rem);
 
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    gap: 1.6rem;
-
-    >div {
-      width: 100%;
+    .gridArea {
+      height: 100%;
     }
   }
-}
 
-.inputMSG {
-  @include mixin.flexColumn(1.2rem);
-  padding-top: 6rem;
-
-  .textArea {
+  .row {
     width: 100%;
-    height: 20rem;
-  }
-}
-
-.boardDetail {
-  .titeArea {
-    @include mixin.flexColumn(1.6rem);
-    align-items: center;
-    border-bottom: 2px solid var(--black);
-    padding: 3rem;
-
-    .title {
-      @include mixin.font(2.4rem, 500, var(--black));
-    }
-
-    .date {
-      @include mixin.font(1.4rem, 400, var(--text));
-    }
-  }
-
-  .boardContent {
-    padding: 3rem;
-    @include mixin.font(1.4rem, 400, var(--text));
-    border-bottom: 1px solid var(--line);
-    background-color: white;
-  }
-
-  .files {
-    @include mixin.flexColumn(0.8rem);
-    padding: 2rem 3rem;
-    border-bottom: 1px solid var(--line);
-    background-color: white;
-
-    a {
-      @include mixin.flex(left, center, 0.2rem);
-      @include mixin.font(1.4rem, 400, var(--black));
-
-      &::before {
-        width: 1.6rem;
-        height: 1.6rem;
-      }
-    }
-  }
-}
-
-.myPageWrap {
-  @include mixin.flex(center, center, 6rem);
-  background-color: white;
-  border-radius: 0.8rem;
-  padding: 6rem 3rem;
-
-  .myPageImg {
-    max-width: 100%;
-    width: 40rem;
-  }
-
-  .myPageForm {
-    .btnArea {
-      border-top: 1px dashed var(--line);
-      margin-top: 1.6rem;
-      padding-top: 1.6rem;
-    }
-  }
-}
-
-.noPaper {
-  width: 100%;
-  height: 60rem;
-  @include mixin.flex(center, center, 0);
-
-  .text {
-    @include mixin.flexColumn(1.6rem);
-    justify-content: center;
-    align-items: center;
-    @include mixin.font(1.6rem, 500, var(--text));
-
-    &::before {
-      content: "";
-      display: block;
-      width: 4.8rem;
-      height: 4.8rem;
-      background-image: url(../images/icon/ic_file.svg);
-      background-size: 100%;
-    }
   }
 }
