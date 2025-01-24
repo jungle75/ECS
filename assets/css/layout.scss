@@ -2,8 +2,10 @@
 @use '_mixin';
 
 #app {
-  width: 100%;
+  width: 100%;  
+  min-width: 190rem;
   height: 100%;
+  padding: 0.8rem 0;
 
   &.bgColor {
     background-color: var(--blue);
@@ -183,7 +185,7 @@
     @include mixin.flexColumn(0);
     margin-left: 28rem;
     background-color: white;
-    border-radius: 5rem 0 0 5rem;
+    border-radius: 2rem 0 0 2rem;
     transition: all 0.2s;
 
     .btnWide {
@@ -220,9 +222,9 @@
     }
 
     .TopArea {
-      height: 9rem;
+      min-height: 8rem;
       @include mixin.flex(space-between, center, 0);
-      padding: 0 5rem;
+      padding: 0 4rem;
       border-bottom: 1px solid var(--line);
 
       .titleBox {
@@ -238,7 +240,7 @@
         }
 
         h2 {
-          @include mixin.font(3.2rem, 500, var(--black));
+          @include mixin.font(3.2rem, 600, var(--black));
         }
       }
 
@@ -269,14 +271,17 @@
         }
 
         span:last-child {
-          color: var(--blue);
+          color: var(--black);
+          font-weight: 600;
         }
       }
     }
 
     .contentsArea {
       position: relative;
-      padding: 5rem;
+      height: calc(100% - 8rem);
+      padding: 4rem;      
+      overflow: auto;
     }
   }
 }

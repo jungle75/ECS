@@ -1,290 +1,252 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
-
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="Description" content="사이트설명" />
-  <meta name="Keywords" content="키워드" />
-  <title>e-Room Sign</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../assets/css/style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>ECS 퍼블 리스트</title>
+	<meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="/assets/css/style.css">
+	<style>			
+		/* 코딩 리스트 */
+		.guide_head{display:flex;width:100%;height:100px;background:#212121;align-items:center;}
+		.guide_head .guide_tit{font-size:24px;font-weight:700;color:#fff;margin-left:40px;}
+		.guide_cont{padding:40px;}
 
-  <!-- RealGrid -->
-  <link href="../realgrid-demo/realgrid/latest/realgrid-style.css" rel="stylesheet" />
-  <!-- <script src="/realgrid/latest/realgrid-lic.js"></script> -->
-  <script src="../realgrid-demo/realgrid/latest/realgrid.min.js"></script>
-  <script src="../realgrid-demo/realgrid/latest/libs/jszip.min.js"></script>
+		/* 공지 */
+		.notibox{margin-bottom:20px;padding:15px;border:2px solid #f7f7f7;font-size:12px;font-weight:400;line-height:18px;color:#666;}
+		.notibox li{position:relative;padding-left:10px;}
+		.notibox li:before{content:'';display:block;position:absolute;left:0;top:10px;width:3px;height:3px;background-color:#ccc;}
 
-  <!-- Custom -->
-  <link href="../realgrid-demo/index.css" rel="stylesheet" />
-  <script src="../realgrid-demo/index.js"></script>
+		/* 코딩리스트 테이블 */
+		.pub_list{overflow-x:auto;}
+		.pub_list table{table-layout:fixed;width:100%;}
+		.pub_list thead th{height:30px;border-right:1px #999 solid;background:#333;color:#fff;text-align:center;font-weight:400;}
+		.pub_list tbody td{min-height:40px;padding:10px;border-right:1px #dbdbdb solid;border-bottom:1px #dbdbdb solid;color:#666;text-align:center;font-weight:400;}
+		.pub_list thead th:last-child,
+		.pub_list tbody td:last-child{border-right:0;}
+		.pub_list thead tr:nth-child(2) th:last-child{border-right:1px #999 solid;}
+		.pub_list tbody tr:hover{background-color:#f7f7f7;}
+		.pub_list tr.comon > td{background:#fff5da;color:#212121;}
+		.pub_list tr.complete > td{background:#def7ff;color:#212121;}
+		.pub_list tr.hold > td{background:#f6f6f6;color:#ccc;}
+		.pub_list tr.del > td{background:#f6f6f6;opacity:0.5;text-decoration:line-through;}
+		.pub_list tr.del a,
+		.pub_list tr.hold a{pointer-events:none;color:#ccc;text-decoration:none;}
+		.pub_list tr.modify > td{background:#def7ff;}
+		.pub_list tr.cosmo > td{background-color:#fff3f4;}
+		.pub_list tr.esquire > td{background-color:#f5f6f8;}
+		.pub_list tr.elle > td{background-color:#edebe2;}
+		.pub_list .tal{text-align:left;}
+		.pub_list a{color:#222;text-decoration:underline;}
+		.txt_sm{display:block;position:relative;padding-left:8px;font-size:13px;line-height:20px;}
+		.txt_sm:before{content:'';display:block;position:absolute;left:0;top:8px;width:3px;height:3px;background:#999;}
+		.txt_sm .color1{color:#ff975e;}
+		.txt_sm .color2{color:#6396ff;}
+		.txt_sm.non{padding-left:0;}
+		.txt_sm.non:before{display:none;}
+		.txt_sm strong{color:#000;font-weight:500;}
+		.line_top td{border-top:2px solid #666;}
+
+		.guide_state{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;}
+		.page_state label{display:inline-block;margin-right:5px;vertical-align:middle;}
+		.page_state .selectbox{display:inline-block;width:100px;vertical-align:middle;}
+		.page_state .selectbox select{height:30px;font-size:13px;line-height:28px;}
+		.page_count{color:#666;text-align:right;}
+		.page_count .ing{color:#f78e16;}
+		.page_count .complete{color:#0d7feb;}
+		.page_count .modify{color:#80001c;}
+
+		/* 가이드탭 */
+		.guide_tab{margin-bottom:20px;}
+		.guide_tab > ul{display:flex;flex-wrap:wrap;gap:8px;position:relative;}
+		.guide_tab > ul > li > a{display:block;height:40px;padding:0 20px;border:1px solid #dbdbdb;font-size:16px;color:#111;line-height:38px;text-align:center;}
+		.guide_tab > ul > li.on > a{background-color:#212121;border-color:#212121;color:#fff;}
+
+		/* 모듈 가이드 설명 */
+		.guide_sec{padding:0 40px 40px; font-size: 1.4rem;}
+		.guide_sec .h2{margin:0 -40px 40px;padding:33px 40px;font-size:24px;font-weight:700;color:white;background-color:#212121;}
+		.guide_box {padding-bottom: 40px;}
+		.guide_box .h3{position:relative;margin-top:30px;margin-bottom:10px;font-size:18px;}
+		.guide_box .h3:first-of-type{margin-top:0;}
+		.guide_desc{margin:20px 0;}
+		.guide_desc li{display:block;position:relative;padding-left:12px;font-size:16px;font-weight:400;line-height:1.5;color:#555;text-align:left;}
+		.guide_desc li em{color:var(--point);}
+		.guide_desc li:before{content:'-';display:block;position:absolute;top:0;left:0;bottom:0;}
+		.guide_desc li + li{margin-top:5px;}
+		.guide_noti{margin:20px 0 30px;}
+		.guide_noti li{display:block;position:relative;padding-left:12px;font-size:16px;font-weight:400;line-height:1.5;color:#555;text-align:left;}
+		.guide_noti li em{color:var(--point);}
+		.guide_noti li:before{content:'';display:block;position:absolute;top:12px;left:0;bottom:0;width:3px;height:3px;background-color:#555;}
+		.guide_noti li + li{margin-top:5px;}
+		.guide_sec .h2 + .guide_desc,
+		.guide_sec .h3 + .guide_desc{margin-top:0px;}
+		.guide_desc:last-child{margin-bottom:0;}
+		p.guide_desc{display:block;position:relative;padding-left:15px;font-size:16px;font-weight:400;line-height:1.5;color:#555;text-align:left;}
+		p.guide_desc:before{content:'-';display:block;position:absolute;top:0;left:0;bottom:0;}
+		p.guide_desc em{color:var(--point);}
+		.impt{color:#ff0000;}
+
+		/* 테이블 type1 - 일반컨텐츠 */
+		.guide_tbl01 {overflow:hidden; border:1px solid #333; border-width:1px 0; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+		.guide_tbl01 table {width:calc(100% + 2px); table-layout:fixed; margin:0 -1px -1px;}
+		.guide_tbl01 table th, .guide_tbl01 table td {height:40px; vertical-align:middle; text-align:left; line-height:13px; font-size:14px; font-weight:400;background:#fff; line-height:1.5;}
+		.guide_tbl01 table th {padding:3px 15px; border-bottom:1px solid #666; background-color:#f8f8f8; text-align:center; word-break:keep-all;}
+		.guide_tbl01 table td {padding:3px 15px; border:1px solid #eee; border-bottom:0;}
+		.guide_tbl01 table tbody tr:first-child td {border-top:0;}
+		.guide_tbl01 table tbody + tbody tr:first-child td {border-top:1px solid #666;}
+		.guide_tbl01 table tbody th {border-bottom:1px solid #eee; border-right:1px solid #eee;}
+
+		.footer{padding-bottom:0;}
+		.footer_top .cont_inner{justify-content:center;}
+	</style>
 </head>
 
 <body>
-  <div id="app" class="bgColor">
-    <!-- 좌측 lnb -->
-    <section id="LnbArea">
-      <h1 class="logo">e-Room Sign</h1>
-    
-      <nav class="menuWrap">
-        <article class="menu">
-          <a href="#" class="mainMenu"><span class="ic ic_nav01">공통관리</span></a>
-          <ul class="subMenu">
-            <li class="depth02">
-              <span>코드관리</span>
-              <ul>
-                <li><a href="#" class="3depth">공통코드관리</a></li>
-                <li><a href="#" class="3depth">데이터사전관리</a></li>
-                <li><a href="#" class="3depth">자동번호체번관리</a></li>
-              </ul>
-            </li>
-            <li class="depth02">
-              <span>사용자관리</span>
-              <ul>
-                <li><a href="#" class="3depth">사용자관리</a></li>
-                <li><a href="#" class="3depth">부서관리</a></li>
-                <li><a href="#" class="3depth">사용자로그현황</a></li>
-              </ul>
-            </li>
-            <li class="depth02">
-              <span>권한관리</span>
-              <ul>
-                <li><a href="#" class="3depth">메뉴관리</a></li>
-                <li><a href="#" class="3depth">권한그룹관리</a></li>
-                <li><a href="#" class="3depth">권한그룹대상관리</a></li>
-              </ul>
-            </li>
-            <li class="depth02">
-              <span>게시판관리</span>
-              <ul>
-                <li><a href="#" class="3depth">공지사항</a></li>
-              </ul>
-            </li>
-          </ul>
-        </article>
+	<div class="wrap">
+		<header class="guide_head">
+			<h1 class="guide_tit">ECS 코딩 리스트</h1>
+		</header>
+		<div class="guide_cont">
+			<div class="notibox">
+				<ul>
+					<li>1차 완료일자 : 2025-02-02</li>
+				</ul>
+			</div>
 
-        <article class="menu">
-          <a href="#" class="mainMenu"><span class="ic ic_nav03">계약관리</span></a>
-          <ul class="subMenu">
-            <li class="depth02">
-              <span>계약등록</span>
-              <ul>
-                <li><a href="#" class="3depth">신규계약작성(사업자)</a></li>
-                <li><a href="#" class="3depth">신규계약작성(개인)</a></li>
-              </ul>
-            </li>
-            <li class="depth02">
-              <span>계약진행</span>
-              <ul>
-                <li><a href="#" class="3depth">임시저장계약</a></li>
-                <li><a href="#" class="3depth">진행중(보낸계약)</a></li>
-                <li><a href="#" class="3depth">진행중(받은계약)</a></li>
-              </ul>
-            </li>
-            <li class="depth02">
-              <span>계약체결</span>
-              <ul>
-                <li><a href="#" class="3depth">완료(보낸계약)</a></li>
-                <li><a href="#" class="3depth">완료(받은계약)</a></li>
-              </ul>
-            </li>
-            <li class="depth02">
-              <span>계약서관리</span>
-              <ul>
-                <li><a href="#" class="3depth">템플릿관리</a></li>
-              </ul>
-            </li>
-          </ul>
-        </article>
-        
-        <article class="menu">
-          <a href="#" class="mainMenu"><span class="ic ic_nav02">거래처관리</span></a>
-          <ul class="subMenu">
-            <li class="depth02">
-              <span>거래처관리</span>
-              <ul>
-                <li><a href="#" class="3depth">거래처관리</a></li>
-                <li><a href="#" class="3depth">개인회원담당자관리</a></li>
-                <li><a href="#" class="3depth">거래처담당자관리</a></li>
-              </ul>
-            </li>            
-          </ul>
-        </article>
-
-        <article class="menu">
-          <a href="#" class="mainMenu"><span class="ic ic_nav04">회원관리</span></a>
-          <ul class="subMenu">
-            <li class="depth02">
-              <span>기본정보</span>
-              <ul>
-                <li><a href="#" class="3depth">회사정보관리</a></li>
-                <li><a href="#" class="3depth">계약서식관리</a></li>
-              </ul>
-            </li>
-            <li class="depth02">
-              <span>회원관리</span>
-              <ul>
-                <li><a href="#" class="3depth">내정보수정</a></li>
-                <li><a href="#" class="3depth">개인회원관리</a></li>
-              </ul>
-            </li>
-          </ul>
-        </article>
-
-        <article class="menu">
-          <a href="#" class="mainMenu"><span class="ic ic_nav05">회원가입</span></a>
-          <ul class="subMenu">
-            <li class="depth02">
-              <a href="#">사업자회원가입</a>
-            </li>
-            <li class="depth02">
-              <a href="#">개인회원가입</a>
-            </li>
-            <li class="depth02">
-              <a href="#">사업자아이디찾기</a>
-            </li>
-            <li class="depth02">
-              <a href="#">개인아이디찾기</a>
-            </li>
-            <li class="depth02">
-              <a href="#">사업자비밀번호찾기</a>
-            </li>
-            <li class="depth02">
-              <a href="#">개인비밀번호찾기</a>
-            </li>
-          </ul>
-        </article>
-      </nav>
-
-      <footer>
-        <div class="footMenu">
-          <button type="button"><span>로그아웃</span></button>
-          <button type="button"><span>비밀번호 변경</span></button>
-        </div>
-        <p>최근접속일 : 2025.01.07 09:53</p>
-        <p>ⓒ 2025 IRUDACOM</p>
-      </footer>
-    </section>
-    <!--// 좌측 lnb -->
-
-    <!-- 컨텐츠 영역 -->
-    <div id="container">
-      <button type="button" class="btnWide">확장하기</button>
-
-      <!-- 상단 타이틀 영역 -->
-      <section class="TopArea">
-        <div class="titleBox">
-          <button type="button" class="ic ic_favorite">즐겨찾기</button>
-          <h2>공통코드관리리</h2>
-        </div>
-        <div class="location">
-          <span>공통관리</span>
-          <span>사용자관리</span>
-          <span>사용자관리</span>
-        </div>
-      </section>
-      <!--// 상단 타이틀 영역 -->
-
-      <!-- 컨텐츠 영역 -->
-      <section class="contentsArea">
-
-        <!-- 검색 폼 -->
-        <div class="searchForm">
-          <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="마스터코드"></div>
-          </div>
-          <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="마스터코드 이름"></div>
-          </div>
-          <div class="formItem">
-            <div class="selectBox">
-              <select name="" id="">
-                <option value="">사용여부</option>
-              </select>
-            </div>
-          </div>
-          <div class="btnArea">
-            <button type="button" class="btn reset ic ic_reset">Reset Filter</button>
-            <button type="button" class="btn search ic ic_search">Search</button>
-          </div>
-        </div>
-        
-        <!-- 그리드 테이즐 -->
-        <div class="gridArea">
-          <div class="titleBox">
-            <div class="sTitle"><h3>공통코드목록</h3><span class="total">(58)</span></div>
-            <div class="btnArea">
-              <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_add">행추가</button>
-              <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_remove">행삭제</button>
-              <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_confirm">저장</button>
-              <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_reset">초기화</button>
-              <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_down">엑셀다운</button>
-            </div>
-          </div>
-        
-          <div class="gridTable">
-            <div id="realgrid_master"></div>
-          </div>
-        
-        </div>
-
-      </section>
-      <!--// 컨텐츠 영역 -->
-    </div>
-    <!--// 컨텐츠 영역 -->
-  </div>
-
-  <script src="../assets/js/jquery-3.7.0.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      // 컨텐츠 확장/축소
-      $('.btnWide').click(function () {
-        $('#container').toggleClass('wide');
-      });
-      // 즐겨찾기기
-      $('.ic_favorite').click(function () {
-        $(this).toggleClass('act');
-      });
-
-      // 초기화: 모든 서브메뉴 숨기기
-      $(".menuWrap .subMenu").hide();
-      $(".menuWrap .menu.act .subMenu").show(); // 활성화된 메뉴 열기
-
-      // 메인 메뉴 클릭 이벤트
-      $(".menuWrap .mainMenu").on("click", function(e) {
-        e.preventDefault(); // 링크 동작 방지
-
-        // 현재 클릭된 메뉴의 부모인 .menu 요소 선택
-        const parentMenu = $(this).closest(".menu");
-
-        // 현재 서브메뉴
-        const subMenu = parentMenu.find(".subMenu");
-
-        // 다른 메뉴의 서브메뉴 닫기
-        $(".menuWrap .menu .subMenu").not(subMenu).slideUp();
-        $(".menuWrap .menu").not(parentMenu).removeClass("act");
-
-        // 현재 서브메뉴 열기/닫기
-        subMenu.slideToggle();
-        parentMenu.toggleClass("act");
-      });
-
-      // 2차 메뉴(depth02) 클릭 이벤트
-      $(".menuWrap .depth02 > span").on("click", function() {
-        // 현재 클릭된 2차 메뉴의 서브메뉴 선택
-        const subMenu = $(this).next("ul");
-
-        // 다른 2차 서브메뉴 닫기
-        $(".menuWrap .depth02 ul").not(subMenu).slideUp();
-        $(".menuWrap .depth02").not($(this).parent()).removeClass("act");
-
-        // 현재 서브메뉴 열기/닫기
-        subMenu.slideToggle();
-        $(this).parent().toggleClass("act");
-      });
-    });
-  </script>
+			<!-- 리스트 -->
+			<div class="pub_list">
+				<table id="tbl">
+					<colgroup>
+						<col style="width:110px;">
+						<col style="width:110px;">
+						<col style="width:200px;">
+						<col style="width:200px;">
+						<col style="width:100px;">
+						<col style="width:100px;">
+						<col style="width:120px;">
+						<col style="width:120px;">
+						<col style="width:120px;">
+						<col style="width:400px;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">1depth</th>
+							<th scope="col">2depth</th>
+							<th scope="col">3depth</th>
+							<th scope="col">URL</th>
+							<th scope="col">구분</th>
+							<th scope="col">작업자</th>
+							<th scope="col">시작일</th>
+							<th scope="col">완료일</th>
+							<th scope="col">진행상태</th>
+							<th scope="col">비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 공통 -->
+						<tr class="comon">
+							<td class="tal">login</td>
+							<td class="tal"></td>
+							<td class="tal"></td>
+							<td class="tal"><a href="login.html" target="_blank">login.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-14</td>
+							<td>2025-01-21</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="comon">
+							<td class="tal">Layout</td>
+							<td class="tal"></td>							
+							<td class="tal"></td>
+							<td class="tal"><a href="layout.html" target="_blank">layout.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-14</td>
+							<td>2025-01-21</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="comon">
+							<td class="tal">공통관리</td>
+							<td class="tal">코드관리</td>							
+							<td class="tal">공통코드관리</td>
+							<td class="tal"><a href="공통관리/코드관리_공통코드관리.html" target="_blank">코드관리_공통코드관리.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-21</td>
+							<td>2025-01-24</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="comon">
+							<td class="tal">공통관리</td>
+							<td class="tal">코드관리</td>							
+							<td class="tal">데이터사전관리</td>
+							<td class="tal"><a href="공통관리/코드관리_데이터사전관리.html" target="_blank">코드관리_데이터사전관리.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-21</td>
+							<td>2025-01-24</td>
+							<td>완료</td>
+							<td></td>
+						</tr>
+						<tr class="comon">
+							<td class="tal">공통관리</td>
+							<td class="tal">코드관리</td>							
+							<td class="tal">자동번호재번관리</td>
+							<td class="tal"><a href="공통관리/코드관리_자동번호재번관리.html" target="_blank">코드관리_자동번호재번관리.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-21</td>
+							<td>2025-01-24</td>
+							<td>완료</td>
+							<td></td>
+						</tr>
+						<tr class="comon">
+							<td class="tal">공통관리</td>
+							<td class="tal">사용자관리</td>							
+							<td class="tal">사용자관리</td>
+							<td class="tal"><a href="공통관리/사용자관리_사용자관리.html" target="_blank">사용자관리_사용자관리.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-21</td>
+							<td>2025-01-24</td>
+							<td>완료</td>
+							<td></td>
+						</tr>
+						<tr class="comon">
+							<td class="tal">공통관리</td>
+							<td class="tal">사용자관리</td>							
+							<td class="tal">자동번호재번관리</td>
+							<td class="tal"><a href="공통관리/사용자관리_사용자로그현황.html" target="_blank">사용자관리_사용자로그현황.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-21</td>
+							<td>2025-01-24</td>
+							<td>완료</td>
+							<td></td>
+						</tr>
+						<tr class="comon">
+							<td class="tal">공통관리</td>
+							<td class="tal">사용자관리</td>							
+							<td class="tal">부서관리</td>
+							<td class="tal"><a href="공통관리/사용자관리_부서관리.html" target="_blank">사용자관리_부서관리.html</a></td>
+							<td>page</td>
+							<td>김미정</td>
+							<td>2025-01-21</td>
+							<td>2025-01-24</td>
+							<td>완료</td>
+							<td></td>
+						</tr>
+						<!-- //공통 -->
+					</tbody>
+				</table>
+			</div>
+			<!-- //리스트 -->
+		</div>
+	</div>
 </body>
-
 </html>

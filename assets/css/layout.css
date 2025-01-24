@@ -1,6 +1,8 @@
 #app {
   width: 100%;
+  min-width: 190rem;
   height: 100%;
+  padding: 0.8rem 0;
 }
 #app.bgColor {
   background-color: var(--blue);
@@ -178,7 +180,7 @@
   gap: 0;
   margin-left: 28rem;
   background-color: white;
-  border-radius: 5rem 0 0 5rem;
+  border-radius: 2rem 0 0 2rem;
   transition: all 0.2s;
 }
 #app #container .btnWide {
@@ -212,12 +214,12 @@
   transform: rotate(180deg);
 }
 #app #container .TopArea {
-  height: 9rem;
+  min-height: 8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0;
-  padding: 0 5rem;
+  padding: 0 4rem;
   border-bottom: 1px solid var(--line);
 }
 #app #container .TopArea .titleBox {
@@ -235,7 +237,7 @@
 }
 #app #container .TopArea .titleBox h2 {
   font-size: 3.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--black);
 }
 #app #container .TopArea .location {
@@ -270,9 +272,12 @@
   background-size: 100%;
 }
 #app #container .TopArea .location span:last-child {
-  color: var(--blue);
+  color: var(--black);
+  font-weight: 600;
 }
 #app #container .contentsArea {
   position: relative;
-  padding: 5rem;
-}/*# sourceMappingURL=layout.css.map */
+  height: calc(100% - 8rem);
+  padding: 4rem;
+  overflow: auto;
+}
