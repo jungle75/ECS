@@ -252,18 +252,18 @@ input[type=file]::file-selector-button {
   i::before {
     top: 0;
     left: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 20px;
+    height: 20px;
     background: white;
     border: 1px solid var(--lineDeep);
     border-radius: 100%;
   }
 
   i::after {
-    width: 1.2rem;
-    height: 1.2rem;
-    top: 0.45rem;
-    left: 0.45rem;
+    width: 12px;
+    height: 12px;
+    top: 5px;
+    left: 5px;
     background-color: white;
     border-radius: 100%;
     transition: all 0.2s;
@@ -839,7 +839,7 @@ input[type=file]::file-selector-button {
   }
 
   &.required {
-    label::after {
+    >label::after {
       content: " *";
       color: var(--red);
     }
@@ -862,6 +862,7 @@ input[type=file]::file-selector-button {
     flex-direction: column;
     margin-top: 1.6rem;
   }
+
   .checkWrap {
     @include mixin.flex(left, center, 1.6rem);
   }

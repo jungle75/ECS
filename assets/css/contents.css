@@ -112,16 +112,13 @@
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 1.6rem;
+  column-gap: 2.4rem;
 }
-.formInputBox.col-2 .formItem label {
-  min-width: auto;
+.formInputBox.col-2 .formItem {
+  width: calc(50% - 1.2rem);
 }
-.formInputBox.col-2 .formItem > div {
-  min-width: 14rem;
-}
-.formInputBox.col-2 .formItem.required label::after {
-  content: "*";
-  color: var(--red);
+.formInputBox.col-2 .formItem.block {
+  width: 100%;
 }
 
 /******************************
@@ -171,6 +168,7 @@
   height: 100%;
 }
 .gridArea .titleBox {
+  min-height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -231,11 +229,14 @@
   gap: 3.2rem;
 }
 .divideWrap .col {
-  width: calc(50% - 1.6rem);
+  flex: 1 0 0;
 }
 .divideWrap .col .gridArea {
   height: 100%;
 }
+.divideWrap .col.w30 {
+  max-width: 30%;
+}
 .divideWrap .row {
   width: 100%;
-}
+}/*# sourceMappingURL=contents.css.map */

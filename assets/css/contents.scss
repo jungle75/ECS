@@ -111,21 +111,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 1.6rem;
+    column-gap: 2.4rem;
 
     .formItem {
-      label {
-        min-width: auto;
-      }
+      width: calc(50% - 1.2rem);
 
-      >div {
-        min-width: 14rem;
-      }
-
-      &.required {
-        label::after {
-          content: "*";
-          color: var(--red);
-        }
+      &.block {
+        width: 100%;
       }
     }
   }
@@ -185,6 +177,7 @@
   height: 100%;
 
   .titleBox {
+    min-height: 4rem;
     @include mixin.flex(space-between, center, 0);
     margin-bottom: 1.6rem;
 
@@ -242,10 +235,14 @@
   gap: 3.2rem;
 
   .col {
-    width: calc(50% - 1.6rem);
+    flex: 1 0 0;
 
     .gridArea {
       height: 100%;
+    }
+
+    &.w30 {
+      max-width: 30%;
     }
   }
 
