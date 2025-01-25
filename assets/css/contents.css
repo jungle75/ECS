@@ -103,7 +103,10 @@
 .formInputBox {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 0.8rem;
+}
+.formInputBox .formItem {
+  align-items: flex-start;
 }
 .formInputBox .btnArea {
   margin-top: -0.8rem;
@@ -119,6 +122,10 @@
 }
 .formInputBox.col-2 .formItem.block {
   width: 100%;
+}
+.formInputBox.col-2 .formItem .img {
+  width: 10rem;
+  height: 10rem;
 }
 
 /******************************

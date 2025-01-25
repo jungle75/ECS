@@ -101,7 +101,11 @@
   폼입력 화면 정의
 *******************************/
 .formInputBox {
-  @include mixin.flexColumn(1.6rem);
+  @include mixin.flexColumn(0.8rem);
+
+  .formItem {
+    align-items: flex-start;
+  }
 
   .btnArea {
     margin-top: -0.8rem;
@@ -118,6 +122,11 @@
 
       &.block {
         width: 100%;
+      }
+
+      .img {
+        width: 10rem;
+        height: 10rem;
       }
     }
   }
