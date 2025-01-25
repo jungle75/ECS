@@ -176,12 +176,12 @@
       <section class="TopArea">
         <div class="titleBox">
           <button type="button" class="ic ic_favorite">즐겨찾기</button>
-          <h2>거래처담당자관리</h2>
+          <h2>내정보수정</h2>
         </div>
         <div class="location">
-          <span>거래처관리</span>
-          <span>거래처관리</span>
-          <span>거래처담당자관리</span>
+          <span>회원관리</span>
+          <span>회원관리</span>
+          <span>내정보수정</span>
         </div>
       </section>
       <!--// 상단 타이틀 영역 -->
@@ -189,180 +189,83 @@
       <!-- 컨텐츠 영역 -->
       <section class="contentsArea">
 
-        <!-- 검색 폼 -->
-        <div class="searchForm">
-          <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="담당자명"></div>
-          </div>
-          <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="거래처명"></div>
-          </div>
-          <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="계약거래처이름"></div>
-          </div>
-          <div class="formItem">
-            <div class="selectBox">
-              <select name="" id="">
-                <option value="">과업업체구분 선택</option>
-              </select>
+        <!-- 그리드 테이블 -->
+        <div class="gridArea">
+          <div class="titleBox">
+            <div class="sTitle">
+              <h3>기본정보</h3>
+            </div>
+            <div class="btnArea">
+              <button type="button" class="btn ic ic_confirm">저장</button>
             </div>
           </div>
-          <div class="btnArea">
-            <button type="button" class="btn reset ic ic_reset">Reset Filter</button>
-            <button type="button" class="btn search ic ic_search">Search</button>
-          </div>
-        </div>
         
-        <div class="divideWrap">
-          <div class="col">
-            <!-- 그리드 테이블 -->
-            <div class="gridArea">
-              <div class="titleBox">
-                <div class="sTitle">
-                  <h3>담당자목록</h3><span class="total">(58)</span>
-                </div>
-                <div class="btnArea">
-                  <button type="button" class="btn ic ic_down">엑셀다운</button>
+          <div class="cardBox">
+            <div class="formInputBox col-2">
+              <div class="formItem block required">
+                <label for="">사용자ID</label>
+                <div class="data">admin</div>
+              </div>
+              <div class="formItem required">
+                <label for="">담당자명</label>
+                <div class="inputBox">
+                  <input type="text" placeholder="" disabled>
                 </div>
               </div>
-            
-              <div class="gridTable">
-                <div id="realgrid_master"></div>
+              <div class="formItem">
+                <label for="">전화번호</label>
+                <div class="inputBox">
+                  <input type="text" placeholder="예)026281265">
+                </div>
+              </div>              
+              <div class="formItem required">
+                <label for="">이메일</label>
+                <div class="inputBox">
+                  <input type="text" placeholder="">
+                </div>
+              </div>
+              <div class="formItem required">
+                <label for="">휴대폰번호</label>
+                <div class="inputBox">
+                  <input type="text" placeholder="">
+                </div>
+              </div>
+              <div class="formItem block required">
+                <label for="">주소</label>
+                <div class="inputBox" style="max-width: 10%;">
+                  <input type="text" placeholder="" disabled>
+                  <button type="button" class="ic ic_search" id="modal-address" data-target="#address">검색</button>
+                </div>
+                <div class="inputBox" style="max-width: 45%;">
+                  <input type="text" placeholder="" disabled>
+                </div>
+                <div class="inputBox" style="max-width: 45%;">
+                  <input type="text" placeholder="">
+                </div>
+              </div>
+              <div class="formItem">
+                <label for="">사용자구분</label>
+                <div class="inputBox">
+                  <input type="text" placeholder="" disabled>
+                </div>
+              </div>
+              <div class="formItem">
+                <label for="">담당자구분</label>
+                <div class="inputBox">
+                  <input type="text" placeholder="" disabled>
+                </div>
               </div>
             </div>
-            <!--.. 그리드 테이블 -->
-          </div>
-
-          <div class="col">
-            <!-- 그리드 테이블 -->
-            <div class="gridArea">
-              <div class="titleBox">
-                <div class="sTitle">
-                  <h3>담당자 상세정보</h3>
-                </div>
-                <div class="btnArea">
-                  <button type="button" class="btn ic ic_add">신규</button>
-                  <button type="button" class="btn ic ic_confirm">저장</button>
-                  <button type="button" class="btn ic ic_remove">삭제</button>
-                </div>
-              </div>
-          
-              <div class="cardBox">
-                <div class="formInputBox col-2">
-                  <div class="formItem block required">
-                    <label for="">갑 거래처</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                      <button type="button" class="ic ic_search" id="modal-srcGroup" data-target="#srcGroup">검색</button>
-                    </div>
-                    <div class="inputBox">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">담당자코드</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">담당자명</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">사용자ID</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">생년월일</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">비밀번호</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">비밀번호확인</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">휴대폰번호</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">이메일</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem block required">
-                    <label for="">주소</label>
-                    <div class="inputBox" style="max-width: 20%;">
-                      <input type="text" placeholder="" disabled>
-                      <button type="button" class="ic ic_search" id="modal-address" data-target="#address">검색</button>
-                    </div>
-                    <div class="inputBox" style="max-width: 50%;">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                    <div class="inputBox" style="max-width: 30%;">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">담당자 전화번호</label>
-                    <div class="inputBox">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">사용여부</label>
-                    <div class="checkWrap">
-                      <label class="radio">
-                        <input type="radio" name="use" hidden="" checked>
-                        <i></i>
-                        <span>사용</span>
-                      </label>
-                      <label class="radio">
-                        <input type="radio" name="use" hidden="">
-                        <i></i>
-                        <span>미사용</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">사용자구분</label>
-                    <div class="selectBox">
-                      <select name="" id="">
-                        <option value="">사용자구분 선택</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <!--.. 그리드 테이블 -->
-          </div>
+          </div>        
         </div>
+        <!--.. 그리드 테이블 -->
 
       </section>
       <!--// 컨텐츠 영역 -->
     </div>
     <!--// 컨텐츠 영역 -->
   </div>
-
+  
   <!-- 거래처 모달 -->
   <div id="srcGroup" class="modal-mask">
     <div class="modal-container">
@@ -375,10 +278,16 @@
         <!-- 검색 폼 -->
         <div class="searchForm">
           <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="거래처코드"></div>
+            <div class="inputBox"><input type="text" placeholder="담당자명"></div>
           </div>
           <div class="formItem">
             <div class="inputBox"><input type="text" placeholder="거래처명"></div>
+          </div>
+          <div class="formItem">
+            <div class="inputBox"><input type="text" placeholder="사업자번호"></div>
+          </div>
+          <div class="formItem">
+            <div class="inputBox"><input type="text" placeholder="대표자명"></div>
           </div>
           <div class="btnArea">
             <button type="button" class="btn reset ic ic_reset">Reset Filter</button>
@@ -409,20 +318,6 @@
         <div class="btnArea">
           <button type="button" class="btn ic ic_confirm">확인</button>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 주소검색 모달 -->
-  <div id="address" class="modal-mask">
-    <div class="modal-container">
-      <div class="modal-header">
-        <h2>주소검색</h2>
-        <button type="button" class="ic ic_close">닫기</button>
-      </div>
-  
-      <div class="modal-contents">
-        카카오 우편번호 서비스 삽입
       </div>
     </div>
   </div>

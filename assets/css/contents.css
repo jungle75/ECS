@@ -108,6 +108,12 @@
 .formInputBox .formItem {
   align-items: flex-start;
 }
+.formInputBox .formItem .data {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 4rem;
+}
 .formInputBox .btnArea {
   margin-top: -0.8rem;
 }
@@ -115,10 +121,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 1.6rem;
-  column-gap: 2.4rem;
+  column-gap: 4rem;
 }
 .formInputBox.col-2 .formItem {
-  width: calc(50% - 1.2rem);
+  width: calc(50% - 2rem);
 }
 .formInputBox.col-2 .formItem.block {
   width: 100%;
@@ -151,12 +157,18 @@
 .searchForm .formItem > label {
   min-width: unset;
 }
+.searchForm .formItem > div {
+  flex: unset;
+}
 .searchForm .formItem .date {
   text-align: right;
 }
 .searchForm .formItem .date input {
   min-width: 16rem !important;
   max-width: 16rem !important;
+}
+.searchForm .formItem .selectBox {
+  min-width: 20rem;
 }
 .searchForm .btnArea {
   width: unset;
@@ -176,7 +188,6 @@
 
 .gridArea {
   width: 100%;
-  height: 100%;
 }
 .gridArea .titleBox {
   min-height: 4rem;
