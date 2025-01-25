@@ -453,7 +453,7 @@ input[type=file]::file-selector-button {
 
   &.small {
     min-width: 4rem;
-    height: 2.6rem;
+    height: 3rem;
     font-size: 1.2rem;
     font-weight: 500;
     padding: 0 1rem;
@@ -594,6 +594,12 @@ input[type=file]::file-selector-button {
   }
 }
 
+.ic_close {
+  &::before {
+    background-image: url(../images/icon/ic_close.svg);
+  }
+}
+
 
 /******************************
   팝업메세지창
@@ -637,11 +643,12 @@ input[type=file]::file-selector-button {
         width: 3.2rem;
         height: 3.2rem;
         border-radius: 50%;
+        @include mixin.flex(center, center, 0);
       }
 
       .ic::before {
-        width: 3.2rem;
-        height: 3.2rem;
+        width: 2.4rem;
+        height: 2.4rem;
       }
 
       .ic:hover {
@@ -1126,5 +1133,44 @@ input[type=file]::file-selector-button {
     border-style: solid;
     border-color: white;
     border-bottom-color: var(--lineDeep);
+  }
+}
+
+
+
+/******************************
+  파일첨부 정의
+*******************************/
+
+.attachFileWrap {
+  @include mixin.flexColumn(0.8rem);
+  margin-top: 1.6rem;
+
+  .btnArea {
+    justify-content: right;
+  }
+
+  .attachFile {
+    background-color: var(--bg);
+    border-radius: 0.8rem;
+    padding: 1.2rem;
+
+    li {
+      @include mixin.flex(left, center, 1.6rem);
+
+      .name {
+        @include mixin.font(1.6rem, 500, var(--black));
+        margin-right: 0.8rem;
+      }
+
+      button {
+        font-size: 0;
+      }
+
+      .ic::before {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
   }
 }

@@ -176,12 +176,12 @@
       <section class="TopArea">
         <div class="titleBox">
           <button type="button" class="ic ic_favorite">즐겨찾기</button>
-          <h2>공통코드관리</h2>
+          <h2>공지사항</h2>
         </div>
         <div class="location">
           <span>공통관리</span>
-          <span>코드관리</span>
-          <span>공통코드관리</span>
+          <span>게시판관리</span>
+          <span>공지사항</span>
         </div>
       </section>
       <!--// 상단 타이틀 영역 -->
@@ -192,17 +192,10 @@
         <!-- 검색 폼 -->
         <div class="searchForm">
           <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="마스터코드"></div>
+            <div class="inputBox"><input type="text" placeholder="제목"></div>
           </div>
           <div class="formItem">
-            <div class="inputBox"><input type="text" placeholder="마스터코드 이름"></div>
-          </div>
-          <div class="formItem">
-            <div class="selectBox">
-              <select name="" id="">
-                <option value="">사용여부</option>
-              </select>
-            </div>
+            <div class="inputBox"><input type="text" placeholder="내용"></div>
           </div>
           <div class="btnArea">
             <button type="button" class="btn reset ic ic_reset">Reset Filter</button>
@@ -211,18 +204,14 @@
         </div>
         
         <div class="divideWrap">
-          <div class="row">
+          <div class="col">
             <!-- 그리드 테이블 -->
             <div class="gridArea">
               <div class="titleBox">
                 <div class="sTitle">
-                  <h3>공통코드목록</h3><span class="total">(58)</span>
+                  <h3>공지사항 목록</h3><span class="total">(58)</span>
                 </div>
                 <div class="btnArea">
-                  <button type="button" class="btn ic ic_add">행추가</button>
-                  <button type="button" class="btn ic ic_remove">행삭제</button>
-                  <button type="button" class="btn ic ic_confirm">저장</button>
-                  <button type="button" class="btn ic ic_reset">초기화</button>
                   <button type="button" class="btn ic ic_down">엑셀다운</button>
                 </div>
               </div>
@@ -234,24 +223,63 @@
             <!--.. 그리드 테이블 -->
           </div>
 
-          <div class="row">
+          <div class="col">
             <!-- 그리드 테이블 -->
             <div class="gridArea">
               <div class="titleBox">
                 <div class="sTitle">
-                  <h3>상세코드목록</h3><span class="total">(58)</span>
+                  <h3>상세정보</h3>
                 </div>
                 <div class="btnArea">
-                  <button type="button" class="btn ic ic_add">행추가</button>
-                  <button type="button" class="btn ic ic_remove">행삭제</button>
+                  <button type="button" class="btn ic ic_add">신규</button>
                   <button type="button" class="btn ic ic_confirm">저장</button>
+                  <button type="button" class="btn ic ic_close">삭제</button>
                   <button type="button" class="btn ic ic_reset">초기화</button>
-                  <button type="button" class="btn ic ic_down">엑셀다운</button>
                 </div>
               </div>
           
-              <div class="gridTable">
-                <div id="realgrid_master"></div>
+              <div class="cardBox">
+                <div class="formInputBox col-2">
+                  <div class="formItem block required">
+                    <label for="">제목</label>
+                    <div class="inputBox">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                  <div class="formItem">
+                    <label for="">작성자</label>
+                    <div class="inputBox">
+                      <input type="text" placeholder="" disabled>
+                    </div>
+                  </div>
+                  <div class="formItem">
+                    <label for="">등록시간</label>
+                    <div class="inputBox">
+                      <input type="text" placeholder="" disabled>
+                    </div>
+                  </div>
+                  <div class="formItem">에디터 삽입!!!</div>
+                </div>
+
+                <div class="attachFileWrap">
+                  <div class="btnArea">
+                    <button type="button" class="btn small ic ic_add">첨부파일</button>
+                    <button type="button" class="btn small ic ic_remove">삭제</button>
+                  </div>
+                  <ul class="attachFile">
+                    <li>
+                      <label class="checkbox">
+                        <input type="checkbox" hidden="">
+                        <i></i>
+                      </label>
+                      <p>
+                        <span class="name">ALPHAMALE.jpg</span>
+                        <span>39KB</span>
+                      </p>
+                      <button type="button" class="ic ic_down">파일다운</button>
+                    </li>
+                  </ul>
+                </div>                
               </div>
             </div>
             <!--.. 그리드 테이블 -->

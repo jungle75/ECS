@@ -204,6 +204,10 @@
               </select>
             </div>
           </div>
+          <div class="btnArea">
+            <button type="button" class="btn reset ic ic_reset">Reset Filter</button>
+            <button type="button" class="btn search ic ic_search">Search</button>
+          </div>
         </div>
         
         <div class="divideWrap">
@@ -215,7 +219,7 @@
                   <h3>사용자목록</h3><span class="total">(58)</span>
                 </div>
                 <div class="btnArea">
-                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_down">엑셀다운</button>
+                  <button type="button" class="btn ic ic_down">엑셀다운</button>
                 </div>
               </div>
             
@@ -234,7 +238,7 @@
                   <h3>상세정보</h3><span class="total">(58)</span>
                 </div>
                 <div class="btnArea">
-                  <button type="button" id="modal-addGuest" data-target="#addGuest" class="btn ic ic_confirm">저장</button>
+                  <button type="button" class="btn ic ic_confirm">저장</button>
                 </div>
               </div>
           
@@ -293,14 +297,14 @@
                     <label for="">부서</label>
                     <div class="inputBox">
                       <input type="text" placeholder="검색하세요" disabled>
-                      <button type="button" class="ic ic_search">검색</button>
+                      <button type="button" class="ic ic_search" id="modal-srcPart" data-target="#srcPart">검색</button>
                     </div>
                   </div>
                   <div class="formItem required">
                     <label for="">권한그룹</label>
                     <div class="inputBox">
                       <input type="text" placeholder="검색하세요" disabled>
-                      <button type="button" class="ic ic_search">검색</button>
+                      <button type="button" class="ic ic_search" id="modal-srcGroup" data-target="#srcGroup">검색</button>
                     </div>
                   </div>
                   <div class="formItem">
@@ -334,6 +338,76 @@
       <!--// 컨텐츠 영역 -->
     </div>
     <!--// 컨텐츠 영역 -->
+  </div>
+
+  <!-- 부서찾기 모달 -->
+  <div id="srcPart" class="modal-mask">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>사용자정보</h2>
+        <button type="button" class="ic ic_close">닫기</button>
+      </div>
+  
+      <div class="modal-contents">
+        <!-- 검색 폼 -->
+        <div class="searchForm">
+          <div class="formItem">
+            <div class="inputBox"><input type="text" placeholder="부서코드"></div>
+          </div>
+          <div class="formItem">
+            <div class="inputBox"><input type="text" placeholder="부서명"></div>
+          </div>
+          <div class="btnArea">
+            <button type="button" class="btn reset ic ic_reset">Reset Filter</button>
+            <button type="button" class="btn search ic ic_search">Search</button>
+          </div>
+        </div>
+        <!--// 검색 폼 -->
+  
+        <!-- 그리드 테이블 -->
+        <div class="gridArea">
+          <div class="titleBox">
+            <div class="sTitle">
+              <h3>부서 목록</h3><span class="total">(58)</span>
+            </div>
+            <div class="btnArea">
+              <button type="button" class="btn ic ic_down">엑셀다운</button>
+            </div>
+          </div>
+  
+          <div class="gridTable">
+            <div id="realgrid_master"></div>
+          </div>
+        </div>
+        <!--.. 그리드 테이블 -->
+      </div>
+  
+      <div class="modal-footer">
+        <div class="btnArea">
+          <button type="button" class="btn ic ic_confirm">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 권한그룹 모달 -->
+  <div id="srcGroup" class="modal-mask">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>권한그룹</h2>
+        <button type="button" class="ic ic_close">닫기</button>
+      </div>
+  
+      <div class="modal-contents">
+        메뉴트리 삽입!
+      </div>
+  
+      <div class="modal-footer">
+        <div class="btnArea">
+          <button type="button" class="btn ic ic_confirm">확인</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="../../assets/js/jquery-3.7.0.min.js"></script>
@@ -384,6 +458,38 @@
         // 현재 서브메뉴 열기/닫기
         subMenu.slideToggle();
         $(this).parent().toggleClass("act");
+      });
+
+      // 공통 함수: 모달 열기/닫기
+      function toggleModal(modalId, isOpen) {
+        if (isOpen) {
+          $(modalId).fadeIn();
+          $("body").css("overflow", "hidden");
+        } else {
+          $(modalId).fadeOut();
+          $("body").css("overflow", "auto");
+        }
+      }
+
+      // 모달 열기 이벤트
+      $("[id^='modal-'], [data-target]").click(function (event) {
+        event.preventDefault();
+        var target = $(this).data("target");
+        if (target) {
+          toggleModal(target, true);
+        }
+      });
+
+      // 닫기 버튼 클릭 시 모달 닫기
+      $(".modal-container .ic_close").click(function () {
+        toggleModal($(this).closest(".modal-mask"), false);
+      });
+
+      // 모달 외부 클릭 시 닫기
+      $(document).click(function (event) {
+        if ($(event.target).hasClass("modal-mask")) {
+          toggleModal(event.target, false);
+        }
       });
     });
   </script>
