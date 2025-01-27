@@ -119,7 +119,7 @@
   &.col-2 {
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 1.6rem;
+    row-gap: 0.8rem;
     column-gap: 4rem;
 
     .formItem {
@@ -220,6 +220,12 @@
     }
   }
 
+  .comment {
+    @include mixin.font(1.4rem, 400, var(--red));
+    text-align: right;
+    margin-top: 0.8rem;
+  }
+
   .gridTable {
     width: 100%;
     height: calc(100% - 5.6rem);
@@ -231,22 +237,20 @@
     table {
       font-size: 1.4rem;
     }
-
-    .comment {
-      @include mixin.font(1.4rem, 400, var(--red));
-      margin-top: 1.2rem;
-    }
   }
 
   .cardBox {
     position: relative;
-    height: calc(100% - 5.6rem);
     @include mixin.flexColumn(1.6rem);
     padding: 2rem;
     background-color: white;
     border: 1px solid var(--line);
     border-radius: 1.2rem;
     box-shadow: 0px 0.4rem 1.2rem rgba(221, 224, 255, .54);
+
+    +.titleBox {
+      margin-top: 2.4rem;
+    }
   }
 }
 

@@ -419,11 +419,12 @@ input[type=file]::file-selector-button:hover {
 .btnArea {
   position: relative;
   display: inline-flex;
-  align-items: center;
+  justify-content: center;
   gap: 0.8rem;
 }
 .btnArea.block {
-  width: 100%;
+  display: flex;
+  margin-top: 1.6rem;
 }
 .btnArea.right {
   justify-content: right;
@@ -992,7 +993,7 @@ input[type=file]::file-selector-button:hover {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  margin-top: 1.6rem;
+  margin: 1.6rem 0;
 }
 .attachFileWrap .btnArea {
   justify-content: right;
@@ -1007,6 +1008,9 @@ input[type=file]::file-selector-button:hover {
   justify-content: left;
   align-items: center;
   gap: 1.6rem;
+}
+.attachFileWrap .attachFile li + li {
+  margin-top: 0.8rem;
 }
 .attachFileWrap .attachFile li .name {
   font-size: 1.6rem;

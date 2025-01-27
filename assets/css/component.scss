@@ -486,11 +486,12 @@ input[type=file]::file-selector-button {
 .btnArea {
   position: relative;
   display: inline-flex;
-  align-items: center;
+  justify-content: center;
   gap: 0.8rem;
 
   &.block {
-    width: 100%;
+    display: flex;
+    margin-top: 1.6rem;
   }
 
   &.right {
@@ -1144,7 +1145,7 @@ input[type=file]::file-selector-button {
 
 .attachFileWrap {
   @include mixin.flexColumn(0.8rem);
-  margin-top: 1.6rem;
+  margin: 1.6rem 0;
 
   .btnArea {
     justify-content: right;
@@ -1157,6 +1158,10 @@ input[type=file]::file-selector-button {
 
     li {
       @include mixin.flex(left, center, 1.6rem);
+
+      &+li {
+        margin-top: 0.8rem;
+      }
 
       .name {
         @include mixin.font(1.6rem, 500, var(--black));
