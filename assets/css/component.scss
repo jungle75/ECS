@@ -493,8 +493,8 @@ input[type=file]::file-selector-button {
     width: 100%;
   }
 
-  &.center {
-    justify-content: center;
+  &.right {
+    justify-content: right;
   }
 }
 
