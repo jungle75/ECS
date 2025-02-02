@@ -195,6 +195,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 0;
+  flex-wrap: wrap;
   margin-bottom: 0.8rem;
 }
 .gridArea .titleBox .sTitle {
@@ -212,6 +213,13 @@
 .gridArea .titleBox .sTitle .total {
   font-size: 1.8rem;
   color: var(--blue);
+}
+.gridArea .titleBox .text {
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 2rem;
 }
 .gridArea .comment {
   font-size: 1.4rem;
@@ -265,4 +273,44 @@
 }
 .divideWrap .row {
   width: 100%;
+}
+
+/******************************
+  이용약관 정의
+*******************************/
+.policyBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  padding: 1.6rem;
+}
+.policyBox h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--black);
+  line-height: 2.4rem;
+}
+.policyBox .cont {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.4;
+  background-color: var(--dis);
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  max-height: 20rem;
+  overflow-y: auto;
+  white-space: pre;
+}
+.policyBox .checkbox span {
+  color: var(--black);
+  font-size: 1.6rem;
+}
+
+.srcPassBox {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
 }/*# sourceMappingURL=contents.css.map */

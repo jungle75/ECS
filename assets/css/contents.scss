@@ -204,6 +204,7 @@
   .titleBox {
     min-height: 4rem;
     @include mixin.flex(space-between, center, 0);
+    flex-wrap: wrap;
     margin-bottom: 0.8rem;
 
     .sTitle {
@@ -218,6 +219,12 @@
         font-size: 1.8rem;
         color: var(--blue);
       }
+    }
+
+    .text {
+      width: 100%;
+      @include mixin.font(1.4rem, 400, var(--text));
+      line-height: 2rem;
     }
   }
 
@@ -279,4 +286,44 @@
   .row {
     width: 100%;
   }
+}
+
+
+/******************************
+  이용약관 정의
+*******************************/
+.policyBox {
+  @include mixin.flexColumn(1.6rem);
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  padding: 1.6rem;
+
+  h3 {
+    @include mixin.font(2rem, 600, var(--black));
+    line-height: 2.4rem;
+  }
+
+  .cont {
+    @include mixin.font(1.6rem, 400, var(--text));
+    line-height: 1.4;
+    background-color: var(--dis);
+    padding: 1.6rem;
+    border-radius: 0.8rem;
+    max-height: 20rem;
+    overflow-y: auto;
+    white-space: pre;
+  }
+
+  .checkbox {
+    span {
+      color: var(--black);
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.srcPassBox {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
 }

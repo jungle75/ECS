@@ -846,6 +846,10 @@ input[type=file]::file-selector-button {
     min-height: 4rem;
   }
 
+  >span {
+    line-height: 4rem;
+  }
+
   &.required {
     >label::after {
       content: " *";

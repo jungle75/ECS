@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="Description" content="사이트설명" />
+  <meta name="Keywords" content="키워드" />
+  <title>e-Room Sign</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!-- RealGrid -->
+  <link href="../../realgrid-demo/realgrid/latest/realgrid-style.css" rel="stylesheet" />
+  <!-- <script src="/realgrid/latest/realgrid-lic.js"></script> -->
+  <script src="../../realgrid-demo/realgrid/latest/realgrid.min.js"></script>
+  <script src="../../realgrid-demo/realgrid/latest/libs/jszip.min.js"></script>
+
+  <!-- Custom -->
+  <link href="../../realgrid-demo/index.css" rel="stylesheet" />
+  <script src="../../realgrid-demo/index.js"></script>
+</head>
+
+<body>
+  <div id="app" class="bgColor">
+    <!-- 좌측 lnb -->
+    <section id="LnbArea">
+      <h1 class="logo">e-Room Sign</h1>
+    
+      <nav class="menuWrap">
+        <article class="menu">
+          <a href="#" class="mainMenu"><span class="ic ic_nav01">공통관리</span></a>
+          <ul class="subMenu">
+            <li class="depth02">
+              <span>코드관리</span>
+              <ul>
+                <li><a href="#" class="3depth">공통코드관리</a></li>
+                <li><a href="#" class="3depth">데이터사전관리</a></li>
+                <li><a href="#" class="3depth">자동번호체번관리</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>사용자관리</span>
+              <ul>
+                <li><a href="#" class="3depth">사용자관리</a></li>
+                <li><a href="#" class="3depth">부서관리</a></li>
+                <li><a href="#" class="3depth">사용자로그현황</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>권한관리</span>
+              <ul>
+                <li><a href="#" class="3depth">메뉴관리</a></li>
+                <li><a href="#" class="3depth">권한그룹관리</a></li>
+                <li><a href="#" class="3depth">권한그룹대상관리</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>게시판관리</span>
+              <ul>
+                <li><a href="#" class="3depth">공지사항</a></li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu">
+          <a href="#" class="mainMenu"><span class="ic ic_nav03">계약관리</span></a>
+          <ul class="subMenu">
+            <li class="depth02">
+              <span>계약등록</span>
+              <ul>
+                <li><a href="#" class="3depth">신규계약작성(사업자)</a></li>
+                <li><a href="#" class="3depth">신규계약작성(개인)</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>계약진행</span>
+              <ul>
+                <li><a href="#" class="3depth">임시저장계약</a></li>
+                <li><a href="#" class="3depth">진행중(보낸계약)</a></li>
+                <li><a href="#" class="3depth">진행중(받은계약)</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>계약체결</span>
+              <ul>
+                <li><a href="#" class="3depth">완료(보낸계약)</a></li>
+                <li><a href="#" class="3depth">완료(받은계약)</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>계약서관리</span>
+              <ul>
+                <li><a href="#" class="3depth">템플릿관리</a></li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        
+        <article class="menu">
+          <a href="#" class="mainMenu"><span class="ic ic_nav02">거래처관리</span></a>
+          <ul class="subMenu">
+            <li class="depth02">
+              <span>거래처관리</span>
+              <ul>
+                <li><a href="#" class="3depth">거래처관리</a></li>
+                <li><a href="#" class="3depth">개인회원담당자관리</a></li>
+                <li><a href="#" class="3depth">거래처담당자관리</a></li>
+              </ul>
+            </li>            
+          </ul>
+        </article>
+
+        <article class="menu">
+          <a href="#" class="mainMenu"><span class="ic ic_nav04">회원관리</span></a>
+          <ul class="subMenu">
+            <li class="depth02">
+              <span>기본정보</span>
+              <ul>
+                <li><a href="#" class="3depth">회사정보관리</a></li>
+                <li><a href="#" class="3depth">계약서식관리</a></li>
+              </ul>
+            </li>
+            <li class="depth02">
+              <span>회원관리</span>
+              <ul>
+                <li><a href="#" class="3depth">내정보수정</a></li>
+                <li><a href="#" class="3depth">개인회원관리</a></li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu">
+          <a href="#" class="mainMenu"><span class="ic ic_nav05">회원가입</span></a>
+          <ul class="subMenu">
+            <li class="depth02">
+              <a href="#">사업자회원가입</a>
+            </li>
+            <li class="depth02">
+              <a href="#">개인회원가입</a>
+            </li>
+            <li class="depth02">
+              <a href="#">사업자아이디찾기</a>
+            </li>
+            <li class="depth02">
+              <a href="#">개인아이디찾기</a>
+            </li>
+            <li class="depth02">
+              <a href="#">사업자비밀번호찾기</a>
+            </li>
+            <li class="depth02">
+              <a href="#">개인비밀번호찾기</a>
+            </li>
+          </ul>
+        </article>
+      </nav>
+
+      <footer>
+        <div class="footMenu">
+          <button type="button"><span>로그아웃</span></button>
+          <button type="button"><span>비밀번호 변경</span></button>
+        </div>
+        <p>최근접속일 : 2025.01.07 09:53</p>
+        <p>ⓒ 2025 IRUDACOM</p>
+      </footer>
+    </section>
+    <!--// 좌측 lnb -->
+
+    <!-- 컨테이너 영역 -->
+    <div id="container">
+      <button type="button" class="btnWide">확장하기</button>
+
+      <!-- 상단 타이틀 영역 -->
+      <section class="TopArea">
+        <div class="titleBox">
+          <button type="button" class="ic ic_favorite">즐겨찾기</button>
+          <h2>개인아이디찾기</h2>
+        </div>
+        <div class="location">
+          <span>회원가입</span>
+          <span>개인아이디찾기</span>
+        </div>
+      </section>
+      <!--// 상단 타이틀 영역 -->
+
+      <!-- 컨텐츠 영역 -->
+      <section class="contentsArea">
+        
+        <div class="srcPassBox">
+          <!-- 입력 테이블 -->
+          <div class="gridArea">
+            <div class="titleBox">
+              <div class="sTitle">
+                <h3>본인 확인을 위하여 아래 개인정보를 입력하십시오.</h3>
+              </div>
+              <p class="text">1)개인정보 입력 -> 2)사용자 이메일로 아이디 발송</p>
+            </div>
+          
+            <div class="cardBox" style="margin-top: 4rem;">
+              <div class="formInputBox">
+                <div class="formItem required">
+                  <label for="">회원명</label>
+                  <div class="inputBox">
+                    <input type="text" placeholder="">
+                  </div>
+                </div>
+                <div class="formItem required">
+                  <label for="">생년월일</label>
+                  <div class="inputBox"><input type="text" placeholder="생년월일 6자리"></div>
+                </div>
+                <div class="formItem required">
+                  <label for="">휴대폰번호</label>
+                  <div class="inputBox">
+                    <input type="text" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="btnArea block">
+              <button type="button" class="btn ic ic_confirm">확인</button>
+            </div>
+          </div>
+          <!--// 입력 테이블 -->
+        </div>
+
+      </section>
+      <!--// 컨텐츠 영역 -->
+    </div>
+    <!--// 컨테이터 영역 -->
+  </div>
+
+  <script src="../../assets/js/jquery-3.7.0.min.js"></script>
+  <script src="../../assets/js/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function () {
+      // 컨텐츠 확장/축소
+      $('.btnWide').click(function () {
+        $('#container').toggleClass('wide');
+      });
+      // 즐겨찾기기
+      $('.ic_favorite').click(function () {
+        $(this).toggleClass('act');
+      });
+
+      // 초기화: 모든 서브메뉴 숨기기
+      $(".menuWrap .subMenu").hide();
+      $(".menuWrap .menu.act .subMenu").show(); // 활성화된 메뉴 열기
+
+      // 메인 메뉴 클릭 이벤트
+      $(".menuWrap .mainMenu").on("click", function(e) {
+        e.preventDefault(); // 링크 동작 방지
+
+        // 현재 클릭된 메뉴의 부모인 .menu 요소 선택
+        const parentMenu = $(this).closest(".menu");
+
+        // 현재 서브메뉴
+        const subMenu = parentMenu.find(".subMenu");
+
+        // 다른 메뉴의 서브메뉴 닫기
+        $(".menuWrap .menu .subMenu").not(subMenu).slideUp();
+        $(".menuWrap .menu").not(parentMenu).removeClass("act");
+
+        // 현재 서브메뉴 열기/닫기
+        subMenu.slideToggle();
+        parentMenu.toggleClass("act");
+      });
+
+      // 2차 메뉴(depth02) 클릭 이벤트
+      $(".menuWrap .depth02 > span").on("click", function() {
+        // 현재 클릭된 2차 메뉴의 서브메뉴 선택
+        const subMenu = $(this).next("ul");
+
+        // 다른 2차 서브메뉴 닫기
+        $(".menuWrap .depth02 ul").not(subMenu).slideUp();
+        $(".menuWrap .depth02").not($(this).parent()).removeClass("act");
+
+        // 현재 서브메뉴 열기/닫기
+        subMenu.slideToggle();
+        $(this).parent().toggleClass("act");
+      });
+    });
+  </script>
+</body>
+
+</html>
