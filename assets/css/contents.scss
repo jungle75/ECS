@@ -8,7 +8,7 @@
   height: 100vh;
   @include mixin.flexColumn(4rem);
   align-items: center;
-  background-image: url(../images/layout/loginBg.png);
+  background-image: url(../../../images/layout/loginBg.png);
   background-size: cover;
   padding-top: 20rem;
 
@@ -27,7 +27,7 @@
         width: 20rem;
         height: 3rem;
         aspect-ratio: 142/30;
-        background-image: url(../images/layout/h1_logo.svg);
+        background-image: url(../../../images/layout/h1_logo.svg);
         background-size: 100%;
         background-repeat: no-repeat;
         font-size: 0;
@@ -83,7 +83,7 @@
       width: 12rem;
       height: 3.2rem;
       aspect-ratio: 120/32;
-      background-image: url(../images/layout/logo_bottom.png);
+      background-image: url(../../../images/layout/logo_bottom.png);
       background-size: 100%;
       background-repeat: no-repeat;
     }
@@ -226,6 +226,13 @@
       @include mixin.font(1.4rem, 400, var(--text));
       line-height: 2rem;
     }
+
+    .selectBox {
+      select {
+        font-size: 1.6rem;
+        color: var(--black)
+      }
+    }
   }
 
   .comment {
@@ -244,6 +251,15 @@
 
     table {
       font-size: 1.4rem;
+    }
+
+    .realgrid_master {
+      height: 280px;
+      margin-bottom: 36px;
+    }
+
+    .realgrid_detail {
+      height: 450px;
     }
   }
 
@@ -273,6 +289,8 @@
 
   .col {
     flex: 1 0 0;
+    //    border-radius: 1.2rem;
+    border: none;
 
     .gridArea {
       height: 100%;
@@ -326,4 +344,61 @@
   position: relative;
   width: 50%;
   margin: 0 auto;
+}
+
+.page_wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page_wrap .page_ifrm {
+  width: 100%;
+  height: 100%;
+  border: none
+}
+
+
+
+/******************************
+  상세 테이블 정의
+*******************************/
+.tableWrap {
+  table {
+    width: 100%;
+    table-layout: fixed;
+
+    thead {
+      th {
+        text-align: center;
+        background-color: var(--bg);
+      }
+    }
+
+    th {
+      text-align: left;
+
+      label {
+        position: relative;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--text);
+        line-height: 4rem;
+
+        &.necessary::after {
+          content: " *";
+          color: var(--red);
+        }
+      }
+
+      &:nth-of-type(2) {
+        padding-left: 2.4rem;
+      }
+    }
+
+    td {
+      padding: 0.4rem;
+    }
+  }
 }

@@ -176,12 +176,12 @@
       <section class="TopArea">
         <div class="titleBox">
           <button type="button" class="ic ic_favorite">즐겨찾기</button>
-          <h2>임시저장계약</h2>
+          <h2>진행중(보낸계약) 상세</h2>
         </div>
         <div class="location">
           <span>계약관리</span>
-          <span>계약진행</span>
-          <span>임시저장계약</span>
+          <span>계약목록</span>
+          <span>진행중(보낸계약) 상세</span>
         </div>
       </section>
       <!--// 상단 타이틀 영역 -->
@@ -200,134 +200,242 @@
               </div>
 
               <div class="cardBox">
-                <div class="formInputBox col-2">
-                  <div class="formItem required">
-                    <label for="">계약명</label>
-                    <div class="inputBox"><input type="text" placeholder=""></div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">계약상태</label>
-                    <div class="inputBox"><input type="text" placeholder=""></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">계약일자</label>
-                    <div class="inputBox date">
-                      <input type="text" class="calendar" placeholder="날짜선택">
-                    </div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">사용자계약번호</label>
-                    <div class="inputBox"><input type="text" placeholder=""></div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">계약번호</label>
-                    <div class="inputBox"><input type="text" placeholder=""></div>
-                  </div>
+                <div class="tableWrap">
+                  <table>
+                    <colgroup>
+                      <col style="width:120px">
+                      <col style="width:calc((100% - 140px)/2);">
+                      <col style="width:160px">
+                      <col style="width:calc((100% - 140px)/2);">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th>
+                          <label for="CTRT_NM" class="necessary">계약명</label>
+                        </th>
+                        <td colspan="3">
+                          <div class="inputBox block"><input type="text" id="CTRT_NM" name="CTRT_NM" required="required"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <label for="" class="">계약상태</label>
+                        </th>
+                        <td>
+                          <div class="inputBox block"><input type="text" id="CTRT_NM" name="CTRT_NM" required="required"></div>
+                        </td>
+                        <th>
+                          <label for="CTRT_DT" class="necessary">계약일자</label>
+                        </th>
+                        <td>
+                          <div class="inputBox date">
+                            <input type="text" class="calendar" placeholder="날짜선택">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <label for="USER_CTRT_NO">사용자계약번호</label>
+                        </th>
+                        <td>
+                          <div class="inputBox"><input type="text" id="USER_CTRT_NO" name="USER_CTRT_NO"></div>
+                        </td>
+                        <th>
+                          <label for="">계약번호</label>
+                        </th>
+                        <td>
+                          <div class="inputBox"><input type="text" id="" name=""></div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
-              <!-- 갑 -->
+              <!-- 갑(필수) -->
               <div class="titleBox">
                 <div class="sTitle">
-                  <h3>갑</h3>
+                  <h3>회사(갑)</h3>
                 </div>
+                <div class="comment">서명일시: 2025-02-05 13:28:52</div>
               </div>              
               <div class="cardBox">
-                <div class="formInputBox col-2">
-                  <div class="formItem block required">
-                    <label for="">주소</label>
-                    <div class="inputBox" style="max-width: 20%;">
-                      <input type="text" placeholder="" disabled>
-                      <button type="button" class="ic ic_search" id="modal-address" data-target="#address">검색</button>
-                    </div>
-                    <div class="inputBox" style="max-width: 50%;">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                    <div class="inputBox" style="max-width: 30%;">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">담당자명</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">상호명</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">거래처명약어</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">이메일</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">대표자명</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">전화번호</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">휴대폰번호</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
+                <div class="tableWrap">
+                  <table>
+                    <colgroup>
+                      <col style="width:120px">
+                      <col style="width:calc((100% - 140px)/2);">
+                      <col style="width:160px">
+                      <col style="width:calc((100% - 140px)/2);">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th>
+                          <label class="necessary">주소</label>
+                        </th>
+                        <td colspan="3">
+                          <div class="inputBox address">
+                            <input type="text" style="width: 10rem;" name="ZIP" id="COMP_GRID_ZIP_1" readonly="" required="required" value="10516">
+                            <button type="button" class="ic ic_search" value="1" disabled="disabled">검색</button>
+                            <button type="button" class="ic ic_close" value="1" disabled="disabled"></button>
+                            <input type="text" name="ADDR" id="COMP_GRID_ADDR_1" readonly="" class=""
+                              required="required" value="경기 고양시 덕양구 행당로 12-7">
+                            <input type="text" name="DTL_ADDR" id="COMP_GRID_DTL_ADDR_1" onblur="setClntArea()"
+                              required="required" readonly="" value="토당동 101동310호">
+                          </div>
+                        </td>
+                      <tr>
+                        <th>
+                          <label class="necessary">담당자명</label>
+                        </th>
+                        <td>
+                          <!-- 담당자이름 -->
+                          <div class="inputBox"><input type="text" name="MNG_NM" id="COMP_GRID_MNG_NM_1" onblur="setClntArea()" required="required" readonly="" value="(주)이루다컴ECS"></div>
+                        </td>
+                        <th>
+                          <label class="necessary">상호명</label>
+                        </th>
+                        <td>
+                          <!-- 거래처이름 -->
+                          <div class="inputBox"><input type="text" name="CLNT_NM" id="COMP_GRID_CLNT_NM_1" required="required"
+                            onblur="setClntArea()" readonly="" value="(주)이루다컴ECS"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <label class="necessary">거래처명약어</label>
+                        </th>
+                        <td>
+                          <!-- 거래처약어 -->
+                          <div class="inputBox"><input type="text" name="CLNT_ABBR" id="COMP_GRID_CLNT_ABBR_1" required="required"
+                            onblur="setClntArea()" readonly="" value=""></div>
+                        </td>
+                        <th>
+                          <label class="necessary">이메일</label>
+                        </th>
+                        <td>
+                          <!-- 담당자이메일 -->
+                          <div class="inputBox"><input type="text" name="MNG_EMAIL" id="COMP_GRID_MNG_EMAIL_1"class="emailInput"
+                            required="required" onblur="setClntArea()" readonly="" value="junhyuk1250@irudacom.co.kr"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <label class="necessary">대표자명</label>
+                        </th>
+                        <td>
+                          <!-- 대표자이름 -->
+                          <div class="inputBox"><input type="text" name="REPST_NM" id="COMP_GRID_REPST_NM_1" required="required"
+                            onblur="setClntArea()" readonly="" value="유선보"></div>
+                        </td>
+                        <th>
+                          전화번호
+                        </th>
+                        <td>
+                          <!-- 전화번호 -->
+                          <div class="inputBox"><input type="text" name="MNG_TEL_NO" id="COMP_GRID_MNG_TEL_NO_1" maxlength="15"
+                            onblur="setClntArea()" readonly="" value=""></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <label class="necessary">휴대폰번호</label>
+                        </th>
+                        <td colspan="3">
+                          <!-- 모바일번호 -->
+                          <div class="inputBox"><input type="text" name="MBIL_NO" id="COMP_GRID_MBIL_NO_1" maxlength="15"
+                            onblur="setClntArea()" required="required" readonly="" value="010-3234-5678"></div>
+                        </td>                        
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <!--// 갑 -->
+              <!--// 갑(필수) -->
 
-              <!-- 을 -->
+              <!-- 을(필수) -->
               <div class="titleBox">
                 <div class="sTitle">
-                  <h3>을</h3>
+                  <h3>근로자</h3>
                 </div>
-                <div class="btnArea">
-                  <button type="button" class="btn ic ic_remove">삭제</button>
-                  <button type="button" class="btn ic ic_add">추가</button>
-                </div>
+                <div class="comment">서명일시: 미서명</div>
               </div>              
               <div class="cardBox">
-                <div class="formInputBox col-2">
-                  <div class="formItem required">
-                    <label for="">사용자명</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">생년월일</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem block required">
-                    <label for="">주소</label>
-                    <div class="inputBox" style="max-width: 20%;">
-                      <input type="text" placeholder="" disabled>
-                      <button type="button" class="ic ic_search" id="modal-address" data-target="#address">검색</button>
-                    </div>
-                    <div class="inputBox" style="max-width: 50%;">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                    <div class="inputBox" style="max-width: 30%;">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">이메일</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem">
-                    <label for="">전화번호</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">휴대폰번호</label>
-                    <div class="inputBox"><input type="text" disabled></div>
-                  </div>
-                  <div class="formItem required">
-                    <label for="">이메일 인증비밀번호</label>
-                    <div class="inputBox"><input type="text"></div>
-                  </div>
+                <div class="tableWrap">
+                  <table style="border: 0px;">
+                    <colgroup>
+                      <col style="width:120px">
+                      <col style="width:calc((100% - 140px)/2);">
+                      <col style="width:160px">
+                      <col style="width:calc((100% - 140px)/2);">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th>
+                          <label class="necessary">사용자명</label>
+                        </th>
+                        <td>
+                          <!-- 담당자이름 -->
+                          <div class="inputBox"><input type="text" name="MNG_NM" id="COMP_GRID_MNG_NM_2" style="width:98%" class="readOnly personRemove"
+                            required="required" onblur="setClntArea()" readonly="readonly" value="을테스트01"></div>
+                        </td>
+                        <th>
+                          <label class="necessary">생년월일</label>
+                        </th>
+                        <td>
+                          <!-- 생년월일 -->
+                          <div class="inputBox"><input type="text" name="BIRDT" class="in_readonly readOnly personRemove" style="width : 98%;" maxlength="10"
+                            required="required" onblur="setClntArea()" readonly="readonly" value="1198677618"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <label class="necessary">주소</label>
+                        </th>
+                        <td colspan="3">
+                          <div class="inputBox address">
+                            <input type="text" style="width: 10rem;" name="ZIP" id="COMP_GRID_ZIP_1" readonly="" required="required"
+                              value="10516">
+                            <button type="button" class="ic ic_search" value="1" disabled="disabled">검색</button>
+                            <button type="button" class="ic ic_close" value="1" disabled="disabled"></button>
+                            <input type="text" name="ADDR" id="COMP_GRID_ADDR_1" readonly="" class="" required="required"
+                              value="경기 고양시 덕양구 행당로 12-7">
+                            <input type="text" name="DTL_ADDR" id="COMP_GRID_DTL_ADDR_1" onblur="setClntArea()" required="required"
+                              readonly="" value="토당동 101동310호">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <label class="necessary">이메일</label>
+                        </th>
+                        <td colspan="3">
+                          <!-- 이메일 -->
+                          <div class="inputBox"><input type="text" name="MNG_EMAIL" class="readOnly personRemove" id="COMP_GRID_EMAIL_2" style="width:98%"
+                            onblur="setClntArea()" required="required" readonly="readonly" value="junhyuk1250@irudacom.co.kr"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          전화번호
+                        </th>
+                        <td>
+                          <!-- 전화번호 -->
+                          <div class="inputBox"><input type="text" name="MNG_TEL_NO" id="COMP_GRID_TEL_NUM_2" style="width:98%" maxlength="15"
+                            class="phoneFormat readOnly personRemove" onblur="setClntArea()" readonly="readonly" value=""></div>
+                        </td>
+                        <th>
+                          <label class="necessary">휴대폰번호</label>
+                        </th>
+                        <td>
+                          <!-- 모바일번호 -->
+                          <div class="inputBox"><input type="text" name="MBIL_NO" id="COMP_GRID_MBIL_NO_2" style="width:98%;ime-mode:disabeld" maxlength="11"
+                            class="phoneFormat readOnly personRemove" onblur="setClntArea()" required="required" readonly="readonly"
+                            value="010-4725-0104"></div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
               <!--// 을(필수) -->
@@ -338,45 +446,98 @@
                   <h3>계약서류</h3>
                 </div>
               </div>
-              <div class="attachFileWrap">
-                <ul class="attachFile">
-                  <li>
-                    <label class="checkbox">
-                      <input type="checkbox" hidden="">
-                      <i></i>
-                    </label>
-                    <div class="inputBox"><input type="text" placeholder="계약서류명"></div>
-                    <div class="inputBox"><input type="file" placeholder=""></div>
-                    <button type="button" class="ic ic_close">삭제</button>
-                  </li>
-                </ul>
+              <div class="cardBox">
+                <div class="tableWrap">
+                  <table id="tbl_ncstDocGrid">
+                    <colgroup>
+                      <col width="120px">
+                      <col width="auto">
+                      <col width="150px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th><label>파일구분</label></th>
+                        <th><label class="necessary">계약서류명</label></th>
+                        <th><label>첨부</label></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="text-align: center;">자동생성</td>
+                        <td>
+                          <div class="inputBox"><input type="hidden" name="ATTCH_TYPE" value="1">
+                            <input type="text" name="NCST_DOC_NM" id="NCST_DOC_NM_" value="주민등록증 사본" style="width:100%;"
+                              required="required" class="in_readonly" readonly="">
+                          </div>
+                        </td>
+                        <td style="text-align: right;">
+                          <span>28KB</span>
+                          <button type="button" name="btn_delNcstDoc" class="btn small" disabled>조회(인쇄)</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <!--// 계약서류 -->
+              <!--// 계약서류  -->
 
-              <!-- 구비서류 -->
+              <!-- 구비서류(선택) -->
               <div class="titleBox">
                 <div class="sTitle">
-                  <h3>구비서류</h3>
+                  <h3>구비서류 </h3>
                 </div>
                 <div class="btnArea">
-                  <button type="button" class="btn ic ic_add">추가</button>
+                  <button type="button" class="btn small ic ic_down">구비서류 저장</button>
                 </div>
               </div>
-              <div class="attachFileWrap">
-                <ul class="attachFile">
-                  <li>
-                    <label class="checkbox">
-                      <input type="checkbox" hidden="">
-                      <i></i>
-                    </label>
-                    <div class="inputBox"><input type="text" placeholder="구비서류명"></div>
-                    <div class="inputBox"><input type="text" placeholder="해제사유"></div>
-                    <button type="button" class="ic ic_close">삭제</button>
-                  </li>
-                </ul>
+              <div class="cardBox">
+                <div class="tableWrap">
+                  <table id="tbl_ncstDocGrid">
+                    <colgroup>
+                      <col width="60px">
+                      <col width="auto">
+                      <col width="auto">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th><label>필수여부</label></th>
+                        <th><label>계약서류명</label></th>
+                        <th><label class="necessary">첨부</label></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="text-align: center;">
+                          <label class="checkbox">
+                            <input type="hidden" name="CMPSR_RELEA_RESN"><!-- 필수해제사유 -->
+                            <input type="hidden" name="DOC_REG_DIV_CD" value="20"><!-- 문서등록구분코드 -->
+                            <input type="hidden" name="SAMPL_FILE_PATH"><!-- 샘플파일경로 -->
+                            <input type="hidden" name="SAMPL_FILE_NM"><!-- 샘플파일이름  -->
+                            <input type="hidden" name="APD_PSB_EXT"><!-- 첨부가능확장자 -->
+                            <input type="hidden" name="ATTCH_TYPE" value="1"><!-- ? -->
+                            <input type="hidden" name="NCST_DOC_SEQ_NO" value="2"><!-- 필요문서일련번호 -->
+                            <input type="checkbox" name="CHK_CMPSR_APD" hidden="" checked disabled>
+                            <i></i>
+                          </label>
+                        </td>
+                        <td>
+                          <span>주민등록증 사본</span>
+                        </td>
+                        <td id="rfile_area_1">
+                          <div class="inputBox">
+                            <input type="hidden" name="rfile_seq" value="1">
+                            <input type="hidden" name="rfile_chk" value="1">
+                            <input type="file" name="rfile_1" id="rfile_1" class="rfile" style="width:95%" accept=" ">
+                            <input type="hidden" name="rfile_required" value="Y">
+                          </div>                        
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <p class="comment">(※ 구비서류는 계약서 서명하기 전까지 계약상대방에게 요청하여 변경 및 첨부 가능)</p>
-              <!--// 구비서류 -->
+              <!--// 구비서류(선택) -->
 
             </div>
             <!--.. 그리드 테이블 -->
@@ -385,9 +546,12 @@
           <div class="col">
             <!-- 그리드 테이블 -->
             <div class="gridArea">
-              <div class="titleBox">
-                <div class="sTitle">
-                  <h3>가맹점모집인 표준계약서</h3>
+              <div class="titleBox" style="padding-top: 0.4rem;">
+                <div class="selectBox">
+                  <select name="" id="">
+                    <option value="">[인사] 근로계약서(종합직/일반직 A)</option>
+                    <option value="">개인정보 수집 동의서(공통)</option>
+                  </select>
                 </div>
               </div>
           
@@ -662,9 +826,7 @@
 
               <div class="btnArea block">
                 <button type="button" class="btn ic ic_confirm">저장</button>
-                <button type="button" class="btn">서명요청</button>
-                <button type="button" class="btn ic ic_close">삭제</button>
-                <button type="button" class="btn ic ic_list">목록으로</button>
+                <button type="button" class="btn ic ic_close">취소</button>
               </div>
             </div>
             <!--.. 그리드 테이블 -->

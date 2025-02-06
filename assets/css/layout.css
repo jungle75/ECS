@@ -174,7 +174,7 @@
 #app #container {
   position: relative;
   z-index: 2;
-  height: 100%;
+  height: 100% !important;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -278,6 +278,18 @@
 #app #container .contentsArea {
   position: relative;
   height: calc(100% - 8rem);
-  padding: 4rem;
+  margin: 4rem;
   overflow: auto;
+}
+#app #container .page_wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#app #container .page_wrap .page_ifrm {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 2rem;
 }/*# sourceMappingURL=layout.css.map */
