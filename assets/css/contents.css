@@ -67,12 +67,22 @@
   align-items: center;
   gap: 0;
 }
-.loginWrap .loginBox .formOption a {
+.loginWrap .loginBox .formOption .link {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0.8rem;
+}
+.loginWrap .loginBox .formOption .link a {
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--black);
   text-decoration: underline;
   text-underline-offset: 0.4rem;
+}
+.loginWrap .loginBox .formOption .link a + a {
+  border-left: 1px solid var(--text);
+  padding-left: 0.8rem;
 }
 .loginWrap footer {
   width: 60rem;

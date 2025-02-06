@@ -247,15 +247,11 @@
                   </div>
                   <div class="formItem block required">
                     <label for="">주소</label>
-                    <div class="inputBox" style="max-width: 20%;">
-                      <input type="text" placeholder="" disabled>
-                      <button type="button" class="ic ic_search" id="modal-address" data-target="#address">검색</button>
-                    </div>
-                    <div class="inputBox" style="max-width: 50%;">
-                      <input type="text" placeholder="" disabled>
-                    </div>
-                    <div class="inputBox" style="max-width: 30%;">
-                      <input type="text" placeholder="">
+                    <div class="inputBox address">
+                      <input type="text" style="width: 10rem;" name="ZIP" id="COMP_GRID_ZIP_1" readonly="" required="required" value="">
+                      <button type="button" class="ic ic_search" value="1">검색</button>
+                      <input type="text" name="ADDR" id="COMP_GRID_ADDR_1" readonly="" required="required" value="">
+                      <input type="text" name="DTL_ADDR" id="COMP_GRID_DTL_ADDR_1" onblur="setClntArea()" required="required">
                     </div>
                   </div>
                   <div class="formItem block required">

@@ -64,10 +64,19 @@
     .formOption {
       @include mixin.flex(space-between, center, 0);
 
-      a {
-        @include mixin.font(1.4rem, 400, var(--black));
-        text-decoration: underline;
-        text-underline-offset: 0.4rem;
+      .link {
+        @include mixin.flex(left, center, 0.8rem);
+
+        a {
+          @include mixin.font(1.4rem, 400, var(--black));
+          text-decoration: underline;
+          text-underline-offset: 0.4rem;
+        }
+
+        a+a {
+          border-left: 1px solid var(--text);
+          padding-left: 0.8rem;
+        }
       }
     }
   }
