@@ -1,1 +1,13 @@
-<svg data-name="Livello 1" viewBox="0 0 151.57 151.57" xmlns="http://www.w3.org/2000/svg"><circle cx="75.78" cy="75.78" r="72.28" fill="#da2244" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7px" class="fill-da2244 stroke-f2f2f2"></circle><path d="M35.2 104.37h81.17M116.37 104.37 75.78 35.2M35.2 104.37 75.78 35.2" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5px" class="stroke-f2f2f2"></path><path d="M75.78 57.32v25.86" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4px" class="stroke-f2f2f2"></path><circle cx="75.78" cy="91.63" r="2.62" fill="#fcfbf2" class="fill-fcfbf2"></circle></svg>
+<svg width="152" height="152" viewBox="0 0 152 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_111_1383)">
+<path d="M75.78 148.06C115.699 148.06 148.06 115.699 148.06 75.78C148.06 35.8609 115.699 3.5 75.78 3.5C35.8609 3.5 3.5 35.8609 3.5 75.78C3.5 115.699 35.8609 148.06 75.78 148.06Z" fill="#F43F5F" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35.2 104.37H116.37ZM116.37 104.37L75.7799 35.2002ZM35.2 104.37L75.7799 35.2002Z" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75.78 57.3198V83.1798" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75.78 94.2498C77.227 94.2498 78.4 93.0767 78.4 91.6298C78.4 90.1828 77.227 89.0098 75.78 89.0098C74.333 89.0098 73.16 90.1828 73.16 91.6298C73.16 93.0767 74.333 94.2498 75.78 94.2498Z" fill="#FCFBF2"/>
+</g>
+<defs>
+<clipPath id="clip0_111_1383">
+<rect width="151.57" height="151.57" fill="white"/>
+</clipPath>
+</defs>
+</svg>

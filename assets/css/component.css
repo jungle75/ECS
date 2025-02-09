@@ -1127,15 +1127,16 @@ input[type=file]::file-selector-button:hover {
   display: block;
   width: 6.4rem;
   height: 6.4rem;
-  background-size: 100%;
 }
 
 .alert-body.confirm::before {
   background: url(../images/icon/ico_success.svg) center top no-repeat;
+  background-size: 100%;
 }
 
 .alert-body.error::before {
   background: url(../images/icon/ic_warning.svg) center top no-repeat;
+  background-size: 100%;
 }
 
 .alert-footer {
