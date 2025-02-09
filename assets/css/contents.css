@@ -491,6 +491,7 @@
 }
 .dashboard .stepArea .stepItem:last-child {
   background-image: none;
+  padding-right: 0;
 }
 .dashboard .CSArea {
   display: flex;
