@@ -460,7 +460,7 @@
   display: flex;
   justify-content: left;
   align-items: flex-start;
-  gap: 3.2rem;
+  gap: 5.6rem;
 }
 .dashboard .stepArea .stepItem {
   width: 20%;
@@ -471,20 +471,26 @@
   background-repeat: no-repeat;
   background-size: 3.2rem;
   background-position: top right;
+  cursor: pointer;
 }
 .dashboard .stepArea .stepItem h3 {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--black);
+  margin-bottom: 1.2rem;
 }
 .dashboard .stepArea .stepItem .count {
   background-color: var(--dis);
+  border: 1px solid var(--line);
   border-radius: 0.8rem;
   padding: 0.8rem;
   font-size: 2.4rem;
   font-weight: 600;
   color: var(--blue);
   text-align: center;
+}
+.dashboard .stepArea .stepItem:last-child {
+  background-image: none;
 }
 .dashboard .CSArea {
   display: flex;

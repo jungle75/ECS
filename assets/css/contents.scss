@@ -485,7 +485,7 @@
   }
 
   .stepArea {
-    @include mixin.flex(left, flex-start, 3.2rem);
+    @include mixin.flex(left, flex-start, 5.6rem);
 
     .stepItem {
       width: 20%;
@@ -494,17 +494,24 @@
       background-repeat: no-repeat;
       background-size: 3.2rem;
       background-position: top right;
+      cursor: pointer;
 
       h3 {
         @include mixin.font(1.8rem, 600, var(--black));
+        margin-bottom: 1.2rem;
       }
 
       .count {
         background-color: var(--dis);
+        border: 1px solid var(--line);
         border-radius: 0.8rem;
         padding: 0.8rem;
         @include mixin.font(2.4rem, 600, var(--blue));
         text-align: center;
+      }
+
+      &:last-child {
+        background-image: none;
       }
     }
   }
