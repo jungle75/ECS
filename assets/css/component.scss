@@ -619,6 +619,37 @@ input[type=file]::file-selector-button {
   }
 }
 
+.ic_more {
+  &::before {
+    background-image: url(../images/icon/ic_more.svg);
+  }
+}
+
+.ic_download {
+  &::before {
+    background-image: url(../images/icon/ic_download.svg);
+  }
+}
+
+.ic_book {
+  &::before {
+    background-image: url(../images/icon/ic_book.svg);
+  }
+}
+
+.ic_key {
+  &::before {
+    background-image: url(../images/icon/ic_key.svg);
+  }
+}
+
+.ic_cs {
+  &::before {
+    background-image: url(../images/icon/ic_cs.svg);
+  }
+}
+
+
 
 /******************************
   팝업메세지창
@@ -1211,4 +1242,63 @@ input[type=file]::file-selector-button {
       }
     }
   }
+}
+
+
+/******************************
+  알럿 정의
+*******************************/
+.alert-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity .3s ease;
+}
+
+.alert-container {
+  background-color: #fff;
+  border-radius: 1.6rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+}
+
+
+.alert-body {
+  @include mixin.flexColumn(1.6rem);
+  align-items: center;
+  min-width: 25rem;
+  padding: 3.2rem 3.2rem 1.6rem 3.2rem;
+
+  p {
+    @include mixin.font(1.6rem, 500, var(--black));
+    text-align: center;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 6.4rem;
+    height: 6.4rem;
+    background-size: 100%;
+  }
+}
+
+.alert-body.confirm::before {
+  background: url(../images/icon/ico_success.svg) center top no-repeat;
+}
+
+.alert-body.error::before {
+  background: url(../images/icon/ic_warning.svg) center top no-repeat;
+}
+
+.alert-footer {
+  @include mixin.flex(center, center, 0.8rem);
+  padding: 1.6rem;
 }
