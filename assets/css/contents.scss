@@ -462,7 +462,7 @@
         box-shadow: 0px 0.4rem 1.2rem rgba(221, 224, 255, 0.54);
 
         a {
-          width: 100%;
+          flex: 1;
           overflow: hidden;
           display: -webkit-box;
           -webkit-line-clamp: 1;
@@ -476,8 +476,8 @@
 
         span {
           display: block;
-          width: 15rem;
-          @include mixin.font(1.4rem, 400, var(--text));
+          width: 10rem;
+          @include mixin.font(1.6rem, 400, var(--text));
 
         }
       }
