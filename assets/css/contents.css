@@ -131,7 +131,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 0.8rem;
-  column-gap: 4rem;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
 }
 .formInputBox.col-2 .formItem {
   width: calc(50% - 2rem);
@@ -157,12 +158,6 @@
   border-radius: 1.2rem;
   padding: 1.6rem;
   margin-bottom: 2.4rem;
-}
-.searchForm::before {
-  content: "SEARCH:";
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--black);
 }
 .searchForm .formItem > label {
   min-width: unset;
@@ -537,4 +532,4 @@
 }
 .dashboard .col {
   margin: 4rem 0;
-}/*# sourceMappingURL=contents.css.map */
+}

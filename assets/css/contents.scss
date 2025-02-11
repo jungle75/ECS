@@ -161,11 +161,6 @@
   padding: 1.6rem;
   margin-bottom: 2.4rem;
 
-  &::before {
-    content: "SEARCH:";
-    @include mixin.font(1.6rem, 600, var(--black))
-  }
-
   .formItem {
     >label {
       min-width: unset;

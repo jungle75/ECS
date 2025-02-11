@@ -23,6 +23,10 @@
   border-radius: 0.8rem;
   padding: 0 1.2rem;
 }
+.inputBox input:-moz-read-only {
+  pointer-events: none;
+  background-color: var(--dis);
+}
 .inputBox input:disabled, .inputBox input:read-only {
   pointer-events: none;
   background-color: var(--dis);
@@ -359,7 +363,9 @@ input[type=file]::file-selector-button:hover {
   border-radius: 0.8rem;
   font-size: 1.6rem;
   padding: 0 1.6rem;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -722,7 +728,6 @@ input[type=file]::file-selector-button:hover {
 *******************************/
 .badge::before {
   display: inline-flex;
-  -webkit-box-align: center;
   align-items: center;
   height: 1.8rem;
   border-radius: 0.4rem;
@@ -1145,4 +1150,4 @@ input[type=file]::file-selector-button:hover {
   align-items: center;
   gap: 0.8rem;
   padding: 1.6rem;
-}/*# sourceMappingURL=component.css.map */
+}
